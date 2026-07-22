@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-navy: #0F2D5E;
+  --color-blue: #1A4FA0;
+  --color-blue-light: #4A78C4;
+  --color-ink: #0B1320;
+  --color-paper: #F7F9FC;
+  --color-muted: #5B6B84;
+  --color-border: #E4E8EF;
+  --color-success: #10B981;
+
+  --animate-grid-breathe: grid-breathe 9s ease-in-out infinite;
+}
+
+@keyframes grid-breathe {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.42;
+  }
+}
+
+/*
+  Zes losse "fladder"-paden voor de drijvende enveloppen/bonnetjes/@-tekens.
+  Elk pad is bewust onregelmatig (geen simpele op-neer-lus) — een mix van
+  zijwaartse drift, verticale zweving en lichte rotatie, zoals een blad of
+  stuk papier dat in een zwakke tocht ronddraait. Amplitudes blijven klein
+  (max ~14px / ~6°) zodat het rustig blijft, niet druk.
+*/
+@keyframes float-a {
+  0%   { transform: translate(0px, 0px) rotate(-6deg); }
+  25%  { transform: translate(6px, -10px) rotate(-2deg); }
+  50%  { transform: translate(-4px, -4px) rotate(3deg); }
+  75%  { transform: translate(-8px, 6px) rotate(-4deg); }
+  100% { transform: translate(0px, 0px) rotate(-6deg); }
+}
+@keyframes float-b {
+  0%   { transform: translate(0px, 0px) rotate(5deg); }
+  30%  { transform: translate(-9px, 8px) rotate(1deg); }
+  60%  { transform: translate(5px, 12px) rotate(6deg); }
+  85%  { transform: translate(9px, -3px) rotate(2deg); }
+  100% { transform: translate(0px, 0px) rotate(5deg); }
+}
+@keyframes float-c {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  20%  { transform: translate(7px, 5px) rotate(4deg); }
+  50%  { transform: translate(-3px, -9px) rotate(-5deg); }
+  80%  { transform: translate(-10px, 2px) rotate(1deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+@keyframes float-d {
+  0%   { transform: translate(0px, 0px) rotate(-3deg); }
+  35%  { transform: translate(-6px, -8px) rotate(2deg); }
+  65%  { transform: translate(8px, -3px) rotate(-6deg); }
+  90%  { transform: translate(4px, 9px) rotate(0deg); }
+  100% { transform: translate(0px, 0px) rotate(-3deg); }
+}
+@keyframes float-e {
+  0%   { transform: translate(0px, 0px) rotate(4deg); }
+  28%  { transform: translate(9px, 4px) rotate(-1deg); }
+  55%  { transform: translate(2px, -11px) rotate(5deg); }
+  78%  { transform: translate(-8px, -2px) rotate(-3deg); }
+  100% { transform: translate(0px, 0px) rotate(4deg); }
+}
+@keyframes float-f {
+  0%   { transform: translate(0px, 0px) rotate(-5deg); }
+  22%  { transform: translate(-5px, 9px) rotate(3deg); }
+  48%  { transform: translate(-11px, -2px) rotate(-2deg); }
+  74%  { transform: translate(3px, -8px) rotate(4deg); }
+  100% { transform: translate(0px, 0px) rotate(-5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [style*="animation"] {
+    animation: none !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
+}

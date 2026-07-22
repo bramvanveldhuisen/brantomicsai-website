@@ -1,0 +1,7 @@
+# Caddy serveert de statische site en regelt TLS automatisch via Let's Encrypt.
+# `${DOMAIN}` wordt door docker-compose ingevuld.
+
+{$DOMAIN}, brantomicsai.nl, www.brantomicsai.nl {
+    encode zstd gzip
+    reverse_proxy web:80
+}

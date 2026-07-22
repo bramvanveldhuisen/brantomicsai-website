@@ -1,0 +1,22 @@
+## Brantomics AI — hoofdwebsite (statische marketingsite)
+## Draait naast de bestaande Kitchen-stack (chef-dash-assist) op dezelfde server.
+## Kitchen's Caddy claimt al poort 80/443 — deze site publiceert daarom alleen
+## intern op poort 8080 en wordt via een extra site-blok in Kitchen's Caddyfile
+## naar buiten toe ontsloten. Zie DEPLOY.md voor de volledige uitleg.
+##
+## Gebruik:
+##   1. docker compose up -d --build
+##   2. Voeg het brantomicsai.nl-blok toe aan /opt/kitchen/Caddyfile (zie DEPLOY.md)
+
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
