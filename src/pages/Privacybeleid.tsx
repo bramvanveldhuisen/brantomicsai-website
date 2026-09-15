@@ -77,6 +77,11 @@ export function Privacybeleid() {
               "Wettelijke verplichtingen (artikel 6 lid 1 sub c AVG).",
             ]}
           />
+          <p>
+            Ontvangt u van ons een zakelijke e-mail op basis van gerechtvaardigd belang? Dan kunt u
+            zich op elk moment kosteloos afmelden door simpelweg op die e-mail te antwoorden,
+            waarna wij u niet meer benaderen.
+          </p>
         </LegalArticle>
 
         <LegalArticle num="5" title="Bewaartermijnen">
@@ -191,6 +196,16 @@ export function Privacybeleid() {
             Dit privacybeleid kan worden aangepast. De meest recente versie is altijd beschikbaar
             op onze website. Ingrijpende wijzigingen worden per e-mail gecommuniceerd aan actieve
             klanten.
+          </p>
+        </LegalArticle>
+
+        <LegalArticle num="11" title="Cookies">
+          <p>
+            Onze website plaatst op dit moment geen analytische, tracking- of advertentiecookies van
+            derden; er worden alleen functionele, technisch noodzakelijke gegevens verwerkt om de
+            website goed te laten werken, waarvoor geen toestemming vereist is. Zodra wij
+            niet-functionele cookies gaan gebruiken (bijvoorbeeld voor websiteanalyse), werken wij
+            dit artikel bij en vragen wij daarvoor eerst uw toestemming via een cookiebanner.
           </p>
         </LegalArticle>
       </div>

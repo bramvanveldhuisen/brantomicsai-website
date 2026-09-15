@@ -32,8 +32,10 @@ export function AlgemeneVoorwaarden() {
               </>,
               <>
                 <strong className="text-ink">Klant</strong>: iedere natuurlijke persoon of
-                rechtspersoon die een overeenkomst aangaat met Brantomics AI voor het afnemen van
-                diensten.
+                rechtspersoon die handelt in de uitoefening van een beroep of bedrijf en die een
+                overeenkomst aangaat met Brantomics AI voor het afnemen van diensten. Brantomics AI
+                levert uitsluitend aan klanten die niet als consument in de zin van de wet worden
+                aangemerkt.
               </>,
               <>
                 <strong className="text-ink">Diensten</strong>: alle werkzaamheden die Brantomics
@@ -89,6 +91,13 @@ export function AlgemeneVoorwaarden() {
             feedback geven op het functioneren van de AI-agent, waarna Brantomics AI de nodige
             aanpassingen doorvoert.
           </p>
+          <p>
+            Nieuwe klanten kunnen de Dienst een week kosteloos en vrijblijvend uitproberen, zonder
+            dat vooraf betaalgegevens worden gevraagd. Na afloop van deze proefweek gaat het
+            abonnement niet automatisch en niet stilzwijgend over in een betaalde Overeenkomst: de
+            Klant bevestigt actief of en welk pakket hij wenst voort te zetten, waarna Brantomics AI
+            een Overeenkomst en factuur opstelt.
+          </p>
         </LegalArticle>
 
         <LegalArticle num="Artikel 4" title="Verplichtingen van de Klant">
@@ -118,6 +127,11 @@ export function AlgemeneVoorwaarden() {
             tegen kostprijs, tenzij anders overeengekomen.
           </p>
           <p>Prijswijzigingen worden minimaal 30 dagen van tevoren schriftelijk aangekondigd.</p>
+          <p>
+            Bij een betalingsachterstand is de Klant, naast het verschuldigde bedrag, de wettelijke
+            handelsrente verschuldigd vanaf de vervaldatum van de factuur, alsmede de
+            buitengerechtelijke incassokosten conform de Wet Incassokosten (WIK).
+          </p>
         </LegalArticle>
 
         <LegalArticle num="Artikel 6" title="Aansprakelijkheid">
@@ -134,6 +148,10 @@ export function AlgemeneVoorwaarden() {
           <p>
             De Klant vrijwaart Brantomics AI voor aanspraken van derden die voortvloeien uit het
             gebruik of de inhoud van door de AI-agent verstuurde e-mails.
+          </p>
+          <p>
+            De hierboven genoemde beperkingen van aansprakelijkheid gelden niet indien de schade het
+            gevolg is van opzet of bewuste roekeloosheid van Brantomics AI.
           </p>
         </LegalArticle>
 
