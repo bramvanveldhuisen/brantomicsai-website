@@ -11,7 +11,7 @@ export function AlgemeneVoorwaarden() {
         <p className="text-muted mb-10">Brantomics AI — VOF</p>
 
         <LegalMeta>
-          <strong className="text-ink">Versie 1.0 — Maart 2026</strong>
+          <strong className="text-ink">Versie 1.1 — September 2026</strong>
           <br />
           Gevestigd te Maarn, provincie Utrecht
           <br />

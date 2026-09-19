@@ -11,7 +11,7 @@ export function Privacybeleid() {
         <p className="text-muted mb-10">Brantomics AI — hoe wij omgaan met persoonsgegevens</p>
 
         <LegalMeta>
-          <strong className="text-ink">Laatste update: Maart 2026</strong>
+          <strong className="text-ink">Laatste update: 19 september 2026</strong>
           <br />
           Brantomics AI VOF — Maarnsegrindweg 21, Maarn
           <br />
@@ -91,7 +91,8 @@ export function Privacybeleid() {
           </p>
           <LegalList
             items={[
-              "Klantgegevens en e-maildata die voortvloeien uit de dienstverlening: maximaal 2 jaar na het einde van de overeenkomst.",
+              "E-mailberichten en persoonsgegevens die wij namens een opdrachtgever verwerken: uiterlijk 30 dagen na het einde van de overeenkomst verwijderd of teruggegeven aan de opdrachtgever, conform de verwerkersovereenkomst. Uitvoeringslogs bij onze sub-verwerkers worden automatisch verwijderd binnen maximaal 30 dagen na verwerking.",
+              "Gegevens uit onze eigen klantadministratie (contactpersonen, offertes en contracten): maximaal 2 jaar na het einde van de overeenkomst.",
               "Contactformuliergegevens: maximaal 1 jaar na het laatste contact.",
               "Factuurgegevens: 7 jaar conform de wettelijke bewaarplicht.",
             ]}
@@ -120,8 +121,16 @@ export function Privacybeleid() {
             ]}
           />
           <p>
-            Met alle sub-verwerkers zijn verwerkersovereenkomsten gesloten. Gegevens worden
-            uitsluitend gedeeld voor zover noodzakelijk voor de uitvoering van de Dienst.
+            Met Make.com en Anthropic gelden verwerkersovereenkomsten (DPA’s) die deel uitmaken
+            van hun gebruiksvoorwaarden; voor Google Workspace en Microsoft 365 gelden de
+            verwerkersvoorwaarden van de betreffende aanbieder. Gegevens worden uitsluitend
+            gedeeld voor zover noodzakelijk voor de uitvoering van de Dienst.
+          </p>
+          <p>
+            Een aantal sub-verwerkers, waaronder Anthropic, is gevestigd in de Verenigde Staten.
+            Persoonsgegevens worden alleen buiten de Europese Economische Ruimte doorgegeven als
+            daarvoor passende waarborgen zijn getroffen, zoals standaardcontractbepalingen
+            (SCC’s).
           </p>
         </LegalArticle>
 
