@@ -57,7 +57,6 @@ export function Prijzen() {
             cta="Jaarlijks starten — bespaar €360"
             ctaHref="/contact"
             featured
-            badge="Meest populair"
           />
           <PricingCard
             plan="Jaarlijks vooruit"

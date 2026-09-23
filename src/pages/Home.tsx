@@ -111,17 +111,17 @@ export function Home() {
                 <div>
                   <div className="text-sm font-bold text-navy">AI stelt antwoord op</div>
                   <p className="text-sm text-muted leading-relaxed">
-                    Een persoonlijk, contextueel antwoord in jouw bedrijfstoon — binnen 60
-                    seconden.
+                    Een persoonlijk antwoord in jouw toon, als concept klaargezet in je
+                    Concepten-map. Klachten en lastige vragen krijgen een label en een melding.
                   </p>
                 </div>
               </div>
               <div className="flex gap-3.5">
                 <div className="size-7 shrink-0 rounded-full bg-blue/10 text-blue text-xs font-bold flex items-center justify-center">3</div>
                 <div>
-                  <div className="text-sm font-bold text-navy">Verstuurd of ter goedkeuring</div>
+                  <div className="text-sm font-bold text-navy">Jij verstuurt</div>
                   <p className="text-sm text-muted leading-relaxed">
-                    Jij kiest: automatisch versturen, of eerst zelf even bekijken.
+                    Je leest het concept na, past het eventueel aan en drukt op verzenden. De AI verstuurt nooit zelf.
                   </p>
                 </div>
               </div>

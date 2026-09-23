@@ -30,9 +30,9 @@ export function Diensten() {
             <div className="text-xs font-bold uppercase tracking-wide text-blue mb-2">Dienst 01</div>
             <h2 className="text-2xl md:text-3xl font-extrabold text-navy tracking-tight mb-4">Email Responder</h2>
             <p className="text-muted leading-relaxed mb-6">
-              Elke inkomende klantmail wordt automatisch beantwoord in jouw naam — met de juiste
-              toon, de juiste informatie en een menselijk gevoel. Jij beslist of je de AI volledig
-              laat sturen of elke reactie eerst goedkeurt.
+              Voor elke inkomende klantmail staat een concept-antwoord klaar in jouw naam, met de
+              juiste toon en de juiste informatie. Jij leest het na en verstuurt het zelf. De AI
+              verstuurt nooit uit zichzelf.
             </p>
 
             <div className="mb-6">
@@ -46,7 +46,8 @@ export function Diensten() {
             <ul className="space-y-3 mb-8">
               <CheckItem>
                 <strong className="text-navy">Nooit meer een email laten liggen</strong> — de AI
-                beantwoordt dag en nacht, ook in het weekend en tijdens vakanties.
+                zet ook in het weekend en op drukke dagen concepten voor je klaar, zodat antwoorden
+                nog maar een kwestie van nalezen en versturen is.
               </CheckItem>
               <CheckItem>
                 <strong className="text-navy">Consistent merkgeluid</strong> — elke reactie past
@@ -57,9 +58,9 @@ export function Diensten() {
                 investeren in je werk, klanten of groei.
               </CheckItem>
               <CheckItem>
-                <strong className="text-navy">Jij behoudt altijd de regie</strong> — stel in welke
-                emails automatisch verstuurd worden en welke eerst ter controle aan jou worden
-                aangeboden.
+                <strong className="text-navy">Jij behoudt altijd de regie</strong> — niets gaat de deur uit zonder
+                dat jij op verzenden drukt. Klachten, annuleringen en groepsvragen krijgen een
+                label en een melding.
               </CheckItem>
             </ul>
 
