@@ -27,9 +27,14 @@ export function OverOns() {
       <section className="max-w-5xl mx-auto px-6 pb-16">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm p-8">
-            <div className="size-14 rounded-2xl bg-navy text-white font-bold text-lg flex items-center justify-center mb-5">
-              BV
-            </div>
+            <img
+              src="/team/bram.jpg"
+              alt="Bram van Veldhuisen"
+              width={800}
+              height={1200}
+              loading="lazy"
+              className="w-full aspect-[4/5] object-cover object-top rounded-2xl mb-6"
+            />
             <div className="text-lg font-bold text-navy">Bram van Veldhuisen</div>
             <div className="text-sm text-blue font-medium mb-4">AI &amp; Technologie</div>
             <p className="text-sm text-muted leading-relaxed">
@@ -44,12 +49,14 @@ export function OverOns() {
           </div>
 
           <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm p-8">
-            <div
-              className="size-14 rounded-2xl text-white font-bold text-lg flex items-center justify-center mb-5"
-              style={{ background: "linear-gradient(135deg, #0F5E3E 0%, #10B981 100%)" }}
-            >
-              TV
-            </div>
+            <img
+              src="/team/tom.jpg"
+              alt="Tom Vaessen"
+              width={800}
+              height={1200}
+              loading="lazy"
+              className="w-full aspect-[4/5] object-cover object-top rounded-2xl mb-6"
+            />
             <div className="text-lg font-bold text-navy">Tom Vaessen</div>
             <div className="text-sm text-success font-medium mb-4">Sales &amp; Klantrelaties</div>
             <p className="text-sm text-muted leading-relaxed">
