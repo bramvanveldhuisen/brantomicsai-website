@@ -11,7 +11,7 @@ export function AlgemeneVoorwaarden() {
         <p className="text-muted mb-10">Brantomics AI — VOF</p>
 
         <LegalMeta>
-          <strong className="text-ink">Versie 1.1 — September 2026</strong>
+          <strong className="text-ink">Versie 1.2 — September 2026</strong>
           <br />
           Gevestigd te Maarn, provincie Utrecht
           <br />
@@ -44,8 +44,8 @@ export function AlgemeneVoorwaarden() {
               </>,
               <>
                 <strong className="text-ink">AI-agent</strong>: een geautomatiseerde applicatie
-                die inkomende e-mails leest, analyseert en automatisch beantwoordt in de
-                schrijfstijl en identiteit van de Klant.
+                die inkomende e-mails leest, analyseert en er een concept-antwoord voor klaarzet in
+                de schrijfstijl en identiteit van de Klant.
               </>,
               <>
                 <strong className="text-ink">Overeenkomst</strong>: elke schriftelijke of digitale
@@ -75,6 +75,11 @@ export function AlgemeneVoorwaarden() {
           <p>
             Brantomics AI levert maatwerk AI-e-mailautomatisering op basis van de door de Klant
             aangeleverde bedrijfsinformatie, communicatiestijl en instructies.
+          </p>
+          <p>
+            Tenzij schriftelijk anders overeengekomen, verstuurt de AI-agent geen e-mails
+            zelfstandig. Hij zet concept-antwoorden klaar in de mailbox van de Klant, die de Klant
+            zelf beoordeelt, eventueel aanpast en verstuurt.
           </p>
           <p>
             Brantomics AI verricht haar werkzaamheden naar beste inzicht en vermogen, maar geeft
@@ -122,9 +127,14 @@ export function AlgemeneVoorwaarden() {
             volledig is voldaan.
           </p>
           <p>
-            Eventuele API-kosten van derden (zoals Make.com, Anthropic of Google/Microsoft) die
-            direct voortvloeien uit het gebruik van de Dienst, worden doorberekend aan de Klant
-            tegen kostprijs, tenzij anders overeengekomen.
+            De kosten van diensten van derden die Brantomics AI gebruikt om de Dienst te leveren,
+            zoals Make.com en Anthropic, zijn bij normaal gebruik inbegrepen in de vergoeding.
+            Onder normaal gebruik valt de verwerking van maximaal 2.000 inkomende e-mails per
+            maand. Wordt dat aantal in twee opeenvolgende maanden overschreden, dan overleggen
+            partijen eerst over een passende oplossing. Brantomics AI brengt nooit extra kosten in
+            rekening zonder voorafgaand schriftelijk akkoord van de Klant. Kosten van diensten die
+            de Klant zelf afneemt, zoals zijn eigen e-mailaccount bij Google Workspace of Microsoft
+            365, blijven voor rekening van de Klant.
           </p>
           <p>Prijswijzigingen worden minimaal 30 dagen van tevoren schriftelijk aangekondigd.</p>
           <p>

@@ -41,7 +41,7 @@ export function Prijzen() {
             price="€179"
             period="/mnd"
             note="Excl. BTW — maandelijks opzegbaar"
-            features={["Email Responder", "Onbeperkt emails per maand", "Persoonlijke installatie & onboarding", "Eerste week volledig gratis", "E-mailsupport"]}
+            features={["Email Responder", "Tot 2.000 e-mails per maand inbegrepen", "Persoonlijke installatie & onboarding", "Eerste week volledig gratis", "E-mailsupport"]}
             cta="Maandelijks starten"
             ctaHref="/contact"
           />
@@ -53,7 +53,7 @@ export function Prijzen() {
             note={
               <span className="text-blue font-medium">Bespaar €360 t.o.v. maandelijks</span>
             }
-            features={["Email Responder", "Onbeperkt emails per maand", "Persoonlijke installatie & onboarding", "Eerste week volledig gratis", "Prioriteitsondersteuning", "Jaarlijkse optimalisatiesessie"]}
+            features={["Email Responder", "Tot 2.000 e-mails per maand inbegrepen", "Persoonlijke installatie & onboarding", "Eerste week volledig gratis", "Prioriteitsondersteuning", "Jaarlijkse optimalisatiesessie"]}
             cta="Jaarlijks starten — bespaar €360"
             ctaHref="/contact"
             featured
@@ -69,7 +69,7 @@ export function Prijzen() {
                 <div className="text-success font-medium">= 1 maand gratis</div>
               </>
             }
-            features={["Email Responder", "Onbeperkt emails per maand", "Persoonlijke installatie & onboarding", "Eerste week volledig gratis", "Prioriteitsondersteuning", "Jaarlijkse optimalisatiesessie"]}
+            features={["Email Responder", "Tot 2.000 e-mails per maand inbegrepen", "Persoonlijke installatie & onboarding", "Eerste week volledig gratis", "Prioriteitsondersteuning", "Jaarlijkse optimalisatiesessie"]}
             cta="Vooruit betalen — 1 mnd gratis"
             ctaHref="/contact"
           />
