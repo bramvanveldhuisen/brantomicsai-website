@@ -16,37 +16,38 @@ const SITE_URL = "https://brantomicsai.nl";
 const ROUTES = [
   {
     path: "/",
-    title: "Jouw inbox en bestellingen. Automatisch op orde.",
+    title: "Tijd besparen en beter gevonden worden, met AI",
     description:
-      "Brantomics AI automatiseert e-mailcommunicatie en groothandelbestellingen voor het MKB. Email Responder en Bestel Assistent. Eerste week gratis.",
+      "brantomicsAI helpt ontruimers, verhuizers en vastgoedbedrijven tijd te besparen en online beter gevonden te worden, met AI. Persoonlijk ingericht door Bram en Tom.",
   },
   {
     path: "/diensten",
     title: "Diensten",
     description:
-      "Email Responder en Bestel Assistent. AI-automatisering op maat voor webshops, horeca, campings en B2B-dienstverleners.",
+      "Tijd besparen en beter gevonden worden: e-mails, aanvragen en reviews automatiseren, en Google Ads, je website en je Bedrijfsprofiel op orde. Voor ontruimers, verhuizers en vastgoed.",
+  },
+  {
+    path: "/ontruiming",
+    title: "AI en automatisering voor ontruimers",
+    description:
+      "Voor ontruimingsbedrijven: aanvragen beantwoord, een prijsindicatie op je site, reviews gevraagd en beter gevonden in je regio. Met AI, in je eigen accounts, persoonlijk ingericht.",
   },
   {
     path: "/demo-responder",
     title: "Demo Email Responder",
     description:
-      "Probeer de Email Responder demo. Vul in en zie hoe Brantomics AI een professioneel, gepersonaliseerd antwoord genereert voor jouw bedrijf.",
-  },
-  {
-    path: "/prijzen",
-    title: "Prijzen",
-    description: "Transparante prijzen voor Email Responder en Bestel Assistent. Vanaf €99/maand. Eerste week gratis, geen creditcard.",
+      "Probeer de Email Responder demo. Vul in en zie hoe brantomicsAI een concept-antwoord opstelt voor jouw bedrijf.",
   },
   {
     path: "/over-ons",
     title: "Over ons",
     description:
-      "Brantomics AI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee gedreven ondernemers die geloven in de kracht van slimme AI voor het MKB.",
+      "brantomicsAI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee ondernemers die met AI tijd besparen en bedrijven beter vindbaar maken.",
   },
   {
     path: "/contact",
     title: "Contact",
-    description: "Neem contact op met Brantomics AI. Vul het intakeformulier in of bel Tom direct op 06-43122575. Eerste week gratis.",
+    description: "Plan een vrijblijvend gesprek met brantomicsAI. Vul het formulier in of bel Tom direct op 06-43122575.",
   },
   {
     path: "/privacybeleid",

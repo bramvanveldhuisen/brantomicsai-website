@@ -6,12 +6,12 @@ export function AlgemeneVoorwaarden() {
   return (
     <Layout>
       <SEO title="Algemene Voorwaarden" description="Algemene Voorwaarden van Brantomics AI." path="/algemene-voorwaarden" />
-      <div className="max-w-2xl mx-auto px-6 pt-16 pb-24">
-        <h1 className="text-3xl font-extrabold text-navy tracking-tight mb-2">Algemene Voorwaarden</h1>
-        <p className="text-muted mb-10">Brantomics AI — VOF</p>
+      <div className="wrap pt-16 md:pt-24 pb-24 md:pb-32"><div className="max-w-[46rem]">
+        <h1 className="text-display-s mb-4">Algemene Voorwaarden</h1>
+        <p className="text-lead text-grijs mb-12">Brantomics AI — VOF</p>
 
         <LegalMeta>
-          <strong className="text-ink">Versie 1.2 — September 2026</strong>
+          <strong className="text-zwart">Versie 1.2 — September 2026</strong>
           <br />
           Gevestigd te Maarn, provincie Utrecht
           <br />
@@ -26,29 +26,29 @@ export function AlgemeneVoorwaarden() {
           <LegalList
             items={[
               <>
-                <strong className="text-ink">Brantomics AI</strong>: de VOF gevestigd te
+                <strong className="text-zwart">Brantomics AI</strong>: de VOF gevestigd te
                 Maarnsegrindweg 21, Maarn, ingeschreven bij de Kamer van Koophandel onder nummer
                 42032331.
               </>,
               <>
-                <strong className="text-ink">Klant</strong>: iedere natuurlijke persoon of
+                <strong className="text-zwart">Klant</strong>: iedere natuurlijke persoon of
                 rechtspersoon die handelt in de uitoefening van een beroep of bedrijf en die een
                 overeenkomst aangaat met Brantomics AI voor het afnemen van diensten. Brantomics AI
                 levert uitsluitend aan klanten die niet als consument in de zin van de wet worden
                 aangemerkt.
               </>,
               <>
-                <strong className="text-ink">Diensten</strong>: alle werkzaamheden die Brantomics
+                <strong className="text-zwart">Diensten</strong>: alle werkzaamheden die Brantomics
                 AI verricht, waaronder het bouwen, implementeren en beheren van AI-gedreven
                 e-mailagenten.
               </>,
               <>
-                <strong className="text-ink">AI-agent</strong>: een geautomatiseerde applicatie
+                <strong className="text-zwart">AI-agent</strong>: een geautomatiseerde applicatie
                 die inkomende e-mails leest, analyseert en er een concept-antwoord voor klaarzet in
                 de schrijfstijl en identiteit van de Klant.
               </>,
               <>
-                <strong className="text-ink">Overeenkomst</strong>: elke schriftelijke of digitale
+                <strong className="text-zwart">Overeenkomst</strong>: elke schriftelijke of digitale
                 afspraak tussen Brantomics AI en de Klant over de levering van Diensten.
               </>,
             ]}
@@ -267,6 +267,7 @@ export function AlgemeneVoorwaarden() {
             als aanvaarding van de gewijzigde voorwaarden.
           </p>
         </LegalArticle>
+      </div>
       </div>
     </Layout>
   );

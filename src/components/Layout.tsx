@@ -1,37 +1,29 @@
 import type { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import { DriftingBackground } from "./DriftingBackground";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative min-h-screen flex flex-col">
-      <DriftingBackground />
-      <div className="relative z-10 flex flex-col flex-1">
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </div>
+    <div className="relative min-h-dvh flex flex-col">
+      <Nav />
+      <main id="inhoud" className="flex-1">
+        {children}
+      </main>
+      <Footer />
     </div>
   );
 }
 
-export function PageHero({
-  eyebrow,
-  title,
-  subtitle,
-}: {
-  eyebrow: string;
-  title: ReactNode;
-  subtitle: string;
-}) {
+/** Kop van een subpagina: grote schreefkop links, de uitleg ernaast, op het donkere vlak. */
+export function PageHero({ title, subtitle }: { title: ReactNode; subtitle: string }) {
   return (
-    <div className="max-w-3xl mx-auto px-6 pt-16 pb-14 text-center">
-      <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue mb-4">{eyebrow}</span>
-      <h1 className="text-[clamp(1.75rem,4.5vw,2.75rem)] font-extrabold leading-[1.12] tracking-tight text-navy text-balance">
-        {title}
-      </h1>
-      <p className="mt-5 text-lg text-muted leading-relaxed text-balance">{subtitle}</p>
-    </div>
+    <header className="bg-bot text-zwart border-b border-lijn">
+      <div className="wrap flex flex-col justify-end pt-16 pb-14 md:pt-24 md:pb-16 md:min-h-[min(46svh,28rem)]">
+        <div className="grid md:grid-cols-12 gap-x-8 gap-y-6 items-end">
+          <h1 className="md:col-span-8 text-display">{title}</h1>
+          <p className="md:col-span-4 text-lead text-grijs leading-relaxed">{subtitle}</p>
+        </div>
+      </div>
+    </header>
   );
 }

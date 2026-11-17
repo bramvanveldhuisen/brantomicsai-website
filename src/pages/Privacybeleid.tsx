@@ -6,19 +6,19 @@ export function Privacybeleid() {
   return (
     <Layout>
       <SEO title="Privacybeleid" description="Privacybeleid van Brantomics AI." path="/privacybeleid" />
-      <div className="max-w-2xl mx-auto px-6 pt-16 pb-24">
-        <h1 className="text-3xl font-extrabold text-navy tracking-tight mb-2">Privacybeleid</h1>
-        <p className="text-muted mb-10">Brantomics AI — hoe wij omgaan met persoonsgegevens</p>
+      <div className="wrap pt-16 md:pt-24 pb-24 md:pb-32"><div className="max-w-[46rem]">
+        <h1 className="text-display-s mb-4">Privacybeleid</h1>
+        <p className="text-lead text-grijs mb-12">Brantomics AI — hoe wij omgaan met persoonsgegevens</p>
 
         <LegalMeta>
-          <strong className="text-ink">Laatste update: 19 september 2026</strong>
+          <strong className="text-zwart">Laatste update: 19 september 2026</strong>
           <br />
           Brantomics AI VOF — Maarnsegrindweg 21, Maarn
           <br />
           KvK: 42032331 — BTW: NL869394964B01
           <br />
           Contact:{" "}
-          <a href="mailto:info@brantomicsai.nl" className="text-blue hover:underline">
+          <a href="mailto:info@brantomicsai.nl" className="font-semibold text-zwart underline decoration-vermiljoen decoration-2 underline-offset-4 hover:decoration-zwart">
             info@brantomicsai.nl
           </a>
         </LegalMeta>
@@ -37,16 +37,16 @@ export function Privacybeleid() {
           <LegalList
             items={[
               <>
-                <strong className="text-ink">Contactformulier:</strong> naam, bedrijfsnaam,
+                <strong className="text-zwart">Contactformulier:</strong> naam, bedrijfsnaam,
                 e-mailadres, telefoonnummer en informatie over uw e-mailuitdagingen.
               </>,
               <>
-                <strong className="text-ink">Dienstverlening:</strong> e-mailberichten en
+                <strong className="text-zwart">Dienstverlening:</strong> e-mailberichten en
                 contactgegevens van klanten van onze opdrachtgevers, noodzakelijk voor de werking
                 van de AI-agent. Brantomics AI treedt hierbij op als verwerker.
               </>,
               <>
-                <strong className="text-ink">Website:</strong> anonieme bezoekersgegevens voor
+                <strong className="text-zwart">Website:</strong> anonieme bezoekersgegevens voor
                 analytische doeleinden (geen trackingcookies van derden).
               </>,
             ]}
@@ -107,15 +107,15 @@ export function Privacybeleid() {
           <LegalList
             items={[
               <>
-                <strong className="text-ink">Make.com</strong> — voor het automatiseren van
+                <strong className="text-zwart">Make.com</strong> — voor het automatiseren van
                 e-mailworkflows.
               </>,
               <>
-                <strong className="text-ink">Anthropic</strong> — voor AI-verwerking van
+                <strong className="text-zwart">Anthropic</strong> — voor AI-verwerking van
                 e-mailinhoud.
               </>,
               <>
-                <strong className="text-ink">Google Workspace / Microsoft 365</strong> — voor
+                <strong className="text-zwart">Google Workspace / Microsoft 365</strong> — voor
                 e-mailinfrastructuur (afhankelijk van de keuze van de opdrachtgever).
               </>,
             ]}
@@ -139,31 +139,31 @@ export function Privacybeleid() {
           <LegalList
             items={[
               <>
-                <strong className="text-ink">Inzage:</strong> u kunt opvragen welke gegevens wij
+                <strong className="text-zwart">Inzage:</strong> u kunt opvragen welke gegevens wij
                 van u verwerken.
               </>,
               <>
-                <strong className="text-ink">Correctie:</strong> u kunt onjuiste gegevens laten
+                <strong className="text-zwart">Correctie:</strong> u kunt onjuiste gegevens laten
                 corrigeren.
               </>,
               <>
-                <strong className="text-ink">Verwijdering:</strong> u kunt verzoeken uw gegevens
+                <strong className="text-zwart">Verwijdering:</strong> u kunt verzoeken uw gegevens
                 te laten verwijderen, voor zover dit niet in strijd is met wettelijke
                 bewaarverplichtingen.
               </>,
               <>
-                <strong className="text-ink">Bezwaar:</strong> u kunt bezwaar maken tegen de
+                <strong className="text-zwart">Bezwaar:</strong> u kunt bezwaar maken tegen de
                 verwerking van uw persoonsgegevens.
               </>,
               <>
-                <strong className="text-ink">Overdraagbaarheid:</strong> u kunt verzoeken uw
+                <strong className="text-zwart">Overdraagbaarheid:</strong> u kunt verzoeken uw
                 gegevens in een leesbaar formaat te ontvangen.
               </>,
             ]}
           />
           <p>
             Voor het uitoefenen van uw rechten kunt u contact opnemen via{" "}
-            <a href="mailto:info@brantomicsai.nl" className="text-blue hover:underline">
+            <a href="mailto:info@brantomicsai.nl" className="font-semibold text-zwart underline decoration-vermiljoen decoration-2 underline-offset-4 hover:decoration-zwart">
               info@brantomicsai.nl
             </a>
             . Wij reageren binnen 30 dagen.
@@ -179,7 +179,7 @@ export function Privacybeleid() {
               href="https://www.autoriteitpersoonsgegevens.nl"
               target="_blank"
               rel="noreferrer"
-              className="text-blue hover:underline"
+              className="font-semibold text-zwart underline decoration-vermiljoen decoration-2 underline-offset-4 hover:decoration-zwart"
             >
               www.autoriteitpersoonsgegevens.nl
             </a>
@@ -217,6 +217,7 @@ export function Privacybeleid() {
             dit artikel bij en vragen wij daarvoor eerst uw toestemming via een cookiebanner.
           </p>
         </LegalArticle>
+      </div>
       </div>
     </Layout>
   );

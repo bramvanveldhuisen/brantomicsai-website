@@ -1,7 +1,63 @@
 import { Link } from "react-router-dom";
 import { Layout, PageHero } from "../components/Layout";
 import { SEO } from "../components/SEO";
-import { SectionEyebrow } from "../components/ui";
+import { Punt, knopPrimair } from "../components/ui";
+
+const TEAM = [
+  {
+    naam: "Bram van Veldhuisen",
+    rol: "AI & Technologie",
+    rolKleur: "text-vermiljoen",
+    foto: "/team/bram.jpg",
+    breed: 800,
+    hoog: 1200,
+    tekst: [
+      "Bram is verantwoordelijk voor de techniek achter Brantomics AI. Hij duikt in de mogelijkheden van AI en zorgt dat de automatisering klopt, werkt en aanvoelt als maatwerk, ook voor bedrijven zonder technische achtergrond.",
+      "Zijn overtuiging: AI hoeft niet ingewikkeld te zijn. Een goed systeem werkt op de achtergrond en valt niet op. Dat is precies wat hij bouwt.",
+    ],
+  },
+  {
+    naam: "Tom Vaessen",
+    rol: "Sales & Klantrelaties",
+    rolKleur: "text-vermiljoen",
+    foto: "/team/tom.jpg",
+    breed: 800,
+    hoog: 1200,
+    tekst: [
+      "Tom is het eerste aanspreekpunt voor nieuwe klanten. Hij luistert naar de uitdagingen van ondernemers, denkt mee over de beste oplossing en zorgt dat de onboarding soepel verloopt.",
+      "Zijn overtuiging: technologie werkt pas echt als het aansluit op hoe mensen werken. De menselijke kant van automatisering: dat is waar Tom het verschil maakt.",
+    ],
+  },
+  {
+    naam: "Julien",
+    rol: "Sales & Marketing",
+    rolKleur: "text-vermiljoen",
+    foto: "/team/julien.jpg",
+    breed: 1000,
+    hoog: 1000,
+    tekst: [
+      "Julien versterkt het team sinds november 2026 als sales- en marketingspecialist. Hij legt contact met nieuwe bedrijven en vertelt wat we voor ze kunnen doen.",
+    ],
+  },
+];
+
+const VERHAAL = [
+  {
+    titel: "Het begin",
+    tekst:
+      "We zijn begonnen met een simpele observatie: ondernemers zijn goed in hun vak, maar verliezen elke dag tijd aan werk dat steeds terugkomt. Dezelfde vragen beantwoorden, aanvragen opvolgen, reviews najagen. En ondertussen vinden klanten hen online slecht terug.",
+  },
+  {
+    titel: "Wat we anders doen",
+    tekst:
+      "We bouwen geen generieke chatbot. We kijken per bedrijf waar de tijd echt in zit en waar klanten afhaken, en bouwen precies dat. Dat vergt aandacht in het begin, maar levert iets op dat past bij hoe jouw bedrijf werkt.",
+  },
+  {
+    titel: "Eerlijk over wat we zijn",
+    tekst:
+      "We zijn een jong bedrijf. We hebben geen tientallen jaren aan referenties en doen geen beloftes die we niet kunnen waarmaken. Wat we wél hebben: technische expertise, persoonlijke aandacht en een eerlijk product dat we zelf vertrouwen. Dat is de reden dat we een gratis proefperiode aanbieden, zodat je het zelf kunt beoordelen, zonder risico.",
+  },
+];
 
 export function OverOns() {
   return (
@@ -12,117 +68,67 @@ export function OverOns() {
         path="/over-ons"
       />
       <PageHero
-        eyebrow="Wie zijn wij"
         title={
           <>
-            Twee ondernemers die geloven
+            Een klein team,
             <br />
-            in eerlijke AI voor het MKB
+            eerlijke AI<Punt />
           </>
         }
-        subtitle="Geen groot techbedrijf, geen anonieme software. Gewoon Bram en Tom — persoonlijk bereikbaar, eerlijk over wat we kunnen en gepassioneerd over wat AI voor jouw bedrijf kan doen."
+        subtitle="Geen groot techbedrijf, geen anonieme software. Gewoon Bram, Tom en Julien: persoonlijk bereikbaar, eerlijk over wat we kunnen en gepassioneerd over wat AI voor jouw bedrijf kan doen."
       />
 
-      {/* TEAM CARDS */}
-      <section className="max-w-5xl mx-auto px-6 pb-16">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm p-8">
-            <img
-              src="/team/bram.jpg"
-              alt="Bram van Veldhuisen"
-              width={800}
-              height={1200}
-              loading="lazy"
-              className="w-full aspect-[4/5] object-cover object-top rounded-2xl mb-6"
-            />
-            <div className="text-lg font-bold text-navy">Bram van Veldhuisen</div>
-            <div className="text-sm text-blue font-medium mb-4">AI &amp; Technologie</div>
-            <p className="text-sm text-muted leading-relaxed">
-              Bram is verantwoordelijk voor de techniek achter Brantomics AI. Hij duikt in de
-              mogelijkheden van AI en zorgt dat de automatisering klopt, werkt en aanvoelt als
-              maatwerk — ook voor bedrijven zonder technische achtergrond.
-              <br />
-              <br />
-              Zijn overtuiging: AI hoeft niet ingewikkeld te zijn. Een goed systeem werkt op de
-              achtergrond en valt niet op. Dat is precies wat hij bouwt.
-            </p>
-          </div>
+      {/* TEAM */}
+      <section className="wrap pb-24 md:pb-32">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          {TEAM.map((p, i) => (
+            <article key={p.naam}>
+              <img
+                src={p.foto}
+                alt={p.naam}
+                width={p.breed}
+                height={p.hoog}
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : undefined}
+                className="w-full aspect-[4/5] object-cover object-top rounded-2xl mb-8"
+              />
+              <h2 className="text-display-s">{p.naam}</h2>
+              <p className={`mt-2 mb-5 text-xl font-semibold ${p.rolKleur}`}>{p.rol}</p>
+              {p.tekst.map((t) => (
+                <p key={t} className="text-lead text-zwart leading-relaxed mb-4 max-w-[60ch]">
+                  {t}
+                </p>
+              ))}
+            </article>
+          ))}
+        </div>
+      </section>
 
-          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm p-8">
-            <img
-              src="/team/tom.jpg"
-              alt="Tom Vaessen"
-              width={800}
-              height={1200}
-              loading="lazy"
-              className="w-full aspect-[4/5] object-cover object-top rounded-2xl mb-6"
-            />
-            <div className="text-lg font-bold text-navy">Tom Vaessen</div>
-            <div className="text-sm text-success font-medium mb-4">Sales &amp; Klantrelaties</div>
-            <p className="text-sm text-muted leading-relaxed">
-              Tom is het eerste aanspreekpunt voor nieuwe klanten. Hij luistert naar de
-              uitdagingen van ondernemers, denkt mee over de beste oplossing en zorgt dat de
-              onboarding soepel verloopt.
-              <br />
-              <br />
-              Zijn overtuiging: technologie werkt pas echt als het aansluit op hoe mensen werken.
-              De menselijke kant van automatisering — dat is waar Tom het verschil maakt.
-            </p>
+      {/* ONS VERHAAL */}
+      <section className="bg-steen py-24 md:py-32">
+        <div className="wrap">
+          <h2 className="text-section mb-12 md:mb-16">Waarom brantomicsAI?</h2>
+          <div className="border-b border-lijn">
+            {VERHAAL.map((v) => (
+              <div key={v.titel} className="grid md:grid-cols-12 gap-x-8 gap-y-3 border-t border-lijn py-10">
+                <h3 className="md:col-span-4 text-title">{v.titel}</h3>
+                <p className="md:col-span-7 md:col-start-6 text-lead text-zwart leading-relaxed">{v.tekst}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* STORY */}
-      <section className="max-w-3xl mx-auto px-6 py-16 border-t border-border">
-        <div className="text-center mb-12">
-          <SectionEyebrow center>Ons verhaal</SectionEyebrow>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Waarom Brantomics AI?</h2>
-        </div>
-
-        <div className="flex flex-col gap-6">
-          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm p-8">
-            <div className="text-xs font-bold uppercase tracking-wide text-blue mb-3">Het begin</div>
-            <p className="text-[15px] text-muted leading-relaxed">
-              We zijn begonnen met een simpele observatie: MKB-ondernemers zijn slim, hard werkend
-              en goed in hun vak — maar besteden uren per dag aan e-mails die eigenlijk altijd op
-              hetzelfde neerkomen. Reserveringsbevestigingen, productvragen, klachten die snel
-              opgelost kunnen worden. Herhalend werk dat tijd kost die je liever ergens anders in
-              investeert.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm p-8">
-            <div className="text-xs font-bold uppercase tracking-wide text-blue mb-3">Wat we anders doen</div>
-            <p className="text-[15px] text-muted leading-relaxed">
-              We bouwen geen generieke chatbot-oplossingen. We kijken per klant hoe
-              e-mailcommunicatie er écht uitziet, welke situaties terugkomen en hoe de juiste toon
-              klinkt voor dat specifieke bedrijf. Dat vergt aandacht in het begin — maar levert een
-              systeem op dat aanvoelt als een medewerker die je al jaren kent.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm p-8">
-            <div className="text-xs font-bold uppercase tracking-wide text-success mb-3">Eerlijk over wat we zijn</div>
-            <p className="text-[15px] text-muted leading-relaxed">
-              We zijn een jong bedrijf. We hebben geen tientallen jaren aan referenties en doen
-              geen beloftes die we niet kunnen waarmaken. Wat we wél hebben: technische expertise,
-              persoonlijke aandacht en een eerlijk product dat we zelf vertrouwen. Dat is de reden
-              dat we een gratis proefperiode aanbieden — zodat je het zelf kunt beoordelen, zonder
-              risico.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* MISSION */}
-      <section className="max-w-3xl mx-auto px-6 py-20 text-center border-t border-border">
-        <SectionEyebrow center>Onze missie</SectionEyebrow>
-        <blockquote className="text-xl md:text-2xl font-semibold text-navy leading-snug mb-4 text-balance">
-          "Elke MKB-ondernemer verdient toegang tot slimme automatisering — niet alleen de grote
-          bedrijven met grote budgetten. Wij maken dat mogelijk, persoonlijk en zonder gedoe."
-        </blockquote>
-        <div className="text-sm text-muted mb-9">— Bram &amp; Tom, oprichters Brantomics AI</div>
-        <Link to="/contact" className="inline-flex rounded-full bg-navy text-white font-semibold px-7 py-3.5 hover:bg-blue transition-colors">
+      {/* MISSIE */}
+      <section className="wrap py-24 md:py-32">
+        <figure className="max-w-[56rem]">
+          <blockquote className="font-serif text-display-s leading-[1.05] text-zwart text-balance">
+            “Elke MKB-ondernemer verdient toegang tot slimme automatisering, niet alleen de grote
+            bedrijven met grote budgetten. Wij maken dat mogelijk, persoonlijk en zonder gedoe.”
+          </blockquote>
+          <figcaption className="mt-6 text-lead text-grijs">Bram &amp; Tom, oprichters Brantomics AI</figcaption>
+        </figure>
+        <Link to="/contact" className={`${knopPrimair} mt-10`}>
           Maak kennis met ons
         </Link>
       </section>

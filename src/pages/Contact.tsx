@@ -1,122 +1,114 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Layout, PageHero } from "../components/Layout";
 import { SEO } from "../components/SEO";
-import { CheckItem } from "../components/ui";
+import { CheckItem, Punt, knopPrimair, tekstLink } from "../components/ui";
+
+const veld =
+  "w-full min-h-12 rounded-lg border border-rand bg-bot px-4 text-base text-zwart placeholder:text-grijs " +
+  "transition-[border-color] duration-200 hover:border-zwart disabled:opacity-55 disabled:cursor-not-allowed";
 
 export function Contact() {
   const [charCount, setCharCount] = useState(0);
+  // Een landingspagina kan de sector meegeven, bijv. /contact?sector=Ontruiming.
+  const [params] = useSearchParams();
+  const SECTOREN = ["Ontruiming", "Verhuizing", "Makelaar/Vastgoed", "Bouw", "Schoonmaak", "Anders"];
+  const gevraagd = params.get("sector") ?? "";
+  const startSector = SECTOREN.includes(gevraagd) ? gevraagd : "";
 
   return (
     <Layout>
       <SEO
         title="Contact"
-        description="Neem contact op met Brantomics AI. Vul het intakeformulier in of bel Tom direct op 06-43122575. Eerste week gratis."
+        description="Plan een vrijblijvend gesprek met brantomicsAI. Vul het formulier in of bel Tom direct op 06-43122575."
         path="/contact"
       />
       <PageHero
-        eyebrow="Neem contact op"
         title={
           <>
             Klaar om te starten?
             <br />
-            Wij horen graag van je.
+            Wij horen graag van je<Punt />
           </>
         }
-        subtitle="Vul het formulier in en we nemen binnen één werkdag contact op. Of bel Tom direct — hij helpt je snel op weg."
+        subtitle="Vul het formulier in en we nemen binnen één werkdag contact op. Of bel Tom direct: hij helpt je snel op weg."
       />
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-[1.4fr_1fr] gap-8">
+      <section className="wrap pb-24 md:pb-32">
+        <div className="grid lg:grid-cols-12 gap-x-8 gap-y-12 items-start">
           {/* Form */}
           <form
             action="https://docs.google.com/forms/d/e/1FAIpQLSc14YbvxKvAqC-NUDzxHbY3ESTnTYwV8Q7OeeKW1IUdjAu-aw/viewform"
             method="GET"
             target="_blank"
-            className="rounded-3xl border border-border bg-white/85 backdrop-blur-sm p-8 space-y-5"
+            className="lg:col-span-7 min-w-0 rounded-lg border border-lijn bg-steen p-6 md:p-10 space-y-6"
           >
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-x-5 gap-y-6">
               <div>
-                <label htmlFor="naam" className="block text-xs font-semibold text-muted mb-1.5">
+                <label htmlFor="naam" className="block text-sm font-semibold text-zwart mb-2">
                   Naam
                 </label>
-                <input id="naam" name="naam" type="text" required placeholder="Jouw naam" className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50" />
+                <input id="naam" name="naam" type="text" required placeholder="Jouw naam" className={veld} />
               </div>
               <div>
-                <label htmlFor="bedrijf" className="block text-xs font-semibold text-muted mb-1.5">
+                <label htmlFor="bedrijf" className="block text-sm font-semibold text-zwart mb-2">
                   Bedrijfsnaam
                 </label>
-                <input id="bedrijf" name="bedrijf" type="text" required placeholder="Naam van je bedrijf" className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50" />
+                <input id="bedrijf" name="bedrijf" type="text" required placeholder="Naam van je bedrijf" className={veld} />
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-x-5 gap-y-6">
               <div>
-                <label htmlFor="email" className="block text-xs font-semibold text-muted mb-1.5">
+                <label htmlFor="email" className="block text-sm font-semibold text-zwart mb-2">
                   E-mailadres
                 </label>
-                <input id="email" name="email" type="email" required placeholder="jij@bedrijf.nl" className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50" />
+                <input id="email" name="email" type="email" required placeholder="jij@bedrijf.nl" className={veld} />
               </div>
               <div>
-                <label htmlFor="telefoon" className="block text-xs font-semibold text-muted mb-1.5">
+                <label htmlFor="telefoon" className="block text-sm font-semibold text-zwart mb-2">
                   Telefoonnummer
                 </label>
-                <input id="telefoon" name="telefoon" type="tel" placeholder="06-12345678" className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50" />
+                <input id="telefoon" name="telefoon" type="tel" placeholder="06-12345678" className={veld} />
               </div>
             </div>
 
             <div>
-              <label htmlFor="sector" className="block text-xs font-semibold text-muted mb-1.5">
+              <label htmlFor="sector" className="block text-sm font-semibold text-zwart mb-2">
                 Sector
               </label>
-              <select id="sector" name="sector" className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50 bg-white">
-                <option value="">Selecteer jouw sector...</option>
-                <option value="Webshop">Webshop / E-commerce</option>
-                <option value="Camping/Recreatie">Camping / Recreatie</option>
-                <option value="Verhuur">Verhuur (auto, boot, vakantiewoning)</option>
-                <option value="Horeca">Horeca (restaurant, café, hotel)</option>
-                <option value="Makelaar">Makelaar</option>
-                <option value="Kapper/Beauty">Kapper / Beauty / Wellness</option>
-                <option value="Bouw">Bouw / Installatie</option>
-                <option value="IT">IT / Software</option>
-                <option value="Zorg">Zorg / Gezondheid</option>
+              <select id="sector" name="sector" defaultValue={startSector} className={veld}>
+                <option value="">Selecteer jouw sector…</option>
+                <option value="Ontruiming">Ontruiming</option>
+                <option value="Verhuizing">Verhuizing</option>
+                <option value="Makelaar/Vastgoed">Makelaardij / vastgoedbeheer</option>
+                <option value="Bouw">Bouw / renovatie / klussen</option>
+                <option value="Schoonmaak">Schoonmaak / opleveren</option>
                 <option value="Anders">Anders</option>
               </select>
             </div>
 
             <div>
-              <span className="block text-xs font-semibold text-muted mb-1.5">Interesse in</span>
-              <div className="flex flex-wrap gap-4 text-sm text-ink/85">
-                <label className="inline-flex items-center gap-2">
-                  <input type="radio" name="interesse" value="Email Responder" />
-                  Email Responder
+              <span className="block text-sm font-semibold text-zwart mb-2">Waar wil je hulp bij?</span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-zwart">
+                <label className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
+                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Tijd besparen" />
+                  Tijd besparen
                 </label>
-                <label className="inline-flex items-center gap-2">
-                  <input type="radio" name="interesse" value="Bestel Assistent" />
-                  Bestel Assistent
+                <label className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
+                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Beter gevonden worden" />
+                  Beter gevonden worden
                 </label>
-                <label className="inline-flex items-center gap-2">
-                  <input type="radio" name="interesse" value="Beide" defaultChecked />
+                <label className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
+                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Beide" defaultChecked />
                   Beide
                 </label>
               </div>
             </div>
 
             <div>
-              <label htmlFor="emails-dag" className="block text-xs font-semibold text-muted mb-1.5">
-                Emails per dag (bij benadering)
-              </label>
-              <select id="emails-dag" name="emails-dag" className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50 bg-white">
-                <option value="">Selecteer...</option>
-                <option value="Minder dan 10">Minder dan 10</option>
-                <option value="10-30">10–30 emails per dag</option>
-                <option value="30-100">30–100 emails per dag</option>
-                <option value="Meer dan 100">Meer dan 100 emails per dag</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="uitdaging" className="block text-xs font-semibold text-muted mb-1.5">
-                Grootste uitdaging <span className="font-normal text-muted/70">(optioneel)</span>
+              <label htmlFor="uitdaging" className="block text-sm font-semibold text-zwart mb-2">
+                Grootste uitdaging <span className="font-normal text-grijs">(optioneel)</span>
               </label>
               <textarea
                 id="uitdaging"
@@ -124,36 +116,36 @@ export function Contact() {
                 rows={4}
                 maxLength={200}
                 onChange={(e) => setCharCount(e.target.value.length)}
-                placeholder="Bijv. het kost me elke ochtend een uur voor ik aan echte werk toekom..."
-                className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50 resize-none"
+                placeholder="Bijv. het kost me elke ochtend een uur voor ik aan echte werk toekom…"
+                className={`${veld} py-3 resize-y min-h-28`}
               />
-              <div className="text-right text-[11px] text-muted/70 mt-1">{charCount} / 200</div>
+              <div className="text-right text-sm text-grijs mt-1.5 tabular-nums" aria-live="polite">{charCount} / 200</div>
             </div>
 
             <div className="pt-1">
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-navy text-white font-semibold px-6 py-3.5 hover:bg-blue transition-colors"
+                className={`${knopPrimair} w-full`}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                 </svg>
-                Verstuur aanmelding — eerste week gratis
+                <span>Verstuur aanvraag</span>
               </button>
-              <p className="text-xs text-muted text-center mt-2.5">
-                Geen creditcard. Geen verplichtingen. Reactie binnen één werkdag.
+              <p className="text-sm text-grijs text-center mt-3">
+                Vrijblijvend. Je hoort binnen één werkdag van ons.
               </p>
             </div>
           </form>
 
           {/* Sidebar */}
-          <div className="space-y-6">
-            <div className="rounded-3xl border border-border bg-white/85 backdrop-blur-sm p-7">
-              <div className="text-sm font-bold text-navy mb-5">Direct contact</div>
+          <div className="lg:col-span-4 lg:col-start-9 space-y-12">
+            <div>
+              <h2 className="text-title text-zwart mb-6 break-words min-w-0 font-sans font-semibold tracking-normal leading-tight">Direct contact</h2>
               <div className="space-y-5">
                 <div className="flex items-start gap-3">
-                  <div className="size-9 shrink-0 rounded-lg bg-blue/10 flex items-center justify-center text-blue">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <div className="size-10 shrink-0 rounded-full border border-lijn bg-steen flex items-center justify-center text-groen-mid">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -162,15 +154,15 @@ export function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-xs text-muted">Bellen (Tom)</div>
-                    <a href="tel:+31643122575" className="text-sm font-semibold text-navy hover:text-blue">
+                    <div className="text-sm text-grijs">Bellen (Tom)</div>
+                    <a href="tel:+31643122575" className={`text-lead ${tekstLink}`}>
                       06-43122575
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="size-9 shrink-0 rounded-lg bg-blue/10 flex items-center justify-center text-blue">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <div className="size-10 shrink-0 rounded-full border border-lijn bg-steen flex items-center justify-center text-groen-mid">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -179,39 +171,38 @@ export function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-xs text-muted">E-mail</div>
-                    <a href="mailto:info@brantomicsai.nl" className="text-sm font-semibold text-navy hover:text-blue">
+                    <div className="text-sm text-grijs">E-mail</div>
+                    <a href="mailto:info@brantomicsai.nl" className={`text-lead ${tekstLink}`}>
                       info@brantomicsai.nl
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="size-9 shrink-0 rounded-lg bg-blue/10 flex items-center justify-center text-blue">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <div className="size-10 shrink-0 rounded-full border border-lijn bg-steen flex items-center justify-center text-groen-mid">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
-                    <div className="text-xs text-muted">Reactietijd</div>
-                    <div className="text-sm font-semibold text-navy">Binnen 3 werkdagen</div>
+                    <div className="text-sm text-grijs">Reactietijd</div>
+                    <div className="text-lead font-semibold text-zwart">Binnen één werkdag</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-blue/20 bg-blue/5 p-7">
-              <div className="text-sm font-bold text-navy mb-4">Wat je kunt verwachten</div>
+            <div className="border-t border-lijn pt-10">
+              <h2 className="text-title text-zwart mb-5 break-words min-w-0 font-sans font-semibold tracking-normal leading-tight">Wat je kunt verwachten</h2>
               <ul className="space-y-3">
-                <CheckItem>Intake gesprek om te begrijpen wat bij jou past</CheckItem>
-                <CheckItem>Persoonlijke installatie door Bram</CheckItem>
-                <CheckItem>Eerste week gratis — geen risico</CheckItem>
-                <CheckItem>Live binnen één werkdag na akkoord</CheckItem>
+                <CheckItem>Een gesprek over waar je tijd verliest of klanten misloopt</CheckItem>
+                <CheckItem>Een voorstel met wat we bouwen en wat het kost</CheckItem>
+                <CheckItem>Alles persoonlijk ingericht door Bram en Tom</CheckItem>
               </ul>
             </div>
 
-            <div className="rounded-3xl border border-border bg-white/85 backdrop-blur-sm p-7">
-              <div className="text-sm font-bold text-navy mb-3">Bedrijfsgegevens</div>
-              <div className="space-y-1.5 text-sm text-muted">
+            <div className="border-t border-lijn pt-10">
+              <h2 className="text-title text-zwart mb-4 break-words min-w-0 font-sans font-semibold tracking-normal leading-tight">Bedrijfsgegevens</h2>
+              <div className="space-y-1 text-zwart tabular-nums">
                 <div>Brantomics AI</div>
                 <div>KVK: 42032331</div>
                 <div>BTW: NL869394964B01</div>

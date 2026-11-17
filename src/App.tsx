@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Diensten } from "./pages/Diensten";
+import { Ontruiming } from "./pages/Ontruiming";
 import { DemoResponder } from "./pages/DemoResponder";
-import { Prijzen } from "./pages/Prijzen";
 import { OverOns } from "./pages/OverOns";
 import { Contact } from "./pages/Contact";
 import { Privacybeleid } from "./pages/Privacybeleid";
@@ -16,8 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/diensten" element={<Diensten />} />
+        <Route path="/ontruiming" element={<Ontruiming />} />
         <Route path="/demo-responder" element={<DemoResponder />} />
-        <Route path="/prijzen" element={<Prijzen />} />
+        <Route path="/prijzen" element={<Navigate to="/diensten" replace />} />
         <Route path="/over-ons" element={<OverOns />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacybeleid" element={<Privacybeleid />} />

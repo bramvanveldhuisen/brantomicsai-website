@@ -1,32 +1,26 @@
 import type { ReactNode } from "react";
 
 export function LegalMeta({ children }: { children: ReactNode }) {
-  return (
-    <div className="text-sm text-muted leading-relaxed rounded-2xl border border-border bg-white/70 backdrop-blur-sm px-6 py-5 mb-12">
-      {children}
-    </div>
-  );
+  return <div className="mb-14 rounded-2xl border border-lijn bg-steen px-6 py-5 text-zwart leading-relaxed">{children}</div>;
 }
 
+/** Eén artikel: het nummer en de titel als kop, de tekst eronder, gescheiden door een haarlijn. */
 export function LegalArticle({ num, title, children }: { num: string; title: string; children: ReactNode }) {
   return (
-    <div className="rounded-2xl border border-border bg-white/80 backdrop-blur-sm px-7 py-6 mb-6">
-      <h2 className="flex items-center gap-2.5 text-base font-bold text-navy mb-3.5 pb-3 border-b border-border">
-        <span className="text-[11px] font-bold uppercase tracking-wide text-blue bg-blue/10 border border-blue/20 rounded-full px-2.5 py-0.5">
-          {num}
-        </span>
-        {title}
+    <section className="border-t border-lijn pt-8 pb-10">
+      <h2 className="text-title mb-4 font-sans font-semibold tracking-normal leading-tight">
+        <span className="text-groen-mid tabular-nums">{num}</span> {title}
       </h2>
-      <div className="space-y-2.5 text-sm text-muted leading-relaxed">{children}</div>
-    </div>
+      <div className="space-y-3 text-zwart leading-relaxed max-w-[68ch]">{children}</div>
+    </section>
   );
 }
 
 export function LegalList({ items }: { items: ReactNode[] }) {
   return (
-    <ul className="flex flex-col gap-1.5 my-2">
+    <ul className="flex flex-col gap-2 my-3">
       {items.map((item, i) => (
-        <li key={i} className="text-sm text-muted leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-blue">
+        <li key={i} className="relative pl-5 leading-relaxed before:absolute before:left-0 before:top-[0.7em] before:size-1.5 before:rounded-full before:bg-vermiljoen">
           {item}
         </li>
       ))}

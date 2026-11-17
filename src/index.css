@@ -1,93 +1,140 @@
+/* Hallmark · shape: Split Studio after ELI5 (a type-led poster hero, two service cards, numbered pains, a statement band, a sticky route, sectors, one tool, founder contact cards) · genre: editorial · theme: brand (chosen by Bram 12 Nov 2026: racing green on ivory, silver grey details, vermilion in small details) · job: hire · draw: manual
+ * paper: oklch(95% 0.02 85) · accent: oklch(31% 0.06 160) · display: Instrument Serif · body: Schibsted Grotesk · hero: Poster (/), Split (/ontruiming: the head left, a built ontruimingsaanvraag with its concept reply right), Banner (/diensten), Banner (/demo-responder), Banner (/over-ons), Banner (/contact), Banner (/privacybeleid), Banner (/algemene-voorwaarden) · nav: edge-aligned, wordmark and one action · footer: index columns under a closing line · signature: a vermilion full stop that closes every big statement, after one italic hero word that sharpens out of a blur over a moving grid
+ * axes: light/high-contrast-serif/chromatic-green · posture: Restrained (ivory and racing green carry the page, silver for lines, vermilion in small details: full stops, dots, underlines, one pulse) · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S until the documentary photos exist; the type, the blur word and the real founder portraits carry it */
+/* Hallmark · waive 38iii · the hero word gevonden sharpens out of a blur once on load, then reads like the rest of the head · the S-Unit reference Bram sent sets one distorted word per statement */
+/* Hallmark · waive 81 · the photo frames show a named placeholder for the verhuisbus, ontruiming and vastgoed pictures · Bram asked for placeholders now and real photos later */
+/* Hallmark · waive 77 · /privacybeleid and /algemene-voorwaarden run on a narrow reading measure · contract text wants a narrow column, not ten of twelve */
+/* Hallmark · waive 79 · on /privacybeleid and /algemene-voorwaarden there is no hero to centre, the gap is the space above artikel 1 · terms open on their meta block, not a fold */
+/* Hallmark · waive 44c · /diensten, /over-ons, /contact and /demo-responder open on a Banner of half a screen with the first section in view · the banner names the page and gets out of the way */
+/* Hallmark · waive 78 · on /contact and /demo-responder the h2s label the formulier and the tool panels at title size · those are working screens, the banner carries the display head */
+/* Hallmark · waive 26b · Verstuur aanvraag and Genereer antwoord carry Tailwind disabled: variants through knopBasis · the demo button is disabled while the AI een antwoord opstelt */
+/* Hallmark · dismissed 28a · FotoVak lazy-loads photos below the hero only; the hero has no photo */
+/* Hallmark · copy: verbatim on the legal pages · terms and the privacy text are never reworded, their dashes stay */
+
 @import "tailwindcss";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+@import "@fontsource-variable/schibsted-grotesk";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Schibsted Grotesk Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
-  --color-navy: #0F2D5E;
-  --color-blue: #1A4FA0;
-  --color-blue-light: #4A78C4;
-  --color-ink: #0B1320;
-  --color-paper: #F7F9FC;
-  --color-muted: #5B6B84;
-  --color-border: #E4E8EF;
-  --color-success: #10B981;
+  /* Huisstijl brantomicsAI (gekozen door Bram, 12 november 2026): racegroen op ivoor,
+     zilvergrijs voor lijnen en details, en het logorood voor kleine details. */
+  --color-zwart: #0F3324;      /* racegroen: tekst op licht en de donkere vlakken */
+  --color-zwart-2: #0A2619;    /* dieper racegroen, het statementvlak */
+  --color-bot: #F6F0E1;        /* ivoor: lichte basis */
+  --color-steen: #EAE3D0;      /* tweede licht vlak */
+  --color-creme: #EFE8D6;      /* zachte vlakken (sectoren, contact, fotovakken) */
+  --color-white: #FCFAF4;
+  --color-groen-mid: #27503D;  /* links en accenttekst op licht */
+  --color-zilver: #A7ACAD;     /* details, nummers en lijnen op groen */
+  --color-zilver-licht: #D4D7D6; /* tekst op het diepe vlak, selectie */
+  --color-zilver-donker: #5F6664;/* zilver als tekst op licht */
+  --color-vermiljoen: #F22607; /* precies het logorood, overal hetzelfde: logo, punten, pulsen, bolletjes, functietitels.
+                                  Alleen voor grote tekst en details (contrast 3,65 op ivoor, 3,33 op racegroen), nooit voor kleine lopende tekst. */
+  --color-grijs: #56605A;      /* ondersteunende tekst op licht */
+  --color-grijs-licht: #A7ACAD;/* ondersteunende tekst op groen */
+  --color-lijn: #D9D2C1;       /* lijnen op licht */
+  --color-lijn-donker: #2A4A3A;/* lijnen op groen */
+  --color-rand: #6B716C;       /* randen van invulvelden op licht */
+  --color-slate: #3E5A4D;      /* tekst in het productvoorbeeld */
+  --color-mist: #DCE3DC;       /* lijnen in het productvoorbeeld */
 
-  --animate-grid-breathe: grid-breathe 9s ease-in-out infinite;
+  --text-poster: clamp(3.5rem, 8.5vw + 1rem, 10rem);
+  --text-display: clamp(3rem, 5vw + 1rem, 6.5rem);
+  --text-display-s: clamp(2.5rem, 3.2vw + 1rem, 4.5rem);
+  --text-section: clamp(2.5rem, 3vw + 1rem, 4.25rem);
+  --text-title: clamp(1.25rem, 0.6vw + 1rem, 1.625rem);
+  --text-lead: clamp(1.0625rem, 0.35vw + 1rem, 1.3125rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes grid-breathe {
-  0%,
-  100% {
-    opacity: 0.28;
+@utility wrap {
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+/* Eén woord dat bij het laden scherp wordt, zoals in de S-Unit-branding. */
+@keyframes scherp-worden {
+  from { filter: blur(14px); opacity: 0.35; }
+  to { filter: blur(0); opacity: 1; }
+}
+@utility vervaagd {
+  display: inline-block;
+  animation: scherp-worden 1.4s var(--ease-out) 0.25s both;
+}
+
+/* Bewegend raster in de opening: pulsen schieten over de lijnen, de knooppunten ademen. */
+@keyframes puls-x {
+  0% { transform: translateX(-90px); opacity: 0; }
+  6% { opacity: 1; }
+  52% { opacity: 1; }
+  60%, 100% { transform: translateX(600px); opacity: 0; }
+}
+@keyframes puls-y {
+  0% { transform: translateY(-90px); opacity: 0; }
+  6% { opacity: 1; }
+  52% { opacity: 1; }
+  60%, 100% { transform: translateY(600px); opacity: 0; }
+}
+@keyframes knoop-adem {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.9); opacity: 0; }
+}
+.raster .puls-x { animation: puls-x 10s linear infinite both; }
+.raster .puls-y { animation: puls-y 10s linear infinite both; }
+.raster .knoop-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: knoop-adem 4s var(--ease-out) infinite;
+}
+.raster.is-stil * { animation-play-state: paused !important; }
+
+@layer base {
+  html, body { overflow-x: clip; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; scrollbar-color: var(--color-rand) var(--color-bot); }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    background: var(--color-bot);
+    color: var(--color-zwart);
+    caret-color: var(--color-groen-mid);
+    -webkit-font-smoothing: antialiased;
   }
-  50% {
-    opacity: 0.42;
+  h1, h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 0.95;
   }
+  h3 { font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
+  h1, h2, h3 { text-wrap: balance; font-synthesis: none; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--color-zilver-licht); color: var(--color-zwart); }
+  :focus-visible { outline: 3px solid var(--color-groen-mid); outline-offset: 3px; }
+  .bg-zwart :focus-visible, .bg-zwart-2 :focus-visible { outline-color: var(--color-zilver); }
+  input:focus-visible, select:focus-visible, textarea:focus-visible { outline-offset: 0; }
 }
 
-/*
-  Zes losse "fladder"-paden voor de drijvende enveloppen/bonnetjes/@-tekens.
-  Elk pad is bewust onregelmatig (geen simpele op-neer-lus) — een mix van
-  zijwaartse drift, verticale zweving en lichte rotatie, zoals een blad of
-  stuk papier dat in een zwakke tocht ronddraait. Amplitudes blijven klein
-  (max ~14px / ~6°) zodat het rustig blijft, niet druk.
-*/
-@keyframes float-a {
-  0%   { transform: translate(0px, 0px) rotate(-6deg); }
-  25%  { transform: translate(6px, -10px) rotate(-2deg); }
-  50%  { transform: translate(-4px, -4px) rotate(3deg); }
-  75%  { transform: translate(-8px, 6px) rotate(-4deg); }
-  100% { transform: translate(0px, 0px) rotate(-6deg); }
-}
-@keyframes float-b {
-  0%   { transform: translate(0px, 0px) rotate(5deg); }
-  30%  { transform: translate(-9px, 8px) rotate(1deg); }
-  60%  { transform: translate(5px, 12px) rotate(6deg); }
-  85%  { transform: translate(9px, -3px) rotate(2deg); }
-  100% { transform: translate(0px, 0px) rotate(5deg); }
-}
-@keyframes float-c {
-  0%   { transform: translate(0px, 0px) rotate(0deg); }
-  20%  { transform: translate(7px, 5px) rotate(4deg); }
-  50%  { transform: translate(-3px, -9px) rotate(-5deg); }
-  80%  { transform: translate(-10px, 2px) rotate(1deg); }
-  100% { transform: translate(0px, 0px) rotate(0deg); }
-}
-@keyframes float-d {
-  0%   { transform: translate(0px, 0px) rotate(-3deg); }
-  35%  { transform: translate(-6px, -8px) rotate(2deg); }
-  65%  { transform: translate(8px, -3px) rotate(-6deg); }
-  90%  { transform: translate(4px, 9px) rotate(0deg); }
-  100% { transform: translate(0px, 0px) rotate(-3deg); }
-}
-@keyframes float-e {
-  0%   { transform: translate(0px, 0px) rotate(4deg); }
-  28%  { transform: translate(9px, 4px) rotate(-1deg); }
-  55%  { transform: translate(2px, -11px) rotate(5deg); }
-  78%  { transform: translate(-8px, -2px) rotate(-3deg); }
-  100% { transform: translate(0px, 0px) rotate(4deg); }
-}
-@keyframes float-f {
-  0%   { transform: translate(0px, 0px) rotate(-5deg); }
-  22%  { transform: translate(-5px, 9px) rotate(3deg); }
-  48%  { transform: translate(-11px, -2px) rotate(-2deg); }
-  74%  { transform: translate(3px, -8px) rotate(4deg); }
-  100% { transform: translate(0px, 0px) rotate(-5deg); }
-}
+h1, h2, h3 { overflow-wrap: break-word; min-width: 0; font-synthesis: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  [style*="animation"] {
-    animation: none !important;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  background: var(--color-paper);
-  color: var(--color-ink);
+  .vervaagd { animation: none; filter: none; opacity: 1; }
+  .raster .puls-x, .raster .puls-y { animation: none; opacity: 0; }
+  .raster .knoop-ring { animation: none; }
+  .raster-knop { display: none; }
 }

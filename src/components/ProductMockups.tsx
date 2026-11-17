@@ -1,64 +1,70 @@
-/** Compacte inbox-mockup — hergebruikt in de hero en "Hoe het werkt". */
-export function InboxMockupCard() {
+/**
+ * Voorbeelden van de twee producten, gebouwd in HTML (geen schermafdruk: de echte
+ * inbox en de echte groothandel bevatten klantgegevens). De namen zijn voorbeelden.
+ */
+export function InboxMockupCard({ className = "" }: { className?: string }) {
   return (
-    <div className="rounded-3xl border border-border bg-white/85 backdrop-blur-sm overflow-hidden shadow-xl shadow-navy/5">
-      <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border text-xs font-semibold text-ink/70">
-        <span className="size-1.5 rounded-full bg-blue" />
-        Inbox — Camping De Linde (voorbeeld)
-      </div>
+    <figure data-kind="product" className={`rounded-2xl border border-mist bg-white overflow-hidden shadow-[0_24px_48px_-24px_color-mix(in_oklab,var(--color-zwart)_35%,transparent)] ${className}`}>
+      <figcaption className="px-5 py-3.5 border-b border-mist text-sm text-slate">Inbox: verhuisbedrijf (voorbeeld)</figcaption>
       <div className="p-5 space-y-3">
-        <div className="rounded-xl border border-border px-3.5 py-2.5">
-          <div className="text-xs font-semibold text-navy mb-1">Sanne de Vries — Beschikbaarheid</div>
-          <div className="text-xs text-muted leading-relaxed">
-            Hebben jullie van 17 tot 19 mei nog een plek met stroom voor onze caravan? We nemen
-            onze hond mee.
+        <div className="rounded-xl border border-mist px-4 py-3">
+          <div className="text-sm font-semibold text-zwart mb-1">Lisa Janssen: offerteaanvraag</div>
+          <div className="text-sm text-slate leading-relaxed">
+            We verhuizen op 14 maart van Utrecht naar Zeist, een driekamerappartement op de
+            tweede verdieping. Kunnen jullie een prijs geven?
           </div>
         </div>
-        <div className="flex items-center gap-2 text-[11px] font-semibold text-blue">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <div className="flex items-center gap-2 text-sm font-semibold text-zwart">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
           </svg>
-          Brantomics AI zet een concept klaar
+          brantomicsAI zet een concept klaar
         </div>
-        <div className="rounded-xl border border-blue/25 bg-blue/5 px-3.5 py-2.5">
-          <div className="text-xs font-semibold text-blue mb-1">Concept — jij leest het na en verstuurt</div>
-          <div className="text-xs text-muted leading-relaxed">
-            Hoi Sanne, leuk dat jullie in mei komen! Honden zijn van harte welkom. Via de link
-            hieronder zie je direct welke plekken met stroom vrij zijn en kun je meteen boeken.
+        <div className="rounded-xl border-2 border-zilver bg-white px-4 py-3">
+          <div className="text-sm font-semibold text-zwart mb-1">Concept: jij leest het na en verstuurt</div>
+          <div className="text-sm text-zwart leading-relaxed">
+            Hoi Lisa, dank voor je aanvraag! 14 maart kan nog. Mogen we je even bellen om de inboedel
+            door te nemen? Dan krijg je dezelfde dag een prijs op maat.
           </div>
         </div>
       </div>
-    </div>
+    </figure>
   );
 }
 
-/** Compacte bestel-mockup — hergebruikt in de hero en "Hoe het werkt". */
-export function OrderMockupCard() {
+export function OrderMockupCard({
+  rows = [
+    { name: "Runderbouillon 5L", qty: "×6" },
+    { name: "Pommes frites 10mm", qty: "×12" },
+    { name: "Olijfolie extra vierge", qty: "×3" },
+  ],
+  total = "21 regels totaal",
+  amount = "€ 421,80",
+  className = "",
+}: {
+  rows?: { name: string; qty: string }[];
+  total?: string;
+  amount?: string;
+  className?: string;
+}) {
   return (
-    <div className="rounded-3xl border border-border bg-white/85 backdrop-blur-sm overflow-hidden shadow-xl shadow-navy/5">
-      <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border text-xs font-semibold text-ink/70">
-        <span className="size-1.5 rounded-full bg-navy" />
-        Hanos Shop — Klaargezet door de motor
-      </div>
+    <figure data-kind="product" className={`rounded-2xl border border-mist bg-white overflow-hidden shadow-[0_24px_48px_-24px_color-mix(in_oklab,var(--color-zwart)_35%,transparent)] ${className}`}>
+      <figcaption className="px-5 py-3.5 border-b border-mist text-sm text-slate">Hanos Shop: klaargezet door de motor</figcaption>
       <div className="p-5 space-y-2.5">
-        {[
-          { name: "Runderbouillon 5L", qty: "×6" },
-          { name: "Pommes frites 10mm", qty: "×12" },
-          { name: "Olijfolie extra vierge", qty: "×3" },
-        ].map((row) => (
-          <div key={row.name} className="flex items-center justify-between rounded-xl border border-border px-3.5 py-2">
-            <span className="text-xs text-ink/85">{row.name}</span>
-            <span className="text-xs font-semibold text-navy">{row.qty}</span>
+        {rows.map((row) => (
+          <div key={row.name} className="flex items-center justify-between rounded-xl border border-mist px-4 py-2.5">
+            <span className="text-sm text-zwart">{row.name}</span>
+            <span className="text-sm font-semibold text-zwart tabular-nums">{row.qty}</span>
           </div>
         ))}
-        <div className="flex items-center justify-between pt-2.5 border-t border-border">
-          <span className="text-xs text-muted">21 regels totaal</span>
-          <span className="text-base font-extrabold text-navy">€ 421,80</span>
+        <div className="flex items-center justify-between pt-3 border-t border-mist">
+          <span className="text-sm text-slate">{total}</span>
+          <span className="text-lg font-semibold text-zwart tabular-nums">{amount}</span>
         </div>
-        <button type="button" className="w-full rounded-full bg-navy text-white text-xs font-semibold py-2.5" disabled>
+        <div className="w-full rounded-full bg-zwart text-bot text-sm font-semibold py-3 text-center" aria-hidden="true">
           Goedkeuren &amp; bestellen
-        </button>
+        </div>
       </div>
-    </div>
+    </figure>
   );
 }

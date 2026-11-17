@@ -1,65 +1,77 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Logo } from "./Logo";
+import { knopPrimair } from "./ui";
 
 const LINKS = [
   { to: "/", label: "Home" },
   { to: "/diensten", label: "Diensten" },
   { to: "/demo-responder", label: "Demo" },
-  { to: "/prijzen", label: "Prijzen" },
   { to: "/over-ons", label: "Over ons" },
   { to: "/contact", label: "Contact" },
 ];
 
+const linkStijl =
+  "px-3 py-2 whitespace-nowrap text-[0.9375rem] text-grijs transition-colors duration-200 hover:text-zwart " +
+  "border-b border-transparent aria-[current=page]:text-zwart aria-[current=page]:border-vermiljoen";
+
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  // Menu dicht bij elke paginawissel en met Escape.
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
-    <header className="sticky top-0 z-30 backdrop-blur-md bg-paper/85 border-b border-border">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
-        <Link to="/" aria-label="Brantomics AI home" onClick={() => setOpen(false)}>
+    <header className="sticky top-0 z-30 bg-bot text-zwart border-b border-lijn">
+      <a href="#inhoud" className="absolute left-4 -top-16 z-40 rounded-full bg-zwart px-4 py-2 font-semibold text-bot focus:top-3">
+        Naar de inhoud
+      </a>
+      <nav className="wrap flex h-[4.5rem] items-center justify-between gap-6" aria-label="Hoofdmenu">
+        <Link to="/" aria-label="brantomicsAI, naar de homepagina" onClick={() => setOpen(false)} className="shrink-0">
           <Logo size="nav" />
         </Link>
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-ink/80">
+        <div className="hidden lg:flex items-center gap-2">
           {LINKS.map((l) => (
-            <Link key={l.to} to={l.to} className="hover:text-blue transition-colors">
+            <NavLink key={l.to} to={l.to} end={l.to === "/"} className={linkStijl}>
               {l.label}
-            </Link>
+            </NavLink>
           ))}
         </div>
-        <div className="hidden md:block">
-          <Link
-            to="/contact"
-            className="inline-flex items-center rounded-full bg-navy text-white text-sm font-semibold px-5 py-2.5 hover:bg-blue transition-colors"
-          >
-            Gratis starten
-          </Link>
-        </div>
+        <Link to="/contact" className={`${knopPrimair} max-lg:hidden`}>
+          Plan een gesprek
+        </Link>
         <button
           type="button"
-          aria-label="Menu openen"
+          aria-label={open ? "Menu sluiten" : "Menu openen"}
+          aria-expanded={open}
+          aria-controls="mobiel-menu"
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden flex size-12 flex-col items-center justify-center gap-1.5 rounded-full hover:bg-zwart/10 active:bg-zwart/15"
         >
-          <span className="block w-6 h-0.5 bg-navy" />
-          <span className="block w-6 h-0.5 bg-navy" />
-          <span className="block w-6 h-0.5 bg-navy" />
+          <span className={`block h-px w-6 bg-zwart transition-transform duration-200 ${open ? "translate-y-[7px] rotate-45" : ""}`} />
+          <span className={`block h-px w-6 bg-zwart transition-opacity duration-200 ${open ? "opacity-0" : ""}`} />
+          <span className={`block h-px w-6 bg-zwart transition-transform duration-200 ${open ? "-translate-y-[7px] -rotate-45" : ""}`} />
         </button>
       </nav>
       {open && (
-        <div className="md:hidden border-t border-border bg-paper px-6 py-4 flex flex-col gap-3">
-          {LINKS.map((l) => (
-            <Link key={l.to} to={l.to} onClick={() => setOpen(false)} className="text-sm font-medium text-ink/80">
-              {l.label}
+        <div id="mobiel-menu" className="lg:hidden border-t border-lijn bg-bot">
+          <div className="wrap flex flex-col gap-1 py-4">
+            {LINKS.map((l) => (
+              <NavLink key={l.to} to={l.to} end={l.to === "/"} onClick={() => setOpen(false)} className={`${linkStijl} text-lg py-3 self-start`}>
+                {l.label}
+              </NavLink>
+            ))}
+            <Link to="/contact" onClick={() => setOpen(false)} className={`${knopPrimair} mt-3`}>
+              Plan een gesprek
             </Link>
-          ))}
-          <Link
-            to="/contact"
-            onClick={() => setOpen(false)}
-            className="mt-2 inline-flex items-center justify-center rounded-full bg-navy text-white text-sm font-semibold px-5 py-2.5"
-          >
-            Gratis starten
-          </Link>
+          </div>
         </div>
       )}
     </header>

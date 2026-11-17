@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Layout, PageHero } from "../components/Layout";
+import { Punt, knopPrimair, knopSecundair, knopPrimairDonker, tekstLink } from "../components/ui";
 import { SEO } from "../components/SEO";
 import { generateResponse, type Sector, type EmailType, type Stijl } from "../lib/responderDemo";
 import { getDemoUsesLeft, registerDemoUse, MAX_USES } from "../lib/demoLimit";
+
+const veld =
+  "w-full min-h-12 rounded-lg border border-rand bg-bot px-4 text-base text-zwart placeholder:text-grijs " +
+  "transition-[border-color] duration-200 hover:border-zwart";
 
 export function DemoResponder() {
   const [bedrijfsnaam, setBedrijfsnaam] = useState("");
@@ -39,36 +44,29 @@ export function DemoResponder() {
         path="/demo-responder"
       />
       <PageHero
-        eyebrow="Interactieve demo"
         title={
           <>
             Zie de Email Responder
             <br />
-            in actie
+            in actie<Punt />
           </>
         }
-        subtitle="Vul je bedrijf in, kies de situatie en zie hoe de AI een professioneel antwoord opstelt — afgestemd op jouw sector en stijl."
+        subtitle="Vul je bedrijf in, kies de situatie en zie hoe de AI een professioneel antwoord opstelt, afgestemd op jouw sector en stijl."
       />
 
-      <section className="max-w-6xl mx-auto px-6 pb-6">
-        <div className="text-center text-xs font-medium text-muted">
+      <section className="wrap pb-24 md:pb-32">
+        <div className="text-grijs tabular-nums mb-4" role="status">
           {usesLeft > 0
             ? `${usesLeft} van ${MAX_USES} demo-pogingen over`
             : "Je hebt het maximaal aantal demo-pogingen gebruikt"}
         </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-12 gap-6 items-stretch">
           {/* Form panel */}
-          <div className="rounded-3xl border border-border bg-white/85 backdrop-blur-sm overflow-hidden">
-            <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border text-sm font-semibold text-navy">
-              <span className="size-1.5 rounded-full bg-blue" />
-              Voer de gegevens in
-            </div>
-            <div className="p-5 space-y-4">
+          <div className="lg:col-span-5 rounded-lg border border-lijn bg-steen overflow-hidden">
+            <h2 className="px-6 py-4 border-b border-lijn text-title text-zwart font-sans font-semibold tracking-normal leading-tight">Voer de gegevens in</h2>
+            <div className="p-6 space-y-6">
               <div>
-                <label htmlFor="bedrijfsnaam" className="block text-xs font-semibold text-muted mb-1.5">
+                <label htmlFor="bedrijfsnaam" className="block text-sm font-semibold text-zwart mb-2">
                   Jouw bedrijfsnaam
                 </label>
                 <input
@@ -77,19 +75,19 @@ export function DemoResponder() {
                   value={bedrijfsnaam}
                   onChange={(e) => setBedrijfsnaam(e.target.value)}
                   placeholder="Bijv. Bloemenwebshop Vera"
-                  className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50"
+                  className={veld}
                 />
               </div>
 
               <div>
-                <label htmlFor="sector" className="block text-xs font-semibold text-muted mb-1.5">
+                <label htmlFor="sector" className="block text-sm font-semibold text-zwart mb-2">
                   Sector
                 </label>
                 <select
                   id="sector"
                   value={sector}
                   onChange={(e) => setSector(e.target.value as Sector)}
-                  className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50 bg-white"
+                  className={veld}
                 >
                   <option>Webshop</option>
                   <option>Camping/Recreatie</option>
@@ -102,14 +100,14 @@ export function DemoResponder() {
               </div>
 
               <div>
-                <label htmlFor="emailtype" className="block text-xs font-semibold text-muted mb-1.5">
+                <label htmlFor="emailtype" className="block text-sm font-semibold text-zwart mb-2">
                   Type inkomende email
                 </label>
                 <select
                   id="emailtype"
                   value={emailtype}
                   onChange={(e) => setEmailtype(e.target.value as EmailType)}
-                  className="w-full rounded-xl border border-border px-3.5 py-2.5 text-sm outline-none focus:border-blue/50 bg-white"
+                  className={veld}
                 >
                   <option>Boeking/Reservering</option>
                   <option>Productvraag</option>
@@ -120,15 +118,16 @@ export function DemoResponder() {
               </div>
 
               <div>
-                <span className="block text-xs font-semibold text-muted mb-1.5">Schrijfstijl</span>
+                <span className="block text-sm font-semibold text-zwart mb-2">Schrijfstijl</span>
                 <div className="flex flex-wrap gap-2">
                   {(["Formeel", "Vriendelijk-zakelijk", "Informeel"] as Stijl[]).map((s) => (
                     <button
                       key={s}
                       type="button"
                       onClick={() => setStijl(s)}
-                      className={`rounded-full px-3.5 py-1.5 text-xs font-semibold border transition-colors ${
-                        stijl === s ? "bg-navy text-white border-navy" : "border-border text-ink/70 hover:border-blue/40"
+                      aria-pressed={stijl === s}
+                      className={`min-h-11 rounded-full px-4 font-semibold border transition-colors duration-200 active:translate-y-px ${
+                        stijl === s ? "bg-zwart text-bot border-zwart" : "border-rand text-zwart bg-bot hover:border-zwart"
                       }`}
                     >
                       {s}
@@ -141,14 +140,14 @@ export function DemoResponder() {
                 type="button"
                 onClick={handleGenerate}
                 disabled={status === "generating" || limitReached}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-navy text-white font-semibold px-6 py-3 hover:bg-blue transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className={`${knopPrimair} w-full`}
               >
-                {limitReached ? "Limiet bereikt" : status === "generating" ? "Bezig..." : "Genereer antwoord"}
+                {limitReached ? "Limiet bereikt" : status === "generating" ? "Bezig…" : "Genereer antwoord"}
               </button>
               {limitReached && (
-                <p className="text-xs text-muted text-center">
+                <p className="text-grijs text-center">
                   Wil je dit ook voor jouw bedrijf?{" "}
-                  <Link to="/contact" className="text-blue font-semibold hover:underline">
+                  <Link to="/contact" className={tekstLink}>
                     Neem contact op
                   </Link>
                   .
@@ -158,15 +157,12 @@ export function DemoResponder() {
           </div>
 
           {/* Output panel */}
-          <div className="rounded-3xl border border-border bg-white/85 backdrop-blur-sm overflow-hidden flex flex-col">
-            <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border text-sm font-semibold text-navy">
-              <span className="size-1.5 rounded-full bg-success" />
-              Gegenereerd antwoord
-            </div>
-            <div className="p-5 flex-1 flex flex-col">
+          <div className="lg:col-span-7 rounded-lg border border-lijn bg-steen overflow-hidden flex flex-col" aria-live="polite">
+            <h2 className="px-6 py-4 border-b border-lijn text-title text-zwart font-sans font-semibold tracking-normal leading-tight">Gegenereerd antwoord</h2>
+            <div className="p-6 flex-1 flex flex-col">
               {status === "empty" && (
-                <div className="flex-1 flex flex-col items-center justify-center text-center text-sm text-muted py-12">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mb-3 opacity-40">
+                <div className="flex-1 flex flex-col items-center justify-center text-center text-grijs py-16">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mb-4 text-edge" aria-hidden="true">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -174,30 +170,26 @@ export function DemoResponder() {
                     />
                   </svg>
                   <p>
-                    Vul de gegevens links in en klik op <strong className="text-ink">Genereer antwoord</strong> om te
+                    Vul de gegevens links in en klik op <strong className="text-zwart">Genereer antwoord</strong> om te
                     starten.
                   </p>
                 </div>
               )}
               {status === "generating" && (
-                <div className="flex-1 flex flex-col items-center justify-center gap-3 text-sm text-muted py-12">
-                  <div className="flex gap-1.5">
-                    <span className="size-2 rounded-full bg-blue animate-bounce [animation-delay:0s]" />
-                    <span className="size-2 rounded-full bg-blue animate-bounce [animation-delay:0.15s]" />
-                    <span className="size-2 rounded-full bg-blue animate-bounce [animation-delay:0.3s]" />
-                  </div>
-                  AI stelt antwoord op...
+                <div className="flex-1 flex flex-col items-center justify-center gap-3 text-grijs py-16">
+                  <span className="size-6 rounded-full border-2 border-zwart/25 border-t-zilver animate-spin keep-motion" aria-hidden="true" />
+                  AI stelt antwoord op…
                 </div>
               )}
               {status === "done" && result && (
                 <div className="flex-1 flex flex-col">
-                  <div className="text-xs font-semibold uppercase tracking-wide text-muted mb-1">Onderwerp</div>
-                  <div className="text-sm font-bold text-navy mb-4">{result.subject}</div>
-                  <div className="flex-1 text-sm text-ink/85 leading-relaxed whitespace-pre-line">{result.body}</div>
-                  <div className="flex gap-3 pt-5 mt-5 border-t border-border">
+                  <div className="text-sm text-grijs mb-1">Onderwerp</div>
+                  <div className="text-lead font-semibold text-zwart mb-5">{result.subject}</div>
+                  <div className="flex-1 text-zwart leading-relaxed whitespace-pre-line">{result.body}</div>
+                  <div className="flex flex-wrap gap-3 pt-6 mt-6 border-t border-lijn">
                     <Link
                       to="/contact"
-                      className="inline-flex items-center justify-center rounded-full bg-navy text-white text-sm font-semibold px-5 py-2.5 hover:bg-blue transition-colors"
+                      className={knopPrimair}
                     >
                       Dit wil ik voor mijn bedrijf
                     </Link>
@@ -205,7 +197,7 @@ export function DemoResponder() {
                       <button
                         type="button"
                         onClick={reset}
-                        className="inline-flex items-center justify-center rounded-full border border-border text-sm font-semibold px-5 py-2.5 hover:border-blue/40 transition-colors"
+                        className={knopSecundair}
                       >
                         Opnieuw proberen
                       </button>
@@ -219,16 +211,18 @@ export function DemoResponder() {
       </section>
 
       {/* CTA */}
-      <section className="max-w-3xl mx-auto px-6 py-16 text-center border-t border-border">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-navy tracking-tight mb-4">
-          Overtuigd? Zet het live voor jouw bedrijf.
-        </h2>
-        <p className="text-lg text-muted mb-8 leading-relaxed">
-          Binnen één werkdag operationeel. Eerste week volledig gratis, geen creditcard nodig.
-        </p>
-        <Link to="/contact" className="inline-flex rounded-full bg-navy text-white font-semibold px-7 py-3.5 hover:bg-blue transition-colors">
-          Vrijblijvend aanmelden
-        </Link>
+      <section className="bg-zwart text-bot">
+        <div className="wrap py-24 md:py-28 grid md:grid-cols-12 gap-x-8 gap-y-8 items-end">
+          <h2 className="md:col-span-7 text-section">Overtuigd? Zet het live voor jouw bedrijf.</h2>
+          <div className="md:col-span-5">
+            <p className="text-lead text-grijs-licht leading-relaxed mb-8">
+              Binnen één werkdag operationeel. Eerste week volledig gratis, geen creditcard nodig.
+            </p>
+            <Link to="/contact" className={knopPrimairDonker}>
+              Vrijblijvend aanmelden
+            </Link>
+          </div>
+        </div>
       </section>
     </Layout>
   );
