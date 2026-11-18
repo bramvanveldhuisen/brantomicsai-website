@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { Diensten } from "./pages/Diensten";
+import { Producten } from "./pages/Producten";
 import { Ontruiming } from "./pages/Ontruiming";
+import { Prijsindicatie } from "./pages/Prijsindicatie";
+import { DemoPrijsindicatie } from "./pages/DemoPrijsindicatie";
 import { DemoResponder } from "./pages/DemoResponder";
 import { OverOns } from "./pages/OverOns";
 import { Contact } from "./pages/Contact";
@@ -15,10 +17,13 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/diensten" element={<Diensten />} />
+        <Route path="/producten" element={<Producten />} />
+        <Route path="/diensten" element={<Navigate to="/producten" replace />} />
         <Route path="/ontruiming" element={<Ontruiming />} />
+        <Route path="/prijsindicatie" element={<Prijsindicatie />} />
+        <Route path="/demo-prijsindicatie" element={<DemoPrijsindicatie />} />
         <Route path="/demo-responder" element={<DemoResponder />} />
-        <Route path="/prijzen" element={<Navigate to="/diensten" replace />} />
+        <Route path="/prijzen" element={<Navigate to="/producten" replace />} />
         <Route path="/over-ons" element={<OverOns />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacybeleid" element={<Privacybeleid />} />

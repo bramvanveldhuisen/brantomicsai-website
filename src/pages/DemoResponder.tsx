@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Layout, PageHero } from "../components/Layout";
 import { Punt, knopPrimair, knopSecundair, knopPrimairDonker, tekstLink } from "../components/ui";
 import { SEO } from "../components/SEO";
+import { DemoKeuze } from "../components/DemoKeuze";
 import { generateResponse, type Sector, type EmailType, type Stijl } from "../lib/responderDemo";
 import { getDemoUsesLeft, registerDemoUse, MAX_USES } from "../lib/demoLimit";
 
@@ -54,13 +55,14 @@ export function DemoResponder() {
         subtitle="Vul je bedrijf in, kies de situatie en zie hoe de AI een professioneel antwoord opstelt, afgestemd op jouw sector en stijl."
       />
 
-      <section className="wrap pb-24 md:pb-32">
+      <section className="wrap pt-14 md:pt-20 pb-24 md:pb-32">
+        <DemoKeuze />
         <div className="text-grijs tabular-nums mb-4" role="status">
           {usesLeft > 0
             ? `${usesLeft} van ${MAX_USES} demo-pogingen over`
             : "Je hebt het maximaal aantal demo-pogingen gebruikt"}
         </div>
-        <div className="grid lg:grid-cols-12 gap-6 items-stretch">
+        <div data-onthul-kinderen className="grid lg:grid-cols-12 gap-6 items-stretch">
           {/* Form panel */}
           <div className="lg:col-span-5 rounded-lg border border-lijn bg-steen overflow-hidden">
             <h2 className="px-6 py-4 border-b border-lijn text-title text-zwart font-sans font-semibold tracking-normal leading-tight">Voer de gegevens in</h2>
@@ -212,9 +214,9 @@ export function DemoResponder() {
 
       {/* CTA */}
       <section className="bg-zwart text-bot">
-        <div className="wrap py-24 md:py-28 grid md:grid-cols-12 gap-x-8 gap-y-8 items-end">
-          <h2 className="md:col-span-7 text-section">Overtuigd? Zet het live voor jouw bedrijf.</h2>
-          <div className="md:col-span-5">
+        <div data-onthul className="wrap py-24 md:py-28">
+          <h2 className="text-section mb-6 max-w-[20ch]">Overtuigd? Zet het live voor jouw bedrijf.</h2>
+          <div className="max-w-[58ch]">
             <p className="text-lead text-grijs-licht leading-relaxed mb-8">
               Binnen één werkdag operationeel. Eerste week volledig gratis, geen creditcard nodig.
             </p>

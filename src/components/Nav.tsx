@@ -5,8 +5,9 @@ import { knopPrimair } from "./ui";
 
 const LINKS = [
   { to: "/", label: "Home" },
-  { to: "/diensten", label: "Diensten" },
-  { to: "/demo-responder", label: "Demo" },
+  { to: "/producten", label: "Producten" },
+  { to: "/prijsindicatie", label: "Prijsindicatie" },
+  { to: "/demo-prijsindicatie", label: "Demo" },
   { to: "/over-ons", label: "Over ons" },
   { to: "/contact", label: "Contact" },
 ];
@@ -29,7 +30,7 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-30 bg-bot text-zwart border-b border-lijn">
+    <header className="sticky top-0 z-30 bg-bot/80 backdrop-blur-lg text-zwart border-b border-lijn/70">
       <a href="#inhoud" className="absolute left-4 -top-16 z-40 rounded-full bg-zwart px-4 py-2 font-semibold text-bot focus:top-3">
         Naar de inhoud
       </a>

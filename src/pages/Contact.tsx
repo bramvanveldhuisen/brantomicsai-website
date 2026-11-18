@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Layout, PageHero } from "../components/Layout";
 import { SEO } from "../components/SEO";
-import { CheckItem, Punt, knopPrimair, tekstLink } from "../components/ui";
+import { CheckItem, FotoVak, Punt, knopPrimair, tekstLink } from "../components/ui";
 
 const veld =
   "w-full min-h-12 rounded-lg border border-rand bg-bot px-4 text-base text-zwart placeholder:text-grijs " +
@@ -34,8 +34,8 @@ export function Contact() {
         subtitle="Vul het formulier in en we nemen binnen één werkdag contact op. Of bel Tom direct: hij helpt je snel op weg."
       />
 
-      <section className="wrap pb-24 md:pb-32">
-        <div className="grid lg:grid-cols-12 gap-x-8 gap-y-12 items-start">
+      <section className="wrap pt-16 md:pt-24 pb-24 md:pb-32">
+        <div data-onthul-kinderen className="grid lg:grid-cols-12 gap-x-8 gap-y-12 items-start">
           {/* Form */}
           <form
             action="https://docs.google.com/forms/d/e/1FAIpQLSc14YbvxKvAqC-NUDzxHbY3ESTnTYwV8Q7OeeKW1IUdjAu-aw/viewform"
@@ -89,19 +89,23 @@ export function Contact() {
             </div>
 
             <div>
-              <span className="block text-sm font-semibold text-zwart mb-2">Waar wil je hulp bij?</span>
+              <span className="block text-sm font-semibold text-zwart mb-2">Welk product wil je bekijken?</span>
               <div className="flex flex-wrap gap-x-6 gap-y-2 text-zwart">
                 <label className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
-                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Tijd besparen" />
-                  Tijd besparen
+                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Prijsindicatie" />
+                  Prijsindicatie
                 </label>
                 <label className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
-                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Beter gevonden worden" />
-                  Beter gevonden worden
+                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Email Responder" />
+                  Email Responder
                 </label>
                 <label className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
-                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Beide" defaultChecked />
-                  Beide
+                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Review-opvolging" />
+                  Review-opvolging
+                </label>
+                <label className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
+                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Weet ik nog niet" defaultChecked />
+                  Weet ik nog niet
                 </label>
               </div>
             </div>
@@ -141,6 +145,13 @@ export function Contact() {
           {/* Sidebar */}
           <div className="lg:col-span-4 lg:col-start-9 space-y-12">
             <div>
+              <FotoVak
+                wat="Aan de telefoon met een klant"
+                src="/fotos/bellen.webp"
+                alt="Aan de telefoon met een klant, met de laptop open op tafel"
+                positie="object-[50%_28%]"
+                className="aspect-[4/3] mb-8"
+              />
               <h2 className="text-title text-zwart mb-6 break-words min-w-0 font-sans font-semibold tracking-normal leading-tight">Direct contact</h2>
               <div className="space-y-5">
                 <div className="flex items-start gap-3">
@@ -195,7 +206,7 @@ export function Contact() {
               <h2 className="text-title text-zwart mb-5 break-words min-w-0 font-sans font-semibold tracking-normal leading-tight">Wat je kunt verwachten</h2>
               <ul className="space-y-3">
                 <CheckItem>Een gesprek over waar je tijd verliest of klanten misloopt</CheckItem>
-                <CheckItem>Een voorstel met wat we bouwen en wat het kost</CheckItem>
+                <CheckItem>Een voorstel met het product dat past en wat het kost</CheckItem>
                 <CheckItem>Alles persoonlijk ingericht door Bram en Tom</CheckItem>
               </ul>
             </div>

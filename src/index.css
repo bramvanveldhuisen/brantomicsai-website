@@ -1,12 +1,11 @@
 /* Hallmark · shape: Split Studio after ELI5 (a type-led poster hero, two service cards, numbered pains, a statement band, a sticky route, sectors, one tool, founder contact cards) · genre: editorial · theme: brand (chosen by Bram 12 Nov 2026: racing green on ivory, silver grey details, vermilion in small details) · job: hire · draw: manual
- * paper: oklch(95% 0.02 85) · accent: oklch(31% 0.06 160) · display: Instrument Serif · body: Schibsted Grotesk · hero: Poster (/), Split (/ontruiming: the head left, a built ontruimingsaanvraag with its concept reply right), Banner (/diensten), Banner (/demo-responder), Banner (/over-ons), Banner (/contact), Banner (/privacybeleid), Banner (/algemene-voorwaarden) · nav: edge-aligned, wordmark and one action · footer: index columns under a closing line · signature: a vermilion full stop that closes every big statement, after one italic hero word that sharpens out of a blur over a moving grid
+ * paper: oklch(95% 0.02 85) · accent: oklch(31% 0.06 160) · display: Instrument Serif · body: Schibsted Grotesk · hero: Poster (/), Split (/ontruiming: the head left, a built ontruimingsaanvraag with its concept reply right), Split (/prijsindicatie: the head left, the built result card a family sees right), Banner (/demo-prijsindicatie), Banner (/producten), Banner (/demo-responder), Banner (/over-ons), Banner (/contact), Banner (/privacybeleid), Banner (/algemene-voorwaarden) · nav: edge-aligned, wordmark and one action · footer: index columns under a closing line · signature: a vermilion full stop that closes every big statement, after one hero word that sharpens out of a blur over a moving grid
  * axes: light/high-contrast-serif/chromatic-green · posture: Restrained (ivory and racing green carry the page, silver for lines, vermilion in small details: full stops, dots, underlines, one pulse) · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S until the documentary photos exist; the type, the blur word and the real founder portraits carry it */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S on /ontruiming, which has one portrait; the type, the blur word and the team's own photos carry the rest */
 /* Hallmark · waive 38iii · the hero word gevonden sharpens out of a blur once on load, then reads like the rest of the head · the S-Unit reference Bram sent sets one distorted word per statement */
-/* Hallmark · waive 81 · the photo frames show a named placeholder for the verhuisbus, ontruiming and vastgoed pictures · Bram asked for placeholders now and real photos later */
 /* Hallmark · waive 77 · /privacybeleid and /algemene-voorwaarden run on a narrow reading measure · contract text wants a narrow column, not ten of twelve */
 /* Hallmark · waive 79 · on /privacybeleid and /algemene-voorwaarden there is no hero to centre, the gap is the space above artikel 1 · terms open on their meta block, not a fold */
-/* Hallmark · waive 44c · /diensten, /over-ons, /contact and /demo-responder open on a Banner of half a screen with the first section in view · the banner names the page and gets out of the way */
+/* Hallmark · waive 44c · /producten, /over-ons, /contact and /demo-responder open on a Banner of half a screen with the first section in view · the banner names the page and gets out of the way */
 /* Hallmark · waive 78 · on /contact and /demo-responder the h2s label the formulier and the tool panels at title size · those are working screens, the banner carries the display head */
 /* Hallmark · waive 26b · Verstuur aanvraag and Genereer antwoord carry Tailwind disabled: variants through knopBasis · the demo button is disabled while the AI een antwoord opstelt */
 /* Hallmark · dismissed 28a · FotoVak lazy-loads photos below the hero only; the hero has no photo */
@@ -51,6 +50,7 @@
   --text-lead: clamp(1.0625rem, 0.35vw + 1rem, 1.3125rem);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-zacht: cubic-bezier(0.32, 0.72, 0.32, 1);
 }
 
 @utility wrap {
@@ -67,7 +67,7 @@
 }
 @utility vervaagd {
   display: inline-block;
-  animation: scherp-worden 1.4s var(--ease-out) 0.25s both;
+  animation: scherp-worden 0.8s var(--ease-out) 0.1s both;
 }
 
 /* Bewegend raster in de opening: pulsen schieten over de lijnen, de knooppunten ademen. */
@@ -95,6 +95,87 @@
   animation: knoop-adem 4s var(--ease-out) infinite;
 }
 .raster.is-stil * { animation-play-state: paused !important; }
+
+/* De producten: een rood lichtje loopt langs de drie producten en laat ze om de beurt oplichten. */
+@keyframes stroom-x { from { transform: translateX(-100%); } to { transform: translateX(333%); } }
+@keyframes stroom-y { from { transform: translateY(-100%); } to { transform: translateY(333%); } }
+@keyframes stroom-rood {
+  0% { opacity: 0; transform: scale(1); }
+  4% { opacity: 1; transform: scale(1.5); }
+  24% { opacity: 1; transform: scale(1); }
+  36%, 100% { opacity: 0; transform: scale(1); }
+}
+.stroom-spoor { position: absolute; inset: 6px auto 6px 5px; width: 2px; overflow: hidden; background: var(--color-zilver); }
+.stroom-puls {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 30%;
+  background: linear-gradient(180deg, transparent, var(--color-vermiljoen));
+  animation: stroom-y 8s linear infinite;
+}
+.stroom-knoop { position: absolute; left: 0; top: 0.65rem; width: 12px; height: 12px; border-radius: 999px; background: var(--color-zilver-donker); }
+.stroom-knoop::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--color-vermiljoen); opacity: 0; animation: stroom-rood 8s linear infinite; }
+.stroom-knoop-2::after { animation-delay: 2.1s; }
+.stroom-knoop-3::after { animation-delay: 4.2s; }
+.stroom.is-stil *, .stroom.is-stil *::after { animation-play-state: paused !important; }
+@media (min-width: 48rem) {
+  .stroom-spoor { inset: 5px 0 auto 0; width: auto; height: 2px; }
+  .stroom-puls {
+    inset: 0 auto 0 0;
+    width: 30%;
+    height: auto;
+    background: linear-gradient(90deg, transparent, var(--color-vermiljoen));
+    animation-name: stroom-x;
+  }
+  .stroom-knoop { top: 0; }
+}
+
+/* Inhoud komt rustig binnen bij het scrollen. De wachtstand zet JavaScript pas aan,
+   dus zonder JavaScript staat alles gewoon in beeld. */
+.js .wacht { opacity: 0; transform: translateY(1rem); filter: blur(4px); }
+@media print {
+  .js .wacht { opacity: 1; transform: none; filter: none; }
+}
+.onthult {
+  transition: opacity 0.6s var(--ease-zacht), transform 0.6s var(--ease-zacht), filter 0.6s var(--ease-zacht);
+  transition-delay: var(--vertraging, 0ms);
+}
+/* De lijn van de stappen tekent zichzelf. */
+[data-onthul="lijn"] { transform-origin: left top; }
+.js [data-onthul="lijn"].wacht { opacity: 1; filter: none; transform: scaleY(0); }
+@media (min-width: 64rem) {
+  .js [data-onthul="lijn"].wacht { transform: scaleX(0); }
+}
+
+/* De foto die meegroeit met het scrollen. */
+.groei-foto { transform-origin: center top; will-change: transform; }
+
+/* De route: de rode lijn loopt mee, elke bereikte stap kleurt rood. */
+.route-vul {
+  position: absolute;
+  inset: 0 auto 0 -1px;
+  width: 2px;
+  background: var(--color-vermiljoen);
+  transform: scaleY(var(--voortgang, 1));
+  transform-origin: top;
+}
+.route-punt { transition: background-color 0.4s var(--ease-zacht), transform 0.4s var(--ease-zacht); }
+[data-route-actief] li:not(.is-bereikt) .route-punt { background: var(--color-zilver); transform: scale(0.7); }
+
+/* Scheidingslijn met een rood lichtje dat eroverheen schuift. */
+@keyframes veeg {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(460%); }
+}
+.veeg { position: relative; height: 1px; overflow: hidden; background: var(--color-lijn); }
+.veeg::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 22%;
+  background: linear-gradient(90deg, transparent, var(--color-vermiljoen), transparent);
+  animation: veeg 7s linear infinite;
+}
 
 @layer base {
   html, body { overflow-x: clip; }
@@ -137,4 +218,7 @@ h1, h2, h3 { overflow-wrap: break-word; min-width: 0; font-synthesis: none; }
   .raster .puls-x, .raster .puls-y { animation: none; opacity: 0; }
   .raster .knoop-ring { animation: none; }
   .raster-knop { display: none; }
+  .veeg::after { display: none; }
+  .stroom-puls { display: none; }
+  .stroom-knoop::after { animation: none; opacity: 1; }
 }

@@ -4,19 +4,11 @@ import { Punt, knopPrimairDonker, knopSecundairDonker } from "./ui";
 
 const KOLOMMEN = [
   {
-    kop: "Tijd besparen",
+    kop: "Producten",
     links: [
-      { to: "/diensten", label: "E-mails beantwoorden" },
-      { to: "/diensten", label: "Aanvragen opvolgen" },
-      { to: "/diensten", label: "Reviews vragen" },
-    ],
-  },
-  {
-    kop: "Beter gevonden",
-    links: [
-      { to: "/diensten", label: "Google Ads" },
-      { to: "/diensten", label: "Je website" },
-      { to: "/diensten", label: "Google Bedrijfsprofiel" },
+      { to: "/prijsindicatie", label: "Prijsindicatie" },
+      { to: "/producten", label: "Email Responder" },
+      { to: "/producten", label: "Review-opvolging" },
     ],
   },
   {
@@ -24,7 +16,7 @@ const KOLOMMEN = [
     links: [
       { to: "/", label: "Home" },
       { to: "/ontruiming", label: "Voor ontruimers" },
-      { to: "/demo-responder", label: "Demo" },
+      { to: "/demo-prijsindicatie", label: "Demo" },
       { to: "/over-ons", label: "Over ons" },
       { to: "/contact", label: "Contact" },
     ],
@@ -37,7 +29,7 @@ export function Footer() {
   return (
     <footer className="bg-zwart text-bot">
       <div className="wrap pt-20 pb-12 grid sm:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-12">
-        <div className="sm:col-span-2 lg:col-span-4">
+        <div className="sm:col-span-2 lg:col-span-6">
           <Link to="/" aria-label="brantomicsAI, naar de homepagina" className="inline-block">
             <Logo size="footer" opDonker />
           </Link>

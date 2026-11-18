@@ -16,21 +16,33 @@ const SITE_URL = "https://brantomicsai.nl";
 const ROUTES = [
   {
     path: "/",
-    title: "Tijd besparen en beter gevonden worden, met AI",
+    title: "AI-producten voor ontruimers, verhuizers en vastgoed",
     description:
-      "brantomicsAI helpt ontruimers, verhuizers en vastgoedbedrijven tijd te besparen en online beter gevonden te worden, met AI. Persoonlijk ingericht door Bram en Tom.",
+      "brantomicsAI maakt AI-producten voor bedrijven met veel aanvragen: een prijsindicatie op je site, de Email Responder en review-opvolging. Persoonlijk ingericht door Bram en Tom.",
   },
   {
-    path: "/diensten",
-    title: "Diensten",
+    path: "/producten",
+    title: "Producten",
     description:
-      "Tijd besparen en beter gevonden worden: e-mails, aanvragen en reviews automatiseren, en Google Ads, je website en je Bedrijfsprofiel op orde. Voor ontruimers, verhuizers en vastgoed.",
+      "Drie AI-producten voor bedrijven met veel aanvragen: de prijsindicatie met foto's, de Email Responder en review-opvolging.",
   },
   {
     path: "/ontruiming",
     title: "AI en automatisering voor ontruimers",
     description:
-      "Voor ontruimingsbedrijven: aanvragen beantwoord, een prijsindicatie op je site, reviews gevraagd en beter gevonden in je regio. Met AI, in je eigen accounts, persoonlijk ingericht.",
+      "Voor ontruimingsbedrijven: een prijsindicatie op je site, concept-antwoorden in je inbox en review-opvolging. Met AI, in je eigen accounts, persoonlijk ingericht.",
+  },
+  {
+    path: "/prijsindicatie",
+    title: "Prijsindicatie met foto's voor ontruimers",
+    description:
+      "Een aanvraagpagina op je eigen site: families maken foto's per kamer, de AI telt wat er staat en jouw eigen tarieven maken er een prijsindicatie van.",
+  },
+  {
+    path: "/demo-prijsindicatie",
+    title: "Demo prijsindicatie voor ontruimers",
+    description:
+      "Probeer de prijsindicatie met foto's: doorloop de aanvraag zoals een familie die op de site van een ontruimer ziet.",
   },
   {
     path: "/demo-responder",

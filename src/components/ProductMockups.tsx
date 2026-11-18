@@ -68,3 +68,30 @@ export function OrderMockupCard({
     </figure>
   );
 }
+
+/** Wat de familie ziet na het invullen. */
+export function UitslagKaart() {
+  return (
+    <figure data-kind="product" className={`rounded-2xl border border-mist bg-white overflow-hidden shadow-[0_24px_48px_-24px_color-mix(in_oklab,var(--color-zwart)_35%,transparent)]`}>
+      <figcaption className="px-5 py-3.5 border-b border-mist text-sm text-slate">Wat de familie ziet (voorbeeld, naam en bedragen zijn verzonnen)</figcaption>
+      <div className="p-5 md:p-6">
+        <p className="font-serif text-[2.25rem] leading-none text-zwart">Bedankt, Anna!</p>
+        <p className="mt-2 text-sm text-slate tabular-nums">Referentienummer 2418</p>
+        <p className="mt-4 text-sm text-zwart leading-relaxed">
+          Woningontruiming en afval afvoeren, ontruiming van de gehele woning (volgens het Kadaster 92 m², ca. 28 m³), afvoer met 2 vrachtwagens
+        </p>
+        <div className="mt-5 border-t border-mist pt-5">
+          <p className="text-sm font-semibold text-zwart">Indicatieve prijs</p>
+          <p className="mt-1 font-serif text-[clamp(2.25rem,2vw+1.5rem,3rem)] leading-none text-zwart tabular-nums">€ 1.850 tot € 2.350</p>
+          <div className="mt-4 h-1.5 rounded-full bg-mist" aria-hidden="true">
+            <div className="ml-[30%] h-full w-[40%] rounded-full bg-zwart" />
+          </div>
+          <p className="mt-3 text-sm text-slate leading-relaxed">Dit is geen offerte. De vaste prijs spreken we met u af na de bezichtiging.</p>
+        </div>
+        <div className="mt-5 rounded-full bg-zwart py-3 text-center text-sm font-semibold text-bot" aria-hidden="true">
+          Plan een gratis bezichtiging in
+        </div>
+      </div>
+    </figure>
+  );
+}

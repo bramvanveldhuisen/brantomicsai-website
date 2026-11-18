@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
  */
 const knopBasis =
   "inline-flex items-center justify-center gap-2 min-h-12 rounded-full px-6 font-semibold whitespace-nowrap " +
-  "transition-[background-color,border-color,color,transform] duration-200 ease-out active:translate-y-px " +
+  "transition-[background-color,border-color,color,transform] duration-300 ease-out hover:-translate-y-0.5 active:translate-y-px " +
   "disabled:opacity-55 disabled:cursor-not-allowed disabled:translate-y-0";
 
 export const knopPrimair = `${knopBasis} bg-zwart text-bot hover:bg-groen-mid`;
@@ -42,14 +42,14 @@ export function CheckItem({ children }: { children: ReactNode }) {
   );
 }
 
-/** Kop van een sectie: grote schreefkop links, één regel ernaast. */
+/** Kop van een sectie: grote schreefkop, met de toelichting eronder. */
 export function SectieKop({ titel, regel, id, donker = false }: { titel: ReactNode; regel?: ReactNode; id?: string; donker?: boolean }) {
   return (
-    <div className="grid md:grid-cols-12 gap-x-8 gap-y-5 items-end mb-14 md:mb-20">
-      <h2 id={id} className="md:col-span-7 text-section">
+    <div data-onthul className="mb-14 md:mb-20 max-w-[50rem]">
+      <h2 id={id} className="text-section">
         {titel}
       </h2>
-      {regel && <p className={`md:col-span-4 md:col-start-9 text-lead leading-relaxed ${donker ? "text-grijs-licht" : "text-grijs"}`}>{regel}</p>}
+      {regel && <p className={`mt-6 text-lead leading-relaxed max-w-[56ch] ${donker ? "text-grijs-licht" : "text-grijs"}`}>{regel}</p>}
     </div>
   );
 }
@@ -67,6 +67,7 @@ export function FotoVak({
   wat,
   src,
   alt = "",
+  positie = "",
   className = "",
   donker = false,
   children,
@@ -74,6 +75,8 @@ export function FotoVak({
   wat: string;
   src?: string;
   alt?: string;
+  /** Welk deel van de foto in beeld blijft, bijv. "object-[50%_17%]". */
+  positie?: string;
   className?: string;
   donker?: boolean;
   children?: ReactNode;
@@ -81,7 +84,12 @@ export function FotoVak({
   if (src) {
     return (
       <figure className={`relative overflow-hidden rounded-xl ${className}`}>
-        <img src={src} alt={alt} loading="lazy" className="absolute inset-0 size-full object-cover" />
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          className={`absolute inset-0 size-full object-cover ${positie}`}
+        />
         {children}
       </figure>
     );

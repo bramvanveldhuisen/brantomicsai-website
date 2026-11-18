@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout, PageHero } from "../components/Layout";
 import { SEO } from "../components/SEO";
-import { Punt, knopPrimair } from "../components/ui";
+import { FotoVak, Punt, knopPrimair } from "../components/ui";
 
 const TEAM = [
   {
@@ -45,12 +45,12 @@ const VERHAAL = [
   {
     titel: "Het begin",
     tekst:
-      "We zijn begonnen met een simpele observatie: ondernemers zijn goed in hun vak, maar verliezen elke dag tijd aan werk dat steeds terugkomt. Dezelfde vragen beantwoorden, aanvragen opvolgen, reviews najagen. En ondertussen vinden klanten hen online slecht terug.",
+      "We zijn begonnen met een simpele observatie: ondernemers zijn goed in hun vak, maar verliezen elke dag tijd aan werk dat steeds terugkomt. Dezelfde vragen beantwoorden, prijzen uitzoeken, reviews najagen.",
   },
   {
     titel: "Wat we anders doen",
     tekst:
-      "We bouwen geen generieke chatbot. We kijken per bedrijf waar de tijd echt in zit en waar klanten afhaken, en bouwen precies dat. Dat vergt aandacht in het begin, maar levert iets op dat past bij hoe jouw bedrijf werkt.",
+      "We bouwen geen generieke chatbot. We maken een paar vaste producten voor bedrijven met veel aanvragen, en richten die in op hoe jouw bedrijf werkt.",
   },
   {
     titel: "Eerlijk over wat we zijn",
@@ -80,7 +80,7 @@ export function OverOns() {
 
       {/* TEAM */}
       <section className="wrap pb-24 md:pb-32">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+        <div data-onthul-kinderen className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 pt-16 md:pt-24">
           {TEAM.map((p, i) => (
             <article key={p.naam}>
               <img
@@ -107,8 +107,8 @@ export function OverOns() {
       {/* ONS VERHAAL */}
       <section className="bg-steen py-24 md:py-32">
         <div className="wrap">
-          <h2 className="text-section mb-12 md:mb-16">Waarom brantomicsAI?</h2>
-          <div className="border-b border-lijn">
+          <h2 data-onthul className="text-section mb-12 md:mb-16">Waarom brantomicsAI?</h2>
+          <div data-onthul-kinderen className="border-b border-lijn">
             {VERHAAL.map((v) => (
               <div key={v.titel} className="grid md:grid-cols-12 gap-x-8 gap-y-3 border-t border-lijn py-10">
                 <h3 className="md:col-span-4 text-title">{v.titel}</h3>
@@ -120,17 +120,25 @@ export function OverOns() {
       </section>
 
       {/* MISSIE */}
-      <section className="wrap py-24 md:py-32">
-        <figure className="max-w-[56rem]">
-          <blockquote className="font-serif text-display-s leading-[1.05] text-zwart text-balance">
-            “Elke MKB-ondernemer verdient toegang tot slimme automatisering, niet alleen de grote
-            bedrijven met grote budgetten. Wij maken dat mogelijk, persoonlijk en zonder gedoe.”
-          </blockquote>
-          <figcaption className="mt-6 text-lead text-grijs">Bram &amp; Tom, oprichters Brantomics AI</figcaption>
-        </figure>
-        <Link to="/contact" className={`${knopPrimair} mt-10`}>
-          Maak kennis met ons
-        </Link>
+      <section data-onthul-kinderen className="wrap py-24 md:py-32 grid lg:grid-cols-12 gap-x-8 gap-y-12 items-center">
+        <div className="lg:col-span-6">
+          <figure>
+            <blockquote className="font-serif text-[clamp(2.25rem,1.8vw+1.25rem,3.25rem)] leading-[1.05] text-zwart text-balance">
+              “Elke MKB-ondernemer verdient toegang tot slimme automatisering, niet alleen de grote
+              bedrijven met grote budgetten. Wij maken dat mogelijk, persoonlijk en zonder gedoe.”
+            </blockquote>
+            <figcaption className="mt-6 text-lead text-grijs">Bram &amp; Tom, oprichters Brantomics AI</figcaption>
+          </figure>
+          <Link to="/contact" className={`${knopPrimair} mt-10`}>
+            Maak kennis met ons
+          </Link>
+        </div>
+        <FotoVak
+          wat="Tom en Bram, de oprichters"
+          src="/fotos/tom-en-bram.webp"
+          alt="Tom Vaessen en Bram van Veldhuisen, de oprichters, in zwarte shirts voor een donkere houten wand"
+          className="lg:col-span-6 aspect-[3/2]"
+        />
       </section>
     </Layout>
   );
