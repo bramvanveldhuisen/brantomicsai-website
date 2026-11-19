@@ -30,7 +30,7 @@ export const PRIVACYBELEID: JuridischDocument = {
       "blokken": [
         {
           "t": "p",
-          "tekst": "Brantomics AI is een vennootschap onder firma in Maarn. We maken AI-producten voor bedrijven: het prijsindicatie-systeem dat een bedrijf op zijn eigen website zet, de Email Responder en review-opvolging. In dit privacybeleid staat welke persoonsgegevens we verwerken, waarom, hoe lang, en wat je rechten zijn."
+          "tekst": "Brantomics AI is een vennootschap onder firma in Maarn. We maken AI-producten voor bedrijven: het prijsindicatie-systeem dat een bedrijf op zijn eigen website zet, de Email Responder en review-opvolging. In dit privacybeleid staat welke persoonsgegevens we verwerken, waarom, hoe lang, en wat je rechten zijn. Het prijsindicatie-systeem en review-opvolging zijn op 19 november 2026 nog in ontwikkeling. De onderdelen van dit privacybeleid over die twee producten gelden zodra een bedrijf ze bij ons afneemt en ze live staan. Tot die tijd verwerken we via die producten geen gegevens."
         }
       ]
     },
@@ -104,7 +104,7 @@ export const PRIVACYBELEID: JuridischDocument = {
         },
         {
           "t": "p",
-          "tekst": "Zakelijke contactgegevens van bedrijven die we benaderen gebruiken we om ons aanbod onder de aandacht te brengen, op basis van gerechtvaardigd belang (sub f). Ongevraagde e-mail sturen we alleen naar een adres dat het bedrijf zelf daarvoor openbaar maakt. Elke mail vermeldt wie we zijn en hoe je je afmeldt: antwoord met stop en we benaderen je niet meer. Dat geldt ook als we bellen en je zegt geen contact te willen."
+          "tekst": "Zakelijke contactgegevens van bedrijven die we benaderen gebruiken we om ons aanbod onder de aandacht te brengen, op basis van gerechtvaardigd belang (sub f). Ongevraagde e-mail sturen we alleen naar een adres dat het bedrijf zelf daarvoor openbaar maakt. Elke mail vermeldt wie we zijn en hoe je je afmeldt: antwoord met stop en we benaderen je niet meer. Voordat we een bedrijf bellen, kijken we in het handelsregister van de KvK welke rechtsvorm het heeft. Een eenmanszaak, vof, cv of maatschap bellen we alleen met voorafgaande toestemming. Zeg je aan de telefoon dat je geen contact wilt, dan benaderen we je ook niet meer."
         },
         {
           "t": "p",
@@ -182,7 +182,7 @@ export const PRIVACYBELEID: JuridischDocument = {
       "blokken": [
         {
           "t": "p",
-          "tekst": "We schakelen de volgende partijen in. Ze krijgen alleen de gegevens die nodig zijn voor hun taak."
+          "tekst": "We schakelen de volgende partijen in. Ze krijgen alleen de gegevens die nodig zijn voor hun taak. Voor onze eigen e-mail, agenda en bestanden gebruiken we daarnaast diensten van onder meer Google en Microsoft."
         },
         {
           "t": "tabel",
@@ -196,7 +196,7 @@ export const PRIVACYBELEID: JuridischDocument = {
             [
               "Hetzner Online GmbH",
               "Duitsland (datacenter Falkenstein)",
-              "Hosting van het Prijsindicatie-systeem en het Dashboard; opslag van aanvragen en foto's",
+              "Hosting van onze website en ons interne teamsysteem, en straks van het Prijsindicatie-systeem en het Dashboard; opslag van aanvragen en foto's",
               "Verwerkersovereenkomst van Hetzner; verwerking binnen de EU"
             ],
             [
@@ -208,7 +208,7 @@ export const PRIVACYBELEID: JuridischDocument = {
             [
               "Make.com (Celonis)",
               "EU / Verenigde Staten",
-              "Automatisering van e-mailstromen; tijdelijke opslag in uitvoeringslogs van maximaal 30 dagen",
+              "Verwerken van ons contactformulier en automatisering van e-mailstromen; tijdelijke opslag in uitvoeringslogs van maximaal 30 dagen",
               "DPA van Make (onderdeel van de gebruiksvoorwaarden); SCC's voor doorgifte buiten de EER"
             ],
             [
@@ -265,7 +265,7 @@ export const PRIVACYBELEID: JuridischDocument = {
       "blokken": [
         {
           "t": "p",
-          "tekst": "We nemen passende technische en organisatorische maatregelen tegen ongeoorloofde toegang, verlies en misbruik. Alle verbindingen zijn versleuteld, het dashboard is alleen bereikbaar met een eigen account, en alleen de vennoten van Brantomics AI hebben toegang tot de systemen met persoonsgegevens. Een datalek melden we binnen 48 uur aan het betrokken klantbedrijf, en waar wij zelf verantwoordelijke zijn, aan de Autoriteit Persoonsgegevens als dat wettelijk moet."
+          "tekst": "We nemen passende technische en organisatorische maatregelen tegen ongeoorloofde toegang, verlies en misbruik. Alle verbindingen zijn versleuteld, het dashboard is alleen bereikbaar met een eigen account, en alleen de vennoten en medewerkers van Brantomics AI die de gegevens voor hun werk nodig hebben en aan geheimhouding gebonden zijn, hebben toegang tot de systemen met persoonsgegevens. Een datalek melden we binnen 48 uur aan het betrokken klantbedrijf, en waar wij zelf verantwoordelijke zijn, aan de Autoriteit Persoonsgegevens als dat wettelijk moet."
         }
       ]
     },
@@ -392,6 +392,10 @@ export const ALGEMENE_VOORWAARDEN: JuridischDocument = {
         {
           "t": "p",
           "tekst": "**3.5** Brantomics AI mag de Producten verbeteren en technisch aanpassen. Een wijziging die een overeengekomen functie wezenlijk beperkt, kondigt Brantomics AI minimaal 30 dagen vooraf per e-mail aan. De Klant mag de Overeenkomst dan opzeggen tegen de ingangsdatum van die wijziging."
+        },
+        {
+          "t": "p",
+          "tekst": "**3.6** Het Prijsindicatie-systeem en Review-opvolging zijn op 19 november 2026 nog in ontwikkeling en worden nog niet geleverd. De bepalingen in deze voorwaarden die alleen over deze Producten gaan, gelden pas vanaf het moment dat een van deze Producten in een Overeenkomst wordt opgenomen en geleverd."
         }
       ]
     },
@@ -675,7 +679,7 @@ export const ALGEMENE_VOORWAARDEN: JuridischDocument = {
         },
         {
           "t": "p",
-          "tekst": "**17.2** Deze versie 2.0 vervangt versie 1.2 van 23 september 2026."
+          "tekst": "**17.2** Deze versie 2.0 vervangt versie 1.2 van 23 september 2026. Voor nieuwe Overeenkomsten geldt versie 2.0 vanaf 19 november 2026. Voor Klanten met een Overeenkomst van vóór 19 november 2026 geldt versie 2.0 vanaf 19 december 2026, na bericht per e-mail. Tot die datum blijft voor hen versie 1.2 gelden."
         }
       ]
     }
