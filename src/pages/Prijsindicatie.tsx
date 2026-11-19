@@ -177,7 +177,7 @@ export function Prijsindicatie() {
           <div data-onthul className="max-w-[48rem]">
             <h2 className="text-section">Je klant wil niet wachten op een offerte<Punt /></h2>
             <p className="mt-4 text-lead text-grijs-licht leading-relaxed">
-              Wie een ontruiming zoekt, wil meteen weten wat het ongeveer kost. Moet hij eerst een aanvraag sturen en wachten op een reactie, dan kijkt hij intussen verder bij een ander. Daarom hebben we dit systeem gebouwd.
+              Wie een ontruiming zoekt, wil meteen weten wat het ongeveer kost. Moet hij eerst een aanvraag sturen en wachten op een reactie, dan kijkt hij intussen verder bij een ander. Daarom hebben we dit systeem gebouwd, speciaal voor ontruimers. Werk je in een branche met soortgelijke diensten, zoals verhuizen of opruimen? Dan bouwen we het ook voor jou.
             </p>
           </div>
           <div data-onthul-kinderen className="mt-8 grid gap-5 md:grid-cols-2">

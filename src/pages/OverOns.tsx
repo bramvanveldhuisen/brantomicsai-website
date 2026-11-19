@@ -50,7 +50,7 @@ const VERHAAL = [
   {
     titel: "Wat we anders doen",
     tekst:
-      "We bouwen geen generieke chatbot. We maken een paar vaste producten voor ontruimingsbedrijven, en richten die in op hoe jouw bedrijf werkt.",
+      "We bouwen geen generieke chatbot. We maken een paar vaste producten en richten die in op hoe jouw bedrijf werkt. Ontruiming is onze specialiteit, maar we werken ook voor andere bedrijven, zoals restaurants.",
   },
   {
     titel: "Eerlijk over wat we zijn",
@@ -64,7 +64,7 @@ export function OverOns() {
     <Layout>
       <SEO
         title="Over ons"
-        description="Brantomics AI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee ondernemers die AI-producten maken voor ontruimingsbedrijven."
+        description="Brantomics AI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee ondernemers die AI-producten maken voor bedrijven met veel aanvragen, gespecialiseerd in ontruiming."
         path="/over-ons"
       />
       <PageHero
@@ -124,7 +124,7 @@ export function OverOns() {
         <div className="lg:col-span-6">
           <figure>
             <blockquote className="font-serif text-[clamp(2.25rem,1.8vw+1.25rem,3.25rem)] leading-[1.05] text-zwart text-balance">
-              “Elke ontruimer verdient toegang tot slimme automatisering, niet alleen de grote
+              “Elke ondernemer verdient toegang tot slimme automatisering, niet alleen de grote
               bedrijven met grote budgetten. Wij maken dat mogelijk, persoonlijk en zonder gedoe.”
             </blockquote>
             <figcaption className="mt-6 text-lead text-grijs">Bram &amp; Tom, oprichters Brantomics AI</figcaption>

@@ -4,7 +4,7 @@ import { Layout } from "../components/Layout";
 import { Punt, knopPrimair, knopSecundair, knopPrimairDonker, tekstLink } from "../components/ui";
 import { SEO } from "../components/SEO";
 import { DemoKop } from "../components/DemoKeuze";
-import { generateResponse, type Sector, type EmailType, type Stijl } from "../lib/responderDemo";
+import { generateResponse, SECTOREN, EMAILTYPES, type Sector, type EmailType, type Stijl } from "../lib/responderDemo";
 import { getDemoUsesLeft, registerDemoUse, MAX_USES } from "../lib/demoLimit";
 
 const veld =
@@ -13,8 +13,8 @@ const veld =
 
 export function DemoResponder() {
   const [bedrijfsnaam, setBedrijfsnaam] = useState("");
-  const [sector, setSector] = useState<Sector>("Woningontruiming");
-  const [emailtype, setEmailtype] = useState<EmailType>("Aanvraag ontruiming");
+  const [sector, setSector] = useState<Sector>("Ontruiming");
+  const [emailtype, setEmailtype] = useState<EmailType>("Aanvraag of offerte");
   const [stijl, setStijl] = useState<Stijl>("Vriendelijk-zakelijk");
   const [status, setStatus] = useState<"empty" | "generating" | "done">("empty");
   const [result, setResult] = useState<{ subject: string; body: string } | null>(null);
@@ -65,14 +65,14 @@ export function DemoResponder() {
                   type="text"
                   value={bedrijfsnaam}
                   onChange={(e) => setBedrijfsnaam(e.target.value)}
-                  placeholder="Bijv. Ontruimingsbedrijf De Vries"
+                  placeholder="Bijv. De Vries Ontruimingen of Restaurant De Linde"
                   className={veld}
                 />
               </div>
 
               <div>
                 <label htmlFor="sector" className="block text-sm font-semibold text-zwart mb-2">
-                  Soort ontruiming
+                  Branche
                 </label>
                 <select
                   id="sector"
@@ -80,10 +80,9 @@ export function DemoResponder() {
                   onChange={(e) => setSector(e.target.value as Sector)}
                   className={veld}
                 >
-                  <option>Woningontruiming</option>
-                  <option>Spoedontruiming</option>
-                  <option>Bedrijfsontruiming</option>
-                  <option>Anders</option>
+                  {SECTOREN.map((s) => (
+                    <option key={s}>{s}</option>
+                  ))}
                 </select>
               </div>
 
@@ -97,11 +96,9 @@ export function DemoResponder() {
                   onChange={(e) => setEmailtype(e.target.value as EmailType)}
                   className={veld}
                 >
-                  <option>Aanvraag ontruiming</option>
-                  <option>Vraag over de werkwijze</option>
-                  <option>Klacht</option>
-                  <option>Informatieverzoek</option>
-                  <option>Annulering</option>
+                  {EMAILTYPES.map((t) => (
+                    <option key={t}>{t}</option>
+                  ))}
                 </select>
               </div>
 

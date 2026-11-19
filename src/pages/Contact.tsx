@@ -11,7 +11,7 @@ const veld =
 /** Aanvragen gaan via Make naar de mailbox (scenario "Brantomics AI - contactformulier website naar mail"). */
 const AANVRAAG_ADRES = "https://hook.eu1.make.com/e6egeork5hyjx8tpocbnpa9cvs38qexp";
 
-const WERKZAAMHEDEN = ["Woningontruiming", "Spoedontruiming", "Bedrijfsontruiming", "Seniorenverhuizing", "Bezemschoon opleveren", "Anders"];
+const WERKZAAMHEDEN = ["Ontruiming", "Verhuizing", "Schoonmaak", "Horeca", "Andere dienstverlening"];
 
 export function Contact() {
   const [charCount, setCharCount] = useState(0);

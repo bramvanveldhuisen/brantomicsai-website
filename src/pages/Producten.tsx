@@ -23,7 +23,7 @@ export function Producten() {
     <Layout>
       <SEO
         title="Producten"
-        description="Drie AI-producten voor ontruimingsbedrijven: het prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging."
+        description="Drie AI-producten voor bedrijven met veel aanvragen en klantvragen, gespecialiseerd in ontruiming: het prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging."
         path="/producten"
       />
       <PageHero
@@ -34,7 +34,7 @@ export function Producten() {
             in drie producten<Punt />
           </>
         }
-        subtitle="Vaste producten voor ontruimingsbedrijven. Ze werken op je eigen website en in je eigen inbox."
+        subtitle="Vaste producten voor bedrijven met veel aanvragen en klantvragen, van ontruimers tot restaurants. Ze werken op je eigen website en in je eigen inbox."
       />
 
       <section data-onthul className="wrap py-10 md:py-12">
@@ -50,7 +50,7 @@ export function Producten() {
             </h2>
             <p className="mt-6 text-title font-semibold text-bot">Ons belangrijkste product.</p>
             <p className="mt-4 text-lead text-grijs-licht leading-relaxed max-w-[50ch]">
-              Je klant wil niet wachten op een offerte. Met één regel code staat het op je eigen website. Je klanten maken foto’s per kamer, de AI schat in wat er staat en jouw eigen tarieven maken er een prijsindicatie van.
+              Je klant wil niet wachten op een offerte. Met één regel code staat het op je eigen website. Je klanten maken foto’s per kamer, de AI schat in wat er staat en jouw eigen tarieven maken er een prijsindicatie van. Gemaakt voor ontruimers; voor branches met soortgelijke diensten bouwen we het ook.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link to="/demo-prijsindicatie" className={knopPrimairDonker}>

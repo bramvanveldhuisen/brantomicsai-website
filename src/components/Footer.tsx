@@ -15,6 +15,7 @@ const KOLOMMEN = [
     kop: "Brantomics AI",
     links: [
       { to: "/", label: "Home" },
+      { to: "/ontruiming", label: "Voor ontruimers" },
             { to: "/demo-prijsindicatie", label: "Demo" },
       { to: "/over-ons", label: "Over ons" },
       { to: "/contact", label: "Contact" },

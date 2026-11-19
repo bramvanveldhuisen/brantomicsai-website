@@ -16,15 +16,21 @@ const SITE_URL = "https://brantomicsai.nl";
 const ROUTES = [
   {
     path: "/",
-    title: "AI-producten voor ontruimers",
+    title: "AI-producten voor ontruimers en dienstverleners",
     description:
-      "Brantomics AI maakt AI-producten voor ontruimers: een prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging.",
+      "Brantomics AI maakt AI-producten voor bedrijven met veel aanvragen, gespecialiseerd in ontruiming: een prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging.",
   },
   {
     path: "/producten",
     title: "Producten",
     description:
-      "Drie AI-producten voor ontruimingsbedrijven: het prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging.",
+      "Drie AI-producten voor bedrijven met veel aanvragen en klantvragen, gespecialiseerd in ontruiming: het prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging.",
+  },
+  {
+    path: "/ontruiming",
+    title: "AI voor ontruimers",
+    description:
+      "Ontruiming is onze specialiteit: een prijsindicatie-systeem op je eigen website, conceptantwoorden in je inbox en review-opvolging, persoonlijk ingericht.",
   },
   {
     path: "/prijsindicatie",
@@ -48,7 +54,7 @@ const ROUTES = [
     path: "/over-ons",
     title: "Over ons",
     description:
-      "Brantomics AI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee ondernemers die AI-producten maken voor ontruimingsbedrijven.",
+      "Brantomics AI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee ondernemers die AI-producten maken voor bedrijven met veel aanvragen, gespecialiseerd in ontruiming.",
   },
   {
     path: "/contact",

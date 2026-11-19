@@ -6,6 +6,7 @@ import { knopPrimair } from "./ui";
 const LINKS = [
   { to: "/", label: "Home" },
   { to: "/producten", label: "Producten" },
+  { to: "/ontruiming", label: "Ontruiming" },
   { to: "/prijsindicatie", label: "Prijsindicatie" },
   { to: "/demo-prijsindicatie", label: "Demo" },
   { to: "/over-ons", label: "Over ons" },

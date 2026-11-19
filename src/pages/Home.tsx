@@ -26,10 +26,10 @@ const PRODUCTEN = [
 ];
 
 const PIJNEN = [
-  { titel: "Nabestaanden bellen terwijl je een zolder leeghaalt.", tekst: "Wie pas ’s avonds terugbelt, merkt soms dat er al een ander is gebeld." },
-  { titel: "Je rijdt naar een bezichtiging die niets wordt.", tekst: "Voor een prijs moet je eerst gaan kijken. Een deel van die afspraken levert geen klus op." },
+  { titel: "Klanten mailen terwijl jij aan het werk bent.", tekst: "Wie pas ’s avonds antwoordt, merkt soms dat de klant al bij een ander zit." },
+  { titel: "Je gaat langs voor een prijs, en het wordt niets.", tekst: "Voor een prijs moet je eerst gaan kijken. Een deel van die afspraken levert geen klus op." },
   { titel: "De eerste vraag is altijd: wat kost het?", tekst: "Klanten willen een bedrag weten voordat ze bellen. Zonder bedrag vragen ze eerst bij een ander." },
-  { titel: "Je laatste review is maanden oud.", tekst: "Klanten kiezen een ontruimer op vertrouwen. Recente reviews wegen dan zwaar." },
+  { titel: "Je laatste review is maanden oud.", tekst: "Klanten kiezen op vertrouwen. Recente reviews wegen dan zwaar." },
 ];
 
 const ROUTE: { titel: string; tekst: string; foto?: { src: string; alt: string; positie: string } }[] = [
@@ -49,11 +49,12 @@ const ROUTE: { titel: string; tekst: string; foto?: { src: string; alt: string; 
 
 const SECTOREN: { naam: string; tekst: string; link?: { to: string; label: string } }[] = [
   {
-    naam: "Woningontruiming",
-    tekst: "Hele woningen, vaak met nabestaanden aan de telefoon en een harde datum voor de oplevering.",
+    naam: "Ontruiming",
+    tekst: "Hier zijn we in gespecialiseerd. Woning-, spoed- en bedrijfsontruiming, met een prijsindicatie-systeem dat speciaal voor ontruimers is gemaakt.",
+    link: { to: "/ontruiming", label: "Wat we voor ontruimers doen" },
   },
-  { naam: "Spoedontruiming", tekst: "Een woning die snel leeg moet. Dan telt wie als eerste duidelijk antwoord geeft." },
-  { naam: "Opleveren", tekst: "Bezemschoon opleveren aan de woningcorporatie, met vooraf een duidelijke afspraak over de prijs." },
+  { naam: "Horeca", tekst: "Reserveringen, vragen over groepen en allergieën. Voor elke mail staat een conceptantwoord klaar." },
+  { naam: "Andere dienstverleners", tekst: "Verhuizers, schoonmakers, hoveniers en andere bedrijven die veel aanvragen en klantvragen krijgen." },
 ];
 
 const TEAM = [
@@ -65,8 +66,8 @@ export function Home() {
   return (
     <Layout>
       <SEO
-        title="AI-producten voor ontruimers"
-        description="Brantomics AI maakt AI-producten voor ontruimers: een prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging."
+        title="AI-producten voor ontruimers en dienstverleners"
+        description="Brantomics AI maakt AI-producten voor bedrijven met veel aanvragen, gespecialiseerd in ontruiming: een prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging."
         path="/"
       />
 
@@ -81,14 +82,14 @@ export function Home() {
           <h1 className="text-poster max-w-[17ch]">
             Minder regelwerk. Meer{" "}
             <span className="vervaagd">
-              ontruimen
+              tijd
               <span className="text-vermiljoen">.</span>
             </span>
           </h1>
           <div className="pointer-events-auto mt-8 max-w-[40rem]">
             <p data-onthul data-vertraging="200" className="text-lead text-grijs leading-relaxed">
-              Drie AI-producten voor ontruimingsbedrijven: een prijsindicatie-systeem op je eigen website,
-              conceptantwoorden in je inbox en review-opvolging.
+              Drie AI-producten voor bedrijven met veel aanvragen en klantvragen: een prijsindicatie-systeem op je eigen website,
+              conceptantwoorden in je inbox en review-opvolging. Gespecialiseerd in ontruiming.
             </p>
             <div data-onthul data-vertraging="280" className="mt-7 flex flex-wrap gap-3">
               <Link to="/contact" className={knopPrimair}>
@@ -105,7 +106,7 @@ export function Home() {
 
       {/* DE PRODUCTEN */}
       <section className="wrap py-10 md:py-14">
-        <SectieKop titel="Onze producten" regel="Drie producten, gemaakt voor ontruimingsbedrijven." />
+        <SectieKop titel="Onze producten" regel="Drie vaste producten, ingericht op hoe jouw bedrijf werkt." />
         <div data-onthul-kinderen className="grid md:grid-cols-3 gap-6">
           {PRODUCTEN.map((p) => (
             <article
@@ -183,7 +184,7 @@ export function Home() {
       {/* VOOR WIE */}
       <section className="bg-creme py-10 md:py-14">
         <div className="wrap">
-          <SectieKop titel="Gemaakt voor ontruimers" regel="Van een kleine zaak tot een bedrijf met meerdere bussen." />
+          <SectieKop titel="Voor wie we werken" regel="Gespecialiseerd in ontruiming, maar niet alleen." />
           <div data-onthul-kinderen className="grid md:grid-cols-3 gap-x-6 gap-y-7">
             {SECTOREN.map((s) => (
               <article key={s.naam} className="border-t border-zilver pt-6">
@@ -208,7 +209,7 @@ export function Home() {
           <div className="lg:col-span-6">
             <h2 className="text-section mb-6">Je klant wil meteen een prijs<Punt /></h2>
             <p className="text-lead text-grijs-licht leading-relaxed mb-8 max-w-[48ch]">
-              Niet wachten op een offerte, maar meteen een prijsindicatie op jouw website. De AI schat in wat er op de foto’s staat, de prijs komt uit jouw eigen tabel. Met één regel code staat het online.
+              Niet wachten op een offerte, maar meteen een prijsindicatie op jouw website. De AI schat in wat er op de foto’s staat, de prijs komt uit jouw eigen tabel. Met één regel code staat het online. Gemaakt voor ontruimers; voor branches met soortgelijke diensten bouwen we het ook.
             </p>
             <Link to="/demo-prijsindicatie" className={knopSecundairDonker}>
               Bekijk de demo
