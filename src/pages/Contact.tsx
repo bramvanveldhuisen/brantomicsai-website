@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Layout, PageHero } from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { CheckItem, FotoVak, Punt, knopPrimair, tekstLink } from "../components/ui";
@@ -8,19 +8,16 @@ const veld =
   "w-full min-h-12 rounded-lg border border-rand bg-bot px-4 text-base text-zwart placeholder:text-grijs " +
   "transition-[border-color] duration-200 hover:border-zwart disabled:opacity-55 disabled:cursor-not-allowed";
 
+const WERKZAAMHEDEN = ["Woningontruiming", "Spoedontruiming", "Bedrijfsontruiming", "Seniorenverhuizing", "Bezemschoon opleveren", "Anders"];
+
 export function Contact() {
   const [charCount, setCharCount] = useState(0);
-  // Een landingspagina kan de sector meegeven, bijv. /contact?sector=Ontruiming.
-  const [params] = useSearchParams();
-  const SECTOREN = ["Ontruiming", "Verhuizing", "Makelaar/Vastgoed", "Bouw", "Schoonmaak", "Anders"];
-  const gevraagd = params.get("sector") ?? "";
-  const startSector = SECTOREN.includes(gevraagd) ? gevraagd : "";
 
   return (
     <Layout>
       <SEO
         title="Contact"
-        description="Plan een vrijblijvend gesprek met brantomicsAI. Vul het formulier in of bel Tom direct op 06-43122575."
+        description="Plan een vrijblijvend gesprek met Brantomics AI. Vul het formulier in of bel Tom direct op 06-43122575."
         path="/contact"
       />
       <PageHero
@@ -34,8 +31,8 @@ export function Contact() {
         subtitle="Vul het formulier in en we nemen binnen één werkdag contact op. Of bel Tom direct: hij helpt je snel op weg."
       />
 
-      <section className="wrap pt-16 md:pt-24 pb-24 md:pb-32">
-        <div data-onthul-kinderen className="grid lg:grid-cols-12 gap-x-8 gap-y-12 items-start">
+      <section className="wrap pt-8 md:pt-10 pb-10 md:pb-14">
+        <div data-onthul-kinderen className="grid lg:grid-cols-12 gap-x-8 gap-y-7 items-start">
           {/* Form */}
           <form
             action="https://docs.google.com/forms/d/e/1FAIpQLSc14YbvxKvAqC-NUDzxHbY3ESTnTYwV8Q7OeeKW1IUdjAu-aw/viewform"
@@ -73,27 +70,26 @@ export function Contact() {
               </div>
             </div>
 
-            <div>
-              <label htmlFor="sector" className="block text-sm font-semibold text-zwart mb-2">
-                Sector
-              </label>
-              <select id="sector" name="sector" defaultValue={startSector} className={veld}>
-                <option value="">Selecteer jouw sector…</option>
-                <option value="Ontruiming">Ontruiming</option>
-                <option value="Verhuizing">Verhuizing</option>
-                <option value="Makelaar/Vastgoed">Makelaardij / vastgoedbeheer</option>
-                <option value="Bouw">Bouw / renovatie / klussen</option>
-                <option value="Schoonmaak">Schoonmaak / opleveren</option>
-                <option value="Anders">Anders</option>
-              </select>
+            <div role="group" aria-labelledby="wat-doen-jullie">
+              <span id="wat-doen-jullie" className="block text-sm font-semibold text-zwart mb-2">
+                Wat doen jullie? <span className="font-normal text-grijs">(meerdere keuzes mogelijk)</span>
+              </span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-zwart">
+                {WERKZAAMHEDEN.map((w) => (
+                  <label key={w} className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
+                    <input className="size-5 accent-groen-mid" type="checkbox" name="sector" value={w} />
+                    {w}
+                  </label>
+                ))}
+              </div>
             </div>
 
             <div>
               <span className="block text-sm font-semibold text-zwart mb-2">Welk product wil je bekijken?</span>
               <div className="flex flex-wrap gap-x-6 gap-y-2 text-zwart">
                 <label className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
-                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Prijsindicatie" />
-                  Prijsindicatie
+                  <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Prijsindicatie-systeem" />
+                  Prijsindicatie-systeem
                 </label>
                 <label className="inline-flex min-h-11 items-center gap-2.5 cursor-pointer">
                   <input className="size-5 accent-groen-mid" type="radio" name="interesse" value="Email Responder" />
@@ -120,7 +116,7 @@ export function Contact() {
                 rows={4}
                 maxLength={200}
                 onChange={(e) => setCharCount(e.target.value.length)}
-                placeholder="Bijv. het kost me elke ochtend een uur voor ik aan echte werk toekom…"
+                placeholder="Bijv. het kost me elke ochtend een uur voordat ik aan het echte werk toekom…"
                 className={`${veld} py-3 resize-y min-h-28`}
               />
               <div className="text-right text-sm text-grijs mt-1.5 tabular-nums" aria-live="polite">{charCount} / 200</div>
@@ -139,11 +135,18 @@ export function Contact() {
               <p className="text-sm text-grijs text-center mt-3">
                 Vrijblijvend. Je hoort binnen één werkdag van ons.
               </p>
+              <p className="text-sm text-grijs text-center mt-1">
+                Wat we met je gegevens doen, lees je in ons{" "}
+                <Link to="/privacybeleid" className={tekstLink}>
+                  privacybeleid
+                </Link>
+                .
+              </p>
             </div>
           </form>
 
           {/* Sidebar */}
-          <div className="lg:col-span-4 lg:col-start-9 space-y-12">
+          <div className="lg:col-span-4 lg:col-start-9 space-y-7">
             <div>
               <FotoVak
                 wat="Aan de telefoon met een klant"
@@ -202,19 +205,20 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="border-t border-lijn pt-10">
+            <div className="border-t border-lijn pt-6">
               <h2 className="text-title text-zwart mb-5 break-words min-w-0 font-sans font-semibold tracking-normal leading-tight">Wat je kunt verwachten</h2>
               <ul className="space-y-3">
                 <CheckItem>Een gesprek over waar je tijd verliest of klanten misloopt</CheckItem>
                 <CheckItem>Een voorstel met het product dat past en wat het kost</CheckItem>
-                <CheckItem>Alles persoonlijk ingericht door Bram en Tom</CheckItem>
+                <CheckItem>Alles persoonlijk ingericht door ons eigen team</CheckItem>
               </ul>
             </div>
 
-            <div className="border-t border-lijn pt-10">
+            <div className="border-t border-lijn pt-6">
               <h2 className="text-title text-zwart mb-4 break-words min-w-0 font-sans font-semibold tracking-normal leading-tight">Bedrijfsgegevens</h2>
               <div className="space-y-1 text-zwart tabular-nums">
-                <div>Brantomics AI</div>
+                <div>Brantomics AI VOF</div>
+                <div>Maarnsegrindweg 21, Maarn</div>
                 <div>KVK: 42032331</div>
                 <div>BTW: NL869394964B01</div>
               </div>

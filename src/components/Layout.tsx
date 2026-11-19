@@ -20,9 +20,9 @@ export function Layout({ children }: { children: ReactNode }) {
 export function PageHero({ title, subtitle }: { title: ReactNode; subtitle: string }) {
   return (
     <header className="bg-bot text-zwart">
-      <div className="wrap flex flex-col justify-end pt-16 pb-14 md:pt-24 md:pb-16 md:min-h-[min(46svh,28rem)]">
+      <div className="wrap flex flex-col justify-end pt-8 pb-7 md:pt-10 md:pb-8">
         <h1 data-onthul className="text-display max-w-[20ch]">{title}</h1>
-        <p data-onthul data-vertraging="80" className="mt-8 text-lead text-grijs leading-relaxed max-w-[58ch]">{subtitle}</p>
+        <p data-onthul data-vertraging="80" className="mt-4 text-lead text-grijs leading-relaxed max-w-[58ch]">{subtitle}</p>
       </div>
       <Veeg />
     </header>

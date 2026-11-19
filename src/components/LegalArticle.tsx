@@ -1,15 +1,15 @@
 import type { ReactNode } from "react";
 
 export function LegalMeta({ children }: { children: ReactNode }) {
-  return <div className="mb-14 rounded-2xl border border-lijn bg-steen px-6 py-5 text-zwart leading-relaxed">{children}</div>;
+  return <div className="mb-8 rounded-2xl border border-lijn bg-steen px-6 py-5 text-zwart leading-relaxed">{children}</div>;
 }
 
 /** Eén artikel: het nummer en de titel als kop, de tekst eronder, gescheiden door een haarlijn. */
 export function LegalArticle({ num, title, children }: { num: string; title: string; children: ReactNode }) {
   return (
-    <section className="border-t border-lijn pt-8 pb-10">
+    <section className="border-t border-lijn pt-6 pb-7">
       <h2 className="text-title mb-4 font-sans font-semibold tracking-normal leading-tight">
-        <span className="text-groen-mid tabular-nums">{num}</span> {title}
+        <span className="text-groen-mid">{num}</span> {title}
       </h2>
       <div className="space-y-3 text-zwart leading-relaxed max-w-[68ch]">{children}</div>
     </section>

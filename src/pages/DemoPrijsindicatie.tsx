@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { Layout, PageHero } from "../components/Layout";
+import { Layout } from "../components/Layout";
 import { SEO } from "../components/SEO";
-import { DemoKeuze } from "../components/DemoKeuze";
+import { DemoKop } from "../components/DemoKeuze";
 import { Punt, knopPrimair, knopPrimairDonker, knopSecundair, knopSecundairDonker, tekstLink } from "../components/ui";
 
 /**
  * Demo van de prijsindicatie. Er draait hier geen echte AI en er wordt niets verstuurd:
- * foto's blijven in de browser, het volume en de Kadastergegevens zijn nagebootst.
- * Alleen de controle op te donkere foto's en de berekening uit de tabel zijn echt.
+ * foto’s blijven in de browser, het volume en de Kadastergegevens zijn nagebootst.
+ * Alleen de controle op te donkere foto’s en de berekening uit de tabel zijn echt.
  */
 
 type Gegevens = { naam: string; email: string; telefoon: string; postcode: string; huisnummer: string };
@@ -30,7 +30,7 @@ const GROOTTES = [
   { id: "klein", naam: "Klein", uitleg: "1 tot 2 kamers", factor: 0.7 },
   { id: "midden", naam: "Gemiddeld", uitleg: "3 kamers", factor: 1 },
   { id: "groot", naam: "Groot", uitleg: "4 of meer kamers", factor: 1.35 },
-  { id: "weet", naam: "Weet ik niet", uitleg: "Een schatting is goed", factor: 1.1 },
+  { id: "weet", naam: "Weet ik niet", uitleg: "een schatting is goed", factor: 1.1 },
 ];
 const KAMERS = ["Woonkamer", "Slaapkamer", "Keuken", "Zolder of berging"];
 /** Voorbeeldtarieven van een ontruimer. */
@@ -65,14 +65,14 @@ function helderheid(url: string) {
 
 function Keuzes({ opties, gekozen, kies }: { opties: { id: string; naam: string; uitleg?: string }[]; gekozen: string; kies: (id: string) => void }) {
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 gap-3 lg:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))]">
       {opties.map((o) => (
         <button
           key={o.id}
           type="button"
           aria-pressed={gekozen === o.id}
           onClick={() => kies(o.id)}
-          className="flex min-h-24 flex-col items-center justify-center rounded-xl border border-rand bg-white px-3 py-4 text-center font-semibold text-zwart transition-colors duration-200 hover:border-zwart active:translate-y-px aria-pressed:border-zwart aria-pressed:bg-zwart aria-pressed:text-bot"
+          className="flex min-h-28 flex-col items-center justify-center rounded-xl border border-rand bg-white px-3 py-4 text-center text-lg font-semibold text-zwart transition-colors duration-200 hover:border-zwart active:translate-y-px aria-pressed:border-zwart aria-pressed:bg-zwart aria-pressed:text-bot"
         >
           {o.naam}
           {o.uitleg && <span className="mt-1 text-sm font-normal opacity-80">{o.uitleg}</span>}
@@ -172,30 +172,19 @@ export function DemoPrijsindicatie() {
   return (
     <Layout>
       <SEO
-        title="Demo prijsindicatie voor ontruimers"
-        description="Probeer de prijsindicatie met foto's: doorloop de aanvraag zoals een familie die op de site van een ontruimer ziet."
+        title="Demo prijsindicatie-systeem voor ontruimers"
+        description="Probeer het prijsindicatie-systeem zoals je klant het op jouw website ziet. Met één regel code staat het op je eigen site."
         path="/demo-prijsindicatie"
       />
-      <PageHero
-        title={
-          <>
-            Probeer de prijsindicatie
-            <br />
-            zelf<Punt />
-          </>
-        }
-        subtitle="Doorloop de aanvraag zoals een familie die op de site van een ontruimer ziet."
-      />
-
-      <section className="wrap pt-14 md:pt-20 pb-24 md:pb-32">
-        <DemoKeuze />
-        <p className="mb-8 max-w-[68ch] rounded-lg bg-creme px-5 py-4 text-zwart leading-relaxed">
-          Dit is een demo. De AI-telling en de Kadastergegevens zijn hier nagebootst, de bedragen zijn voorbeelden en er wordt niets verstuurd. Je foto's blijven in je eigen browser.
-        </p>
-
-        {/* WAT DE FAMILIE ZIET */}
-          <div className="mx-auto max-w-[44rem] rounded-2xl border border-mist bg-white p-6 md:p-10">
-            <div className="mb-8">
+      <section className="demo-groei wrap pt-5 md:pt-6 pb-10 md:pb-14">
+        <DemoKop titel={<>Probeer het prijsindicatie-systeem<Punt /></>} />
+        {/* WAT DE KLANT ZIET */}
+          <div className="rounded-2xl border border-mist bg-white p-5 md:p-8">
+            <div className="mb-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-mist pb-3">
+              <p className="font-semibold text-zwart">Voorbeeld Ontruimingen</p>
+              <p className="text-sm text-slate">Staat op de website van de ontruimer</p>
+            </div>
+            <div className="mb-6">
               <p className="mb-2 text-sm text-slate tabular-nums">Stap {stap} van 5</p>
               <div className="h-1.5 overflow-hidden rounded-full bg-mist" aria-hidden="true">
                 <div className="h-full origin-left rounded-full bg-zwart transition-transform duration-500 ease-out motion-reduce:transition-none" style={{ transform: `scaleX(${stap / 5})` }} />
@@ -227,9 +216,9 @@ export function DemoPrijsindicatie() {
 
             {stap === 3 && (
               <>
-                {vraag("Foto's per kamer")}
+                {vraag("Foto’s per kamer")}
                 <p className="mb-6 text-grijs leading-relaxed">
-                  Maak per ruimte 2 tot 4 foto's. Doe het licht aan en houd uw telefoon liggend. Zet geen mensen, papieren of medicijnen in beeld.
+                  Maak per ruimte 2 tot 4 foto’s. Doe het licht aan en houd uw telefoon liggend. Zet geen mensen, papieren of medicijnen in beeld.
                 </p>
                 <ul className="divide-y divide-mist border-y border-mist">
                   {KAMERS.map((kamer) => (
@@ -237,14 +226,14 @@ export function DemoPrijsindicatie() {
                       <div className="flex flex-wrap items-center justify-between gap-3">
                         <div>
                           <p className="font-semibold text-zwart">{kamer}</p>
-                          <p className="text-sm text-slate tabular-nums">{aantal(kamer) >= 2 ? `${aantal(kamer)} foto's, klaar` : `${aantal(kamer)} van minimaal 2 foto's`}</p>
+                          <p className="text-sm text-slate tabular-nums">{aantal(kamer) >= 2 ? `${aantal(kamer)} foto’s, klaar` : `${aantal(kamer)} van minimaal 2 foto’s`}</p>
                         </div>
                         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                           <button type="button" onClick={() => setVoorbeeld((v) => ({ ...v, [kamer]: !v[kamer] }))} className={tekstLink}>
-                            {voorbeeld[kamer] ? "Voorbeeldfoto's weghalen" : "Gebruik voorbeeldfoto's"}
+                            {voorbeeld[kamer] ? "Voorbeeldfoto’s weghalen" : "Gebruik voorbeeldfoto’s"}
                           </button>
                           <label className={`${knopSecundair} cursor-pointer focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-groen-mid`}>
-                            Foto's kiezen
+                            Foto’s kiezen
                             <input type="file" accept="image/*" multiple className="sr-only" onChange={(e) => { void voegToe(kamer, e.target.files); e.target.value = ""; }} />
                           </label>
                         </div>
@@ -293,7 +282,7 @@ export function DemoPrijsindicatie() {
                   ))}
                 </div>
                 <p className="mt-6 text-sm text-slate leading-relaxed">
-                  Uw foto's worden met AI geanalyseerd en daarna door het ontruimingsbedrijf gecontroleerd.
+                  Uw foto’s worden met AI geanalyseerd en daarna door het ontruimingsbedrijf gecontroleerd.
                 </p>
                 {fout && <p role="alert" className="mt-4 font-semibold text-zwart">{fout}</p>}
                 <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
@@ -310,13 +299,13 @@ export function DemoPrijsindicatie() {
                 {vraag(`Bedankt, ${voornaam}!`)}
                 <p className="text-sm text-slate tabular-nums">Referentienummer 2418 (voorbeeld)</p>
                 <p className="mt-4 text-zwart leading-relaxed">
-                  {naamVan(SITUATIES, situatie)}, {naamVan(WONINGEN, woning).toLowerCase()} (voorbeeld Kadaster {oppervlakte} m², ca. {volume} m³)
+                  {naamVan(SITUATIES, situatie)}, {naamVan(WONINGEN, woning).toLowerCase()}. Ongeveer {volume} m³ aan spullen, {oppervlakte} m² volgens het Kadaster (voorbeeld).
                 </p>
                 {zekerheid === "onzeker" ? (
                   <div className="mt-6 border-t border-mist pt-6">
                     <p className="font-serif text-[2rem] leading-tight text-zwart">We komen graag eerst kijken</p>
                     <p className="mt-3 text-grijs leading-relaxed">
-                      Op deze foto's kunnen we nog geen betrouwbare indicatie geven. Daarom tonen we geen bedrag en plannen we een gratis bezichtiging met u in.
+                      Op deze foto’s kunnen we nog geen betrouwbare indicatie geven. Daarom tonen we geen bedrag en plannen we een gratis bezichtiging met u in.
                     </p>
                   </div>
                 ) : (
@@ -326,7 +315,7 @@ export function DemoPrijsindicatie() {
                       {euro(van)} tot {euro(tot)}
                     </p>
                     <p className="mt-3 text-sm text-slate leading-relaxed">
-                      {zekerheid === "zeker" ? "Alle kamers zijn goed in beeld, dus de bandbreedte is smal." : "Niet alle kamers zijn goed in beeld, dus de bandbreedte is breder."} Dit is geen offerte. De vaste prijs spreken we met u af na de bezichtiging.
+                      {zekerheid === "zeker" ? "Alle kamers zijn goed in beeld, dus het verschil tussen het laagste en het hoogste bedrag is klein." : "Niet alle kamers zijn goed in beeld, dus het verschil tussen het laagste en het hoogste bedrag is groter."} Dit is geen offerte. De vaste prijs spreken we met u af na de bezichtiging.
                     </p>
                   </div>
                 )}
@@ -340,24 +329,26 @@ export function DemoPrijsindicatie() {
                 </div>
                 {gepland && (
                   <p role="status" className="mt-5 text-grijs leading-relaxed">
-                    In de echte pagina kiest de familie hier een moment en komt de aanvraag bij het ontruimingsbedrijf binnen.
+                    Op de echte website kiest je klant hier een moment en komt de aanvraag bij jou binnen.
                   </p>
                 )}
               </>
             )}
+            <p className="mt-6 border-t border-mist pt-3 text-center text-sm text-slate">Prijsindicatie-systeem door Brantomics AI</p>
           </div>
+        <p className="mt-3 text-center text-sm text-grijs">Dit is een demo. De AI-schatting en de Kadastergegevens zijn hier nagebootst, de bedragen zijn voorbeelden en er wordt niets verstuurd. Je foto’s blijven in je eigen browser.</p>
       </section>
 
       <section className="bg-zwart text-bot">
-        <div data-onthul className="wrap py-24 md:py-28">
+        <div data-onthul className="demo-groei wrap py-10 md:py-14">
           <h2 className="text-section mb-6 max-w-[20ch]">Dit op je eigen site?</h2>
-          <p className="mb-8 max-w-[56ch] text-lead text-grijs-licht leading-relaxed">We vullen de tabel samen met je in en rekenen hem na op je eigen afgeronde klussen.</p>
+          <p className="mb-8 max-w-[56ch] text-lead text-grijs-licht leading-relaxed">Met één regel code staat het systeem op je eigen website, in je eigen kleuren. Je tarieven vullen we samen in.</p>
           <div className="flex flex-wrap gap-3">
-            <Link to="/contact?sector=Ontruiming" className={knopPrimairDonker}>
+            <Link to="/contact" className={knopPrimairDonker}>
               Plan een gesprek
             </Link>
             <Link to="/prijsindicatie" className={knopSecundairDonker}>
-              Zo werkt de prijsindicatie
+              Zo werkt het systeem
             </Link>
           </div>
         </div>

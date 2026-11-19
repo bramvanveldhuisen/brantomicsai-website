@@ -18,7 +18,7 @@ export function InboxMockupCard({ className = "" }: { className?: string }) {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
           </svg>
-          brantomicsAI zet een concept klaar
+          Brantomics AI zet een concept klaar
         </div>
         <div className="rounded-xl border-2 border-zilver bg-white px-4 py-3">
           <div className="text-sm font-semibold text-zwart mb-1">Concept: jij leest het na en verstuurt</div>
@@ -69,16 +69,17 @@ export function OrderMockupCard({
   );
 }
 
-/** Wat de familie ziet na het invullen. */
+/** Wat de klant van een ontruimer ziet na het invullen, op de website van die ontruimer. */
 export function UitslagKaart() {
   return (
     <figure data-kind="product" className={`rounded-2xl border border-mist bg-white overflow-hidden shadow-[0_24px_48px_-24px_color-mix(in_oklab,var(--color-zwart)_35%,transparent)]`}>
-      <figcaption className="px-5 py-3.5 border-b border-mist text-sm text-slate">Wat de familie ziet (voorbeeld, naam en bedragen zijn verzonnen)</figcaption>
+      <figcaption className="px-5 py-3.5 border-b border-mist text-sm text-slate">Zo ziet je klant het op jouw website (voorbeeld, namen en bedragen zijn verzonnen)</figcaption>
       <div className="p-5 md:p-6">
+        <p className="mb-4 text-sm font-semibold text-zwart">Voorbeeld Ontruimingen</p>
         <p className="font-serif text-[2.25rem] leading-none text-zwart">Bedankt, Anna!</p>
         <p className="mt-2 text-sm text-slate tabular-nums">Referentienummer 2418</p>
         <p className="mt-4 text-sm text-zwart leading-relaxed">
-          Woningontruiming en afval afvoeren, ontruiming van de gehele woning (volgens het Kadaster 92 m², ca. 28 m³), afvoer met 2 vrachtwagens
+          Woningontruiming met afvoer van afval. Hele woning: 92 m² volgens het Kadaster, ongeveer 28 m³ aan spullen. Afvoer met 2 vrachtwagens.
         </p>
         <div className="mt-5 border-t border-mist pt-5">
           <p className="text-sm font-semibold text-zwart">Indicatieve prijs</p>

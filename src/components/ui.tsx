@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
  */
 const knopBasis =
   "inline-flex items-center justify-center gap-2 min-h-12 rounded-full px-6 font-semibold whitespace-nowrap " +
-  "transition-[background-color,border-color,color,transform] duration-300 ease-out hover:-translate-y-0.5 active:translate-y-px " +
+  "transition-[background-color,border-color,color,translate,scale] duration-300 ease-out hover:-translate-y-0.5 active:translate-y-px " +
   "disabled:opacity-55 disabled:cursor-not-allowed disabled:translate-y-0";
 
 export const knopPrimair = `${knopBasis} bg-zwart text-bot hover:bg-groen-mid`;
@@ -45,11 +45,11 @@ export function CheckItem({ children }: { children: ReactNode }) {
 /** Kop van een sectie: grote schreefkop, met de toelichting eronder. */
 export function SectieKop({ titel, regel, id, donker = false }: { titel: ReactNode; regel?: ReactNode; id?: string; donker?: boolean }) {
   return (
-    <div data-onthul className="mb-14 md:mb-20 max-w-[50rem]">
+    <div data-onthul className="mb-6 md:mb-8 max-w-[50rem]">
       <h2 id={id} className="text-section">
         {titel}
       </h2>
-      {regel && <p className={`mt-6 text-lead leading-relaxed max-w-[56ch] ${donker ? "text-grijs-licht" : "text-grijs"}`}>{regel}</p>}
+      {regel && <p className={`mt-3 text-lead leading-relaxed max-w-[56ch] ${donker ? "text-grijs-licht" : "text-grijs"}`}>{regel}</p>}
     </div>
   );
 }

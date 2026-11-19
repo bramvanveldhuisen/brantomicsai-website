@@ -13,7 +13,7 @@ const LINKS = [
 ];
 
 const linkStijl =
-  "px-3 py-2 whitespace-nowrap text-[0.9375rem] text-grijs transition-colors duration-200 hover:text-zwart " +
+  "px-2 xl:px-3 py-2 whitespace-nowrap text-[0.9375rem] text-grijs transition-colors duration-200 hover:text-zwart " +
   "border-b border-transparent aria-[current=page]:text-zwart aria-[current=page]:border-vermiljoen";
 
 export function Nav() {
@@ -38,7 +38,7 @@ export function Nav() {
         <Link to="/" aria-label="brantomicsAI, naar de homepagina" onClick={() => setOpen(false)} className="shrink-0">
           <Logo size="nav" />
         </Link>
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-1 xl:gap-2">
           {LINKS.map((l) => (
             <NavLink key={l.to} to={l.to} end={l.to === "/"} className={linkStijl}>
               {l.label}

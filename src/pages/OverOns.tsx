@@ -50,12 +50,12 @@ const VERHAAL = [
   {
     titel: "Wat we anders doen",
     tekst:
-      "We bouwen geen generieke chatbot. We maken een paar vaste producten voor bedrijven met veel aanvragen, en richten die in op hoe jouw bedrijf werkt.",
+      "We bouwen geen generieke chatbot. We maken een paar vaste producten voor ontruimingsbedrijven, en richten die in op hoe jouw bedrijf werkt.",
   },
   {
     titel: "Eerlijk over wat we zijn",
     tekst:
-      "We zijn een jong bedrijf. We hebben geen tientallen jaren aan referenties en doen geen beloftes die we niet kunnen waarmaken. Wat we wél hebben: technische expertise, persoonlijke aandacht en een eerlijk product dat we zelf vertrouwen. Dat is de reden dat we een gratis proefperiode aanbieden, zodat je het zelf kunt beoordelen, zonder risico.",
+      "We zijn een jong bedrijf. We hebben geen tientallen jaren aan referenties en doen geen beloftes die we niet kunnen waarmaken. Wat we wél hebben: technische kennis, persoonlijke aandacht en producten die we zelf vertrouwen. Daarom is het eerste gesprek altijd gratis en vrijblijvend, zodat je zelf kunt beoordelen of het bij je past.",
   },
 ];
 
@@ -64,7 +64,7 @@ export function OverOns() {
     <Layout>
       <SEO
         title="Over ons"
-        description="Brantomics AI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee gedreven ondernemers die geloven in de kracht van slimme AI voor het MKB."
+        description="Brantomics AI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee ondernemers die AI-producten maken voor ontruimingsbedrijven."
         path="/over-ons"
       />
       <PageHero
@@ -79,8 +79,8 @@ export function OverOns() {
       />
 
       {/* TEAM */}
-      <section className="wrap pb-24 md:pb-32">
-        <div data-onthul-kinderen className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 pt-16 md:pt-24">
+      <section className="wrap pb-10 md:pb-14">
+        <div data-onthul-kinderen className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 pt-8 md:pt-10">
           {TEAM.map((p, i) => (
             <article key={p.naam}>
               <img
@@ -90,7 +90,7 @@ export function OverOns() {
                 height={p.hoog}
                 loading={i === 0 ? "eager" : "lazy"}
                 fetchPriority={i === 0 ? "high" : undefined}
-                className="w-full aspect-[4/5] object-cover object-top rounded-2xl mb-8"
+                className="w-full aspect-square object-cover object-top rounded-2xl mb-5"
               />
               <h2 className="text-display-s">{p.naam}</h2>
               <p className={`mt-2 mb-5 text-xl font-semibold ${p.rolKleur}`}>{p.rol}</p>
@@ -105,12 +105,12 @@ export function OverOns() {
       </section>
 
       {/* ONS VERHAAL */}
-      <section className="bg-steen py-24 md:py-32">
+      <section className="bg-steen py-10 md:py-14">
         <div className="wrap">
-          <h2 data-onthul className="text-section mb-12 md:mb-16">Waarom brantomicsAI?</h2>
+          <h2 data-onthul className="text-section mb-6 md:mb-8">Waarom Brantomics AI?</h2>
           <div data-onthul-kinderen className="border-b border-lijn">
             {VERHAAL.map((v) => (
-              <div key={v.titel} className="grid md:grid-cols-12 gap-x-8 gap-y-3 border-t border-lijn py-10">
+              <div key={v.titel} className="grid md:grid-cols-12 gap-x-8 gap-y-3 border-t border-lijn py-5">
                 <h3 className="md:col-span-4 text-title">{v.titel}</h3>
                 <p className="md:col-span-7 md:col-start-6 text-lead text-zwart leading-relaxed">{v.tekst}</p>
               </div>
@@ -120,11 +120,11 @@ export function OverOns() {
       </section>
 
       {/* MISSIE */}
-      <section data-onthul-kinderen className="wrap py-24 md:py-32 grid lg:grid-cols-12 gap-x-8 gap-y-12 items-center">
+      <section data-onthul-kinderen className="wrap py-10 md:py-14 grid lg:grid-cols-12 gap-x-8 gap-y-7 items-center">
         <div className="lg:col-span-6">
           <figure>
             <blockquote className="font-serif text-[clamp(2.25rem,1.8vw+1.25rem,3.25rem)] leading-[1.05] text-zwart text-balance">
-              “Elke MKB-ondernemer verdient toegang tot slimme automatisering, niet alleen de grote
+              “Elke ontruimer verdient toegang tot slimme automatisering, niet alleen de grote
               bedrijven met grote budgetten. Wij maken dat mogelijk, persoonlijk en zonder gedoe.”
             </blockquote>
             <figcaption className="mt-6 text-lead text-grijs">Bram &amp; Tom, oprichters Brantomics AI</figcaption>

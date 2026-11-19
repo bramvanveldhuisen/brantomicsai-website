@@ -16,50 +16,44 @@ const SITE_URL = "https://brantomicsai.nl";
 const ROUTES = [
   {
     path: "/",
-    title: "AI-producten voor ontruimers, verhuizers en vastgoed",
+    title: "AI-producten voor ontruimers",
     description:
-      "brantomicsAI maakt AI-producten voor bedrijven met veel aanvragen: een prijsindicatie op je site, de Email Responder en review-opvolging. Persoonlijk ingericht door Bram en Tom.",
+      "Brantomics AI maakt AI-producten voor ontruimers: een prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging.",
   },
   {
     path: "/producten",
     title: "Producten",
     description:
-      "Drie AI-producten voor bedrijven met veel aanvragen: de prijsindicatie met foto's, de Email Responder en review-opvolging.",
-  },
-  {
-    path: "/ontruiming",
-    title: "AI en automatisering voor ontruimers",
-    description:
-      "Voor ontruimingsbedrijven: een prijsindicatie op je site, concept-antwoorden in je inbox en review-opvolging. Met AI, in je eigen accounts, persoonlijk ingericht.",
+      "Drie AI-producten voor ontruimingsbedrijven: het prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging.",
   },
   {
     path: "/prijsindicatie",
-    title: "Prijsindicatie met foto's voor ontruimers",
+    title: "Prijsindicatie-systeem voor ontruimers",
     description:
-      "Een aanvraagpagina op je eigen site: families maken foto's per kamer, de AI telt wat er staat en jouw eigen tarieven maken er een prijsindicatie van.",
+      "Een prijsindicatie-systeem voor je eigen website: klanten maken foto’s per kamer en zien meteen een indicatie op basis van jouw tarieven.",
   },
   {
     path: "/demo-prijsindicatie",
-    title: "Demo prijsindicatie voor ontruimers",
+    title: "Demo prijsindicatie-systeem voor ontruimers",
     description:
-      "Probeer de prijsindicatie met foto's: doorloop de aanvraag zoals een familie die op de site van een ontruimer ziet.",
+      "Probeer het prijsindicatie-systeem zoals je klant het op jouw website ziet. Met één regel code staat het op je eigen site.",
   },
   {
     path: "/demo-responder",
     title: "Demo Email Responder",
     description:
-      "Probeer de Email Responder demo. Vul in en zie hoe brantomicsAI een concept-antwoord opstelt voor jouw bedrijf.",
+      "Probeer de demo van de Email Responder en zie hoe Brantomics AI een conceptantwoord opstelt in de toon van jouw bedrijf.",
   },
   {
     path: "/over-ons",
     title: "Over ons",
     description:
-      "brantomicsAI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee ondernemers die met AI tijd besparen en bedrijven beter vindbaar maken.",
+      "Brantomics AI is opgericht door Bram van Veldhuisen en Tom Vaessen. Twee ondernemers die AI-producten maken voor ontruimingsbedrijven.",
   },
   {
     path: "/contact",
     title: "Contact",
-    description: "Plan een vrijblijvend gesprek met brantomicsAI. Vul het formulier in of bel Tom direct op 06-43122575.",
+    description: "Plan een vrijblijvend gesprek met Brantomics AI. Vul het formulier in of bel Tom direct op 06-43122575.",
   },
   {
     path: "/privacybeleid",

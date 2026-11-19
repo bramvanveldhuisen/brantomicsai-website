@@ -112,7 +112,7 @@ export function GroeiFoto({ src, alt, positie = "", className = "" }: { src: str
         width={1536}
         height={1024}
         loading="lazy"
-        className={`groei-foto block w-full aspect-[3/2] lg:aspect-[16/9] rounded-xl object-cover ${positie}`}
+        className={`groei-foto block w-full aspect-[3/2] lg:aspect-[2.4/1] rounded-xl object-cover ${positie}`}
       />
     </div>
   );

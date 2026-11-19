@@ -8,14 +8,14 @@ import { GroeiFoto, RouteVoortgang, Veeg } from "../components/Beweging";
 
 const PRODUCTEN = [
   {
-    naam: "Prijsindicatie",
-    tekst: "Families maken foto's per kamer, de AI telt wat er staat en jouw eigen tarieven maken er een indicatie van.",
-    link: { to: "/prijsindicatie", label: "Zo werkt de prijsindicatie" },
+    naam: "Prijsindicatie-systeem",
+    tekst: "Met één regel code staat het op je eigen website. Klanten maken foto’s, de AI schat in wat er staat en jouw tarieven maken er een prijsindicatie van.",
+    link: { to: "/prijsindicatie", label: "Zo werkt het systeem" },
     uitgelicht: true,
   },
   {
     naam: "Email Responder",
-    tekst: "Voor elke klantmail staat een concept-antwoord klaar in je eigen inbox. Jij leest het na en verstuurt.",
+    tekst: "Voor elke klantmail staat een conceptantwoord klaar in je eigen inbox. Jij leest het na en verstuurt.",
     link: { to: "/demo-responder", label: "Probeer de demo" },
   },
   {
@@ -26,10 +26,10 @@ const PRODUCTEN = [
 ];
 
 const PIJNEN = [
-  { titel: "De telefoon gaat terwijl je op de klus staat.", tekst: "Een aanvraag die pas 's avonds wordt teruggebeld, is soms al naar een ander gegaan." },
-  { titel: "Offertes blijven liggen.", tekst: "Inmeten, rekenen, uittypen. Voor je het weet wacht een stapel aanvragen op een prijs." },
-  { titel: "Je laatste review is maanden oud.", tekst: "Tevreden klanten vergeten het, tenzij iemand het netjes vraagt. En wie zoekt, kijkt eerst naar recente reviews." },
-  { titel: "De eerste vraag is altijd: wat kost het?", tekst: "Families willen een bedrag weten voordat ze bellen. Zonder bedrag vragen ze eerst bij een ander." },
+  { titel: "Nabestaanden bellen terwijl je een zolder leeghaalt.", tekst: "Wie pas ’s avonds terugbelt, merkt soms dat er al een ander is gebeld." },
+  { titel: "Je rijdt naar een bezichtiging die niets wordt.", tekst: "Voor een prijs moet je eerst gaan kijken. Een deel van die afspraken levert geen klus op." },
+  { titel: "De eerste vraag is altijd: wat kost het?", tekst: "Klanten willen een bedrag weten voordat ze bellen. Zonder bedrag vragen ze eerst bij een ander." },
+  { titel: "Je laatste review is maanden oud.", tekst: "Klanten kiezen een ontruimer op vertrouwen. Recente reviews wegen dan zwaar." },
 ];
 
 const ROUTE: { titel: string; tekst: string; foto?: { src: string; alt: string; positie: string } }[] = [
@@ -41,20 +41,19 @@ const ROUTE: { titel: string; tekst: string; foto?: { src: string; alt: string; 
   { titel: "Voorstel.", tekst: "Je krijgt een voorstel met het product dat past en wat het kost. Zonder kleine lettertjes." },
   {
     titel: "Inrichten.",
-    tekst: "We richten alles in, in je eigen accounts. Jij hoeft niets te installeren of uit te zoeken.",
-    foto: { src: "/fotos/aan-het-werk.webp", alt: "Bram werkt achter zijn laptop aan een lichte houten tafel", positie: "object-[50%_92%]" },
+    tekst: "We richten alles voor je in. Jij hoeft niets te installeren of uit te zoeken.",
+    foto: { src: "/fotos/aan-het-werk.webp", alt: "Bram werkt achter zijn laptop aan een lichte houten tafel", positie: "object-[50%_85%]" },
   },
-  { titel: "Bijhouden.", tekst: "We houden het bij en laten je regelmatig zien wat er gebeurt. Wat geld kost of naar buiten gaat, keur jij eerst goed." },
+  { titel: "Bijhouden.", tekst: "We houden het bij en laten je regelmatig zien wat er gebeurt. Jij kiest wat automatisch mag en wat eerst langs jou gaat. Wat geld kost, keur jij altijd eerst goed." },
 ];
 
 const SECTOREN: { naam: string; tekst: string; link?: { to: string; label: string } }[] = [
   {
-    naam: "Ontruiming",
-    tekst: "Woningen, bedrijfspanden, spoedklussen. Veel aanvragen tegelijk, terwijl jullie zelf op de klus staan.",
-    link: { to: "/ontruiming", label: "Wat we voor ontruimers doen" },
+    naam: "Woningontruiming",
+    tekst: "Hele woningen, vaak met nabestaanden aan de telefoon en een harde datum voor de oplevering.",
   },
-  { naam: "Verhuizing", tekst: "Aanvragen met datums, adressen en volumes. Wie als eerste een duidelijke prijs geeft, maakt de beste kans." },
-  { naam: "Vastgoed", tekst: "Makelaars en beheerders met veel vragen van kopers, huurders en eigenaren, verspreid over mail, telefoon en Google." },
+  { naam: "Spoedontruiming", tekst: "Een woning die snel leeg moet. Dan telt wie als eerste duidelijk antwoord geeft." },
+  { naam: "Opleveren", tekst: "Bezemschoon opleveren aan de woningcorporatie, met vooraf een duidelijke afspraak over de prijs." },
 ];
 
 const TEAM = [
@@ -66,8 +65,8 @@ export function Home() {
   return (
     <Layout>
       <SEO
-        title="AI-producten voor ontruimers, verhuizers en vastgoed"
-        description="brantomicsAI maakt AI-producten voor bedrijven met veel aanvragen: een prijsindicatie op je site, de Email Responder en review-opvolging. Persoonlijk ingericht door Bram en Tom."
+        title="AI-producten voor ontruimers"
+        description="Brantomics AI maakt AI-producten voor ontruimers: een prijsindicatie-systeem voor je eigen website, de Email Responder en review-opvolging."
         path="/"
       />
 
@@ -78,18 +77,18 @@ export function Home() {
             <HeroRaster />
           </div>
         </div>
-        <div className="wrap pointer-events-none relative flex flex-col justify-end min-h-[calc(100dvh-4.5rem)] pt-20 pb-16 md:pb-20">
-          <h1 className="text-poster max-w-[12ch]">
+        <div className="wrap pointer-events-none relative flex flex-col justify-end min-h-[min(calc(100dvh-4.5rem),42rem)] pt-14 pb-8 md:pb-10">
+          <h1 className="text-poster max-w-[17ch]">
             Minder regelwerk. Meer{" "}
             <span className="vervaagd">
-              tijd
+              ontruimen
               <span className="text-vermiljoen">.</span>
             </span>
           </h1>
           <div className="pointer-events-auto mt-8 max-w-[40rem]">
             <p data-onthul data-vertraging="200" className="text-lead text-grijs leading-relaxed">
-              Drie AI-producten voor ontruimers, verhuizers en vastgoedbedrijven: een prijsindicatie op
-              je site, concept-antwoorden in je inbox en review-opvolging.
+              Drie AI-producten voor ontruimingsbedrijven: een prijsindicatie-systeem op je eigen website,
+              conceptantwoorden in je inbox en review-opvolging.
             </p>
             <div data-onthul data-vertraging="280" className="mt-7 flex flex-wrap gap-3">
               <Link to="/contact" className={knopPrimair}>
@@ -105,13 +104,13 @@ export function Home() {
       </section>
 
       {/* DE PRODUCTEN */}
-      <section className="wrap py-24 md:py-32">
-        <SectieKop titel="Onze producten" regel="Drie producten voor bedrijven met veel aanvragen." />
+      <section className="wrap py-10 md:py-14">
+        <SectieKop titel="Onze producten" regel="Drie producten, gemaakt voor ontruimingsbedrijven." />
         <div data-onthul-kinderen className="grid md:grid-cols-3 gap-6">
           {PRODUCTEN.map((p) => (
             <article
               key={p.naam}
-              className={`flex flex-col rounded-xl p-8 md:p-9 transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_color-mix(in_oklab,var(--color-zwart)_40%,transparent)] ${p.uitgelicht ? "bg-zwart text-bot" : "bg-creme"}`}
+              className={`flex flex-col rounded-xl p-8 md:p-9 transition-[translate,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_color-mix(in_oklab,var(--color-zwart)_40%,transparent)] ${p.uitgelicht ? "bg-zwart text-bot" : "bg-creme"}`}
             >
               <h3 className="font-serif text-[clamp(2.25rem,1.2vw+1.75rem,3rem)] font-normal leading-tight mb-4">{p.naam}</h3>
               <p className={`text-lead leading-relaxed mb-10 ${p.uitgelicht ? "text-grijs-licht" : "text-grijs"}`}>{p.tekst}</p>
@@ -126,10 +125,10 @@ export function Home() {
       </section>
 
       {/* HERKEN JE DIT */}
-      <section className="bg-zwart text-bot py-24 md:py-32">
+      <section className="bg-zwart text-bot py-10 md:py-14">
         <div className="wrap">
           <SectieKop donker titel="Herken je dit?" />
-          <ol data-onthul-kinderen className="grid md:grid-cols-2 gap-x-16 gap-y-14">
+          <ol data-onthul-kinderen className="grid md:grid-cols-2 gap-x-10 gap-y-7">
             {PIJNEN.map((p, i) => (
               <li key={p.titel} className="grid grid-cols-[5rem_minmax(0,1fr)] gap-x-6">
                 <span className="font-serif text-[4rem] leading-none text-zilver tabular-nums" aria-hidden="true">
@@ -147,33 +146,33 @@ export function Home() {
 
       {/* STATEMENT: het diepgroene vlak */}
       <section className="bg-zwart-2 text-creme overflow-hidden">
-        <div className="wrap py-24 md:py-32">
+        <div className="wrap py-10 md:py-14">
           <p data-onthul className="font-serif text-display max-w-[16ch] leading-[0.95]">Wij bouwen de AI die het overneemt<Punt /></p>
-          <p data-onthul data-vertraging="80" className="mt-8 text-lead text-zilver-licht">Persoonlijk ingericht door Bram en Tom.</p>
+          <p data-onthul data-vertraging="80" className="mt-8 text-lead text-zilver-licht">Persoonlijk ingericht door ons eigen team.</p>
           <GroeiFoto
             src="/fotos/tom-en-bram.webp"
             alt="Tom Vaessen en Bram van Veldhuisen in zwarte shirts voor een donkere houten wand"
             positie="object-[50%_35%]"
-            className="mt-14 md:mt-20"
+            className="mt-6 md:mt-8"
           />
         </div>
       </section>
 
       {/* DE ROUTE */}
-      <section className="wrap py-24 md:py-32">
-        <div className="grid lg:grid-cols-12 gap-x-8 gap-y-12">
+      <section className="wrap py-10 md:py-14">
+        <div className="grid lg:grid-cols-12 gap-x-8 gap-y-7">
           <div className="lg:col-span-5">
             <h2 data-onthul className="text-section lg:sticky lg:top-28">De route van gesprek naar werkende AI</h2>
           </div>
           <RouteVoortgang className="lg:col-span-6 lg:col-start-7">
           <ol data-onthul-kinderen className="border-l border-zilver">
             {ROUTE.map((r, i) => (
-              <li key={r.titel} className="relative pl-10 pb-12 last:pb-0 border-b border-lijn last:border-b-0 mb-12 last:mb-0">
+              <li key={r.titel} className="relative pl-8 pb-6 last:pb-0 border-b border-lijn last:border-b-0 mb-6 last:mb-0">
                 <span className="route-punt absolute -left-[5px] top-2 size-[9px] rounded-full bg-vermiljoen" aria-hidden="true" />
                 <span className="block text-sm text-groen-mid tabular-nums mb-2">0{i + 1}</span>
                 <h3 className="font-serif text-[clamp(1.75rem,1.2vw+1.25rem,2.5rem)] font-normal leading-tight mb-3">{r.titel}</h3>
                 <p className="text-lead text-grijs leading-relaxed">{r.tekst}</p>
-                {r.foto && <FotoVak wat={r.foto.alt} src={r.foto.src} alt={r.foto.alt} positie={r.foto.positie} className="mt-8 aspect-[4/3]" />}
+                {r.foto && <FotoVak wat={r.foto.alt} src={r.foto.src} alt={r.foto.alt} positie={r.foto.positie} className="mt-4 aspect-[16/10]" />}
               </li>
             ))}
           </ol>
@@ -182,10 +181,10 @@ export function Home() {
       </section>
 
       {/* VOOR WIE */}
-      <section className="bg-creme py-24 md:py-32">
+      <section className="bg-creme py-10 md:py-14">
         <div className="wrap">
-          <SectieKop titel="Voor wie we bouwen" regel="Drukke bedrijven waar de telefoon gaat terwijl je op de klus staat. Ander soort bedrijf? Vertel ons waar je tijd in zit." />
-          <div data-onthul-kinderen className="grid md:grid-cols-3 gap-x-6 gap-y-12">
+          <SectieKop titel="Gemaakt voor ontruimers" regel="Van een kleine zaak tot een bedrijf met meerdere bussen." />
+          <div data-onthul-kinderen className="grid md:grid-cols-3 gap-x-6 gap-y-7">
             {SECTOREN.map((s) => (
               <article key={s.naam} className="border-t border-zilver pt-6">
                 <h3 className="font-serif text-[2rem] font-normal leading-tight mb-2">{s.naam}</h3>
@@ -204,15 +203,15 @@ export function Home() {
       </section>
 
       {/* HET BELANGRIJKSTE PRODUCT */}
-      <section className="bg-zwart text-bot py-24 md:py-32">
-        <div data-onthul-kinderen className="wrap grid lg:grid-cols-12 gap-x-8 gap-y-12 items-center">
+      <section className="bg-zwart text-bot py-10 md:py-14">
+        <div data-onthul-kinderen className="wrap grid lg:grid-cols-12 gap-x-8 gap-y-7 items-center">
           <div className="lg:col-span-6">
-            <h2 className="text-section mb-6">Weet wat er staat, voordat je gaat kijken<Punt /></h2>
+            <h2 className="text-section mb-6">Je klant wil meteen een prijs<Punt /></h2>
             <p className="text-lead text-grijs-licht leading-relaxed mb-8 max-w-[48ch]">
-              De prijsindicatie op je eigen site. De AI telt de spullen op de foto's, de prijs komt uit jouw tabel.
+              Niet wachten op een offerte, maar meteen een prijsindicatie op jouw website. De AI schat in wat er op de foto’s staat, de prijs komt uit jouw eigen tabel. Met één regel code staat het online.
             </p>
             <Link to="/demo-prijsindicatie" className={knopSecundairDonker}>
-              Probeer de demo
+              Bekijk de demo
             </Link>
           </div>
           <div className="lg:col-span-5 lg:col-start-8 min-w-0">
@@ -222,8 +221,8 @@ export function Home() {
       </section>
 
       {/* CONTACT: de oprichters zelf */}
-      <section className="wrap py-24 md:py-32">
-        <div data-onthul-kinderen className="grid lg:grid-cols-12 gap-x-8 gap-y-12 items-start">
+      <section className="wrap py-10 md:py-14">
+        <div data-onthul-kinderen className="grid lg:grid-cols-12 gap-x-8 gap-y-7 items-start">
           <div className="lg:col-span-5">
             <h2 className="text-section mb-6">Plan een gesprek</h2>
             <p className="text-lead text-grijs leading-relaxed mb-8 max-w-[44ch]">

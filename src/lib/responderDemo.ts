@@ -1,5 +1,5 @@
-export type Sector = "Webshop" | "Camping/Recreatie" | "Verhuur" | "Horeca" | "Makelaar" | "Kapper/Beauty" | "Anders";
-export type EmailType = "Boeking/Reservering" | "Productvraag" | "Klacht" | "Informatieverzoek" | "Annulering";
+export type Sector = "Woningontruiming" | "Spoedontruiming" | "Bedrijfsontruiming" | "Anders";
+export type EmailType = "Aanvraag ontruiming" | "Vraag over de werkwijze" | "Klacht" | "Informatieverzoek" | "Annulering";
 export type Stijl = "Formeel" | "Vriendelijk-zakelijk" | "Informeel";
 
 interface GenerateInput {
@@ -22,28 +22,24 @@ const SIGNOFF: Record<Stijl, string> = {
 };
 
 const SUBJECT: Record<EmailType, string> = {
-  "Boeking/Reservering": "Bevestiging van je aanvraag",
-  Productvraag: "Antwoord op je vraag",
-  Klacht: "We lossen dit voor je op",
-  Informatieverzoek: "De informatie die je zocht",
-  Annulering: "Bevestiging van je annulering",
+  "Aanvraag ontruiming": "Je aanvraag voor een ontruiming",
+  "Vraag over de werkwijze": "Zo werken wij",
+  Klacht: "Je melding",
+  Informatieverzoek: "Antwoord op je vraag",
+  Annulering: "Je afspraak is geannuleerd",
 };
 
 const BODY: Record<EmailType, (bedrijf: string, sector: Sector) => string> = {
-  "Boeking/Reservering": (bedrijf) =>
-    `Bedankt voor je aanvraag bij ${bedrijf}. We hebben je verzoek in goede orde ontvangen en gaan direct voor je aan de slag. Zodra de beschikbaarheid is bevestigd, ontvang je van ons een definitieve bevestiging met alle details.`,
-  Productvraag: (bedrijf, sector) =>
-    `Bedankt voor je vraag over ons aanbod bij ${bedrijf}. ${
-      sector === "Webshop"
-        ? "Het product dat je noemt is op dit moment op voorraad en kan direct verzonden worden."
-        : "We hebben je vraag doorgezet naar het juiste team en komen er zo snel mogelijk op terug met de details."
-    }`,
+  "Aanvraag ontruiming": (bedrijf) =>
+    `Bedankt voor je aanvraag bij ${bedrijf}. Om je een goede prijs te geven, komen we graag eerst vrijblijvend kijken. Wanneer komt een bezichtiging je goed uit? Je mag ook alvast een paar foto’s van de ruimtes sturen.`,
+  "Vraag over de werkwijze": (bedrijf) =>
+    `Bedankt voor je vraag. Bij ${bedrijf} beginnen we met een bezichtiging. Daarna krijg je een vaste prijs, en na de ontruiming leveren we de ruimte op zoals we hebben afgesproken. Heb je nog een vraag? Bel of mail ons gerust.`,
   Klacht: () =>
-    `Wat vervelend om te horen dat dit is misgegaan, en onze excuses voor het ongemak. We nemen dit serieus en lossen het direct voor je op — je hoort binnen 24 uur van ons hoe we dit rechtzetten.`,
+    `Wat vervelend dat het niet is gegaan zoals je had verwacht, en onze excuses daarvoor. We willen graag precies weten wat er is gebeurd, zodat we het samen kunnen oplossen. Mogen we je even bellen?`,
   Informatieverzoek: (bedrijf) =>
-    `Bedankt voor je interesse in ${bedrijf}. Hieronder vind je de informatie die je zocht; heb je nog aanvullende vragen, dan helpen we je graag verder.`,
+    `Bedankt voor je vraag aan ${bedrijf}. We ontruimen woningen, bedrijfspanden, zolders en kelders, en we voeren alles af wat weg moet. Wil je weten wat het voor jou kost? Dan komen we graag vrijblijvend kijken.`,
   Annulering: (bedrijf) =>
-    `We hebben je annulering bij ${bedrijf} in goede orde verwerkt. Een eventuele terugbetaling wordt binnen enkele werkdagen verwerkt naar de oorspronkelijke betaalmethode.`,
+    `We hebben je annulering bij ${bedrijf} ontvangen en de afspraak uit onze planning gehaald. Wil je later toch een nieuwe afspraak maken? Laat het ons gerust weten.`,
 };
 
 export function generateResponse({ bedrijfsnaam, sector, emailtype, stijl }: GenerateInput) {

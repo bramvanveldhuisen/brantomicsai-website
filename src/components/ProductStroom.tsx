@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
 const STAPPEN = [
-  { naam: "Prijsindicatie", tekst: "De familie maakt foto's en ziet een indicatie uit jouw tarieven." },
-  { naam: "Email Responder", tekst: "Op elke vraag staat een concept-antwoord klaar in je inbox." },
+  { naam: "Prijsindicatie-systeem", tekst: "Je klant maakt foto’s op jouw website en ziet meteen een prijsindicatie op basis van jouw tarieven." },
+  { naam: "Email Responder", tekst: "Op elke vraag staat een conceptantwoord klaar in je inbox." },
   { naam: "Review-opvolging", tekst: "Na de klus krijgt de klant een nette vraag om een review." },
 ];
 

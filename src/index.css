@@ -1,7 +1,7 @@
 /* Hallmark · shape: Split Studio after ELI5 (a type-led poster hero, two service cards, numbered pains, a statement band, a sticky route, sectors, one tool, founder contact cards) · genre: editorial · theme: brand (chosen by Bram 12 Nov 2026: racing green on ivory, silver grey details, vermilion in small details) · job: hire · draw: manual
- * paper: oklch(95% 0.02 85) · accent: oklch(31% 0.06 160) · display: Instrument Serif · body: Schibsted Grotesk · hero: Poster (/), Split (/ontruiming: the head left, a built ontruimingsaanvraag with its concept reply right), Split (/prijsindicatie: the head left, the built result card a family sees right), Banner (/demo-prijsindicatie), Banner (/producten), Banner (/demo-responder), Banner (/over-ons), Banner (/contact), Banner (/privacybeleid), Banner (/algemene-voorwaarden) · nav: edge-aligned, wordmark and one action · footer: index columns under a closing line · signature: a vermilion full stop that closes every big statement, after one hero word that sharpens out of a blur over a moving grid
+ * paper: oklch(95% 0.02 85) · accent: oklch(31% 0.06 160) · display: Instrument Serif · body: Schibsted Grotesk · hero: Poster (/), Split (/prijsindicatie: the head left, the built result card a family sees right), Banner (/demo-prijsindicatie), Banner (/producten), Banner (/demo-responder), Banner (/over-ons), Banner (/contact), Banner (/privacybeleid), Banner (/algemene-voorwaarden) · nav: edge-aligned, wordmark and one action · footer: index columns under a closing line · signature: a vermilion full stop that closes every big statement, after one hero word that sharpens out of a blur over a moving grid
  * axes: light/high-contrast-serif/chromatic-green · posture: Restrained (ivory and racing green carry the page, silver for lines, vermilion in small details: full stops, dots, underlines, one pulse) · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S on /ontruiming, which has one portrait; the type, the blur word and the team's own photos carry the rest */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S on /producten, which has no photo; the type, the blur word and the team's own photos carry the rest */
 /* Hallmark · waive 38iii · the hero word gevonden sharpens out of a blur once on load, then reads like the rest of the head · the S-Unit reference Bram sent sets one distorted word per statement */
 /* Hallmark · waive 77 · /privacybeleid and /algemene-voorwaarden run on a narrow reading measure · contract text wants a narrow column, not ten of twelve */
 /* Hallmark · waive 79 · on /privacybeleid and /algemene-voorwaarden there is no hero to centre, the gap is the space above artikel 1 · terms open on their meta block, not a fold */
@@ -146,6 +146,20 @@
 @media (min-width: 64rem) {
   .js [data-onthul="lijn"].wacht { transform: scaleX(0); }
 }
+
+/* In de demo's worden knoppen iets groter als je er met de muis overheen gaat. */
+.demo-groei :is(button, a, label:has(input[type="file"])) {
+  transition: scale 0.2s var(--ease-out), translate 0.2s var(--ease-out), background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .demo-groei :is(button, a, label:has(input[type="file"])):hover { scale: 1.05; }
+  .demo-groei :is(button, a, label:has(input[type="file"])):active { scale: 0.98; }
+}
+
+/* In het voorbeeld van het systeem knippert de tegel waar nog een foto nodig is. */
+@keyframes tegel-vraagt { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.tegel-vraagt { animation: tegel-vraagt 2.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .tegel-vraagt { animation: none; } }
 
 /* De foto die meegroeit met het scrollen. */
 .groei-foto { transform-origin: center top; will-change: transform; }

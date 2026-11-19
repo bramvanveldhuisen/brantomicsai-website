@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Layout, PageHero } from "../components/Layout";
+import { Layout } from "../components/Layout";
 import { Punt, knopPrimair, knopSecundair, knopPrimairDonker, tekstLink } from "../components/ui";
 import { SEO } from "../components/SEO";
-import { DemoKeuze } from "../components/DemoKeuze";
+import { DemoKop } from "../components/DemoKeuze";
 import { generateResponse, type Sector, type EmailType, type Stijl } from "../lib/responderDemo";
 import { getDemoUsesLeft, registerDemoUse, MAX_USES } from "../lib/demoLimit";
 
@@ -13,8 +13,8 @@ const veld =
 
 export function DemoResponder() {
   const [bedrijfsnaam, setBedrijfsnaam] = useState("");
-  const [sector, setSector] = useState<Sector>("Webshop");
-  const [emailtype, setEmailtype] = useState<EmailType>("Boeking/Reservering");
+  const [sector, setSector] = useState<Sector>("Woningontruiming");
+  const [emailtype, setEmailtype] = useState<EmailType>("Aanvraag ontruiming");
   const [stijl, setStijl] = useState<Stijl>("Vriendelijk-zakelijk");
   const [status, setStatus] = useState<"empty" | "generating" | "done">("empty");
   const [result, setResult] = useState<{ subject: string; body: string } | null>(null);
@@ -41,22 +41,11 @@ export function DemoResponder() {
     <Layout>
       <SEO
         title="Demo Email Responder"
-        description="Probeer de Email Responder demo. Vul in en zie hoe Brantomics AI een professioneel, gepersonaliseerd antwoord genereert voor jouw bedrijf."
+        description="Probeer de demo van de Email Responder en zie hoe Brantomics AI een conceptantwoord opstelt in de toon van jouw bedrijf."
         path="/demo-responder"
       />
-      <PageHero
-        title={
-          <>
-            Zie de Email Responder
-            <br />
-            in actie<Punt />
-          </>
-        }
-        subtitle="Vul je bedrijf in, kies de situatie en zie hoe de AI een professioneel antwoord opstelt, afgestemd op jouw sector en stijl."
-      />
-
-      <section className="wrap pt-14 md:pt-20 pb-24 md:pb-32">
-        <DemoKeuze />
+      <section className="demo-groei wrap pt-5 md:pt-6 pb-10 md:pb-14">
+        <DemoKop titel={<>Probeer de Email Responder<Punt /></>} />
         <div className="text-grijs tabular-nums mb-4" role="status">
           {usesLeft > 0
             ? `${usesLeft} van ${MAX_USES} demo-pogingen over`
@@ -76,14 +65,14 @@ export function DemoResponder() {
                   type="text"
                   value={bedrijfsnaam}
                   onChange={(e) => setBedrijfsnaam(e.target.value)}
-                  placeholder="Bijv. Bloemenwebshop Vera"
+                  placeholder="Bijv. Ontruimingsbedrijf De Vries"
                   className={veld}
                 />
               </div>
 
               <div>
                 <label htmlFor="sector" className="block text-sm font-semibold text-zwart mb-2">
-                  Sector
+                  Soort ontruiming
                 </label>
                 <select
                   id="sector"
@@ -91,19 +80,16 @@ export function DemoResponder() {
                   onChange={(e) => setSector(e.target.value as Sector)}
                   className={veld}
                 >
-                  <option>Webshop</option>
-                  <option>Camping/Recreatie</option>
-                  <option>Verhuur</option>
-                  <option>Horeca</option>
-                  <option>Makelaar</option>
-                  <option>Kapper/Beauty</option>
+                  <option>Woningontruiming</option>
+                  <option>Spoedontruiming</option>
+                  <option>Bedrijfsontruiming</option>
                   <option>Anders</option>
                 </select>
               </div>
 
               <div>
                 <label htmlFor="emailtype" className="block text-sm font-semibold text-zwart mb-2">
-                  Type inkomende email
+                  Soort binnenkomende e-mail
                 </label>
                 <select
                   id="emailtype"
@@ -111,8 +97,8 @@ export function DemoResponder() {
                   onChange={(e) => setEmailtype(e.target.value as EmailType)}
                   className={veld}
                 >
-                  <option>Boeking/Reservering</option>
-                  <option>Productvraag</option>
+                  <option>Aanvraag ontruiming</option>
+                  <option>Vraag over de werkwijze</option>
                   <option>Klacht</option>
                   <option>Informatieverzoek</option>
                   <option>Annulering</option>
@@ -214,14 +200,14 @@ export function DemoResponder() {
 
       {/* CTA */}
       <section className="bg-zwart text-bot">
-        <div data-onthul className="wrap py-24 md:py-28">
+        <div data-onthul className="wrap py-10 md:py-14">
           <h2 className="text-section mb-6 max-w-[20ch]">Overtuigd? Zet het live voor jouw bedrijf.</h2>
           <div className="max-w-[58ch]">
             <p className="text-lead text-grijs-licht leading-relaxed mb-8">
-              Binnen één werkdag operationeel. Eerste week volledig gratis, geen creditcard nodig.
+              Probeer de Email Responder de eerste week gratis in je eigen inbox.
             </p>
             <Link to="/contact" className={knopPrimairDonker}>
-              Vrijblijvend aanmelden
+              Plan een gesprek
             </Link>
           </div>
         </div>
