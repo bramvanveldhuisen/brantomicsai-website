@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { Layout, PageHero } from "../components/Layout";
 import { SEO } from "../components/SEO";
@@ -8,10 +8,40 @@ const veld =
   "w-full min-h-12 rounded-lg border border-rand bg-bot px-4 text-base text-zwart placeholder:text-grijs " +
   "transition-[border-color] duration-200 hover:border-zwart disabled:opacity-55 disabled:cursor-not-allowed";
 
+/** Aanvragen gaan via Make naar de mailbox (scenario "Brantomics AI - contactformulier website naar mail"). */
+const AANVRAAG_ADRES = "https://hook.eu1.make.com/e6egeork5hyjx8tpocbnpa9cvs38qexp";
+
 const WERKZAAMHEDEN = ["Woningontruiming", "Spoedontruiming", "Bedrijfsontruiming", "Seniorenverhuizing", "Bezemschoon opleveren", "Anders"];
 
 export function Contact() {
   const [charCount, setCharCount] = useState(0);
+  const [status, setStatus] = useState<"invullen" | "versturen" | "verstuurd" | "fout">("invullen");
+
+  async function verstuur(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formulier = e.currentTarget;
+    if (!formulier.reportValidity()) return;
+    const v = new FormData(formulier);
+    const tekst = (naam: string) => String(v.get(naam) ?? "").trim();
+    const velden = new URLSearchParams({
+      Naam: tekst("naam"),
+      Bedrijf: tekst("bedrijf"),
+      "E-mail": tekst("email"),
+      Telefoon: tekst("telefoon"),
+      Werkzaamheden: v.getAll("sector").map(String).join(", "),
+      Product: tekst("interesse"),
+      Uitdaging: tekst("uitdaging"),
+    });
+    if (tekst("website")) velden.set("website", tekst("website"));
+    setStatus("versturen");
+    try {
+      const antwoord = await fetch(AANVRAAG_ADRES, { method: "POST", body: velden });
+      if (!antwoord.ok) throw new Error(String(antwoord.status));
+      setStatus("verstuurd");
+    } catch {
+      setStatus("fout");
+    }
+  }
 
   return (
     <Layout>
@@ -34,12 +64,28 @@ export function Contact() {
       <section className="wrap pt-8 md:pt-10 pb-10 md:pb-14">
         <div data-onthul-kinderen className="grid lg:grid-cols-12 gap-x-8 gap-y-7 items-start">
           {/* Form */}
+          {status === "verstuurd" ? (
+            <div role="status" className="lg:col-span-7 min-w-0 rounded-lg border border-lijn bg-steen p-6 md:p-10">
+              <h2 className="text-section mb-4">Bedankt voor je aanvraag<Punt /></h2>
+              <p className="text-lead text-grijs leading-relaxed max-w-[46ch]">
+                We hebben je gegevens ontvangen en nemen binnen één werkdag contact met je op. Liever meteen iemand spreken? Bel Tom op{" "}
+                <a href="tel:+31643122575" className={tekstLink}>
+                  06-43122575
+                </a>
+                .
+              </p>
+            </div>
+          ) : (
           <form
-            action="https://docs.google.com/forms/d/e/1FAIpQLSc14YbvxKvAqC-NUDzxHbY3ESTnTYwV8Q7OeeKW1IUdjAu-aw/viewform"
-            method="GET"
-            target="_blank"
+            onSubmit={verstuur}
             className="lg:col-span-7 min-w-0 rounded-lg border border-lijn bg-steen p-6 md:p-10 space-y-6"
           >
+            <div className="absolute -left-[9999px] size-px overflow-hidden" aria-hidden="true">
+              <label>
+                Laat dit veld leeg
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+              </label>
+            </div>
             <div className="grid sm:grid-cols-2 gap-x-5 gap-y-6">
               <div>
                 <label htmlFor="naam" className="block text-sm font-semibold text-zwart mb-2">
@@ -125,13 +171,27 @@ export function Contact() {
             <div className="pt-1">
               <button
                 type="submit"
+                disabled={status === "versturen"}
                 className={`${knopPrimair} w-full`}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                 </svg>
-                <span>Verstuur aanvraag</span>
+                <span>{status === "versturen" ? "Versturen…" : "Verstuur aanvraag"}</span>
               </button>
+              {status === "fout" && (
+                <p role="alert" className="mt-3 text-center font-semibold text-zwart">
+                  Versturen lukte niet. Mail ons op{" "}
+                  <a href="mailto:info@brantomicsai.nl" className={tekstLink}>
+                    info@brantomicsai.nl
+                  </a>{" "}
+                  of bel Tom op{" "}
+                  <a href="tel:+31643122575" className={tekstLink}>
+                    06-43122575
+                  </a>
+                  .
+                </p>
+              )}
               <p className="text-sm text-grijs text-center mt-3">
                 Vrijblijvend. Je hoort binnen één werkdag van ons.
               </p>
@@ -144,6 +204,7 @@ export function Contact() {
               </p>
             </div>
           </form>
+          )}
 
           {/* Sidebar */}
           <div className="lg:col-span-4 lg:col-start-9 space-y-7">
