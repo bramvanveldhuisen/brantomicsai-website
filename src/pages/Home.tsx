@@ -57,8 +57,8 @@ const SECTOREN: { naam: string; tekst: string; link?: { to: string; label: strin
 ];
 
 const TEAM = [
-  { naam: "Tom Vaessen", rol: "Sales en klantcontact", foto: "/team/tom.jpg", contact: { href: "tel:+31643122575", label: "06-43122575" } },
-  { naam: "Bram van Veldhuisen", rol: "Techniek", foto: "/team/bram.jpg", contact: { href: "mailto:info@brantomicsai.nl", label: "info@brantomicsai.nl" } },
+  { naam: "Tom Vaessen", rol: "Sales en klantcontact", foto: "/portretten/tom.jpg", contact: { href: "tel:+31643122575", label: "06-43122575" } },
+  { naam: "Bram van Veldhuisen", rol: "Techniek", foto: "/portretten/bram.jpg", contact: { href: "mailto:info@brantomicsai.nl", label: "info@brantomicsai.nl" } },
 ];
 
 export function Home() {

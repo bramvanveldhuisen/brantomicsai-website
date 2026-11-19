@@ -8,7 +8,7 @@ const TEAM = [
     naam: "Bram van Veldhuisen",
     rol: "AI & Technologie",
     rolKleur: "text-vermiljoen",
-    foto: "/team/bram.jpg",
+    foto: "/portretten/bram.jpg",
     breed: 800,
     hoog: 1200,
     tekst: [
@@ -20,7 +20,7 @@ const TEAM = [
     naam: "Tom Vaessen",
     rol: "Sales & Klantrelaties",
     rolKleur: "text-vermiljoen",
-    foto: "/team/tom.jpg",
+    foto: "/portretten/tom.jpg",
     breed: 800,
     hoog: 1200,
     tekst: [
@@ -32,7 +32,7 @@ const TEAM = [
     naam: "Julien",
     rol: "Sales & Marketing",
     rolKleur: "text-vermiljoen",
-    foto: "/team/julien.jpg",
+    foto: "/portretten/julien.jpg",
     breed: 1000,
     hoog: 1000,
     tekst: [
