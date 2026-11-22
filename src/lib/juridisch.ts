@@ -18,7 +18,7 @@ export type JuridischDocument = {
 export const PRIVACYBELEID: JuridischDocument = {
   "titel": "Privacybeleid Brantomics AI",
   "meta": [
-    "Laatste update: 19 november 2026",
+    "Laatste update: 22 november 2026",
     "Brantomics AI VOF, Maarnsegrindweg 21, Maarn",
     "KvK 42032331, btw NL869394964B01",
     "info@brantomicsai.nl, brantomicsai.nl"
@@ -30,7 +30,7 @@ export const PRIVACYBELEID: JuridischDocument = {
       "blokken": [
         {
           "t": "p",
-          "tekst": "Brantomics AI is een vennootschap onder firma in Maarn. We maken AI-producten voor bedrijven: het prijsindicatie-systeem dat een bedrijf op zijn eigen website zet, de Email Responder en review-opvolging. In dit privacybeleid staat welke persoonsgegevens we verwerken, waarom, hoe lang, en wat je rechten zijn. Het prijsindicatie-systeem en review-opvolging zijn op 19 november 2026 nog in ontwikkeling. De onderdelen van dit privacybeleid over die twee producten gelden zodra een bedrijf ze bij ons afneemt en ze live staan. Tot die tijd verwerken we via die producten geen gegevens."
+          "tekst": "Brantomics AI is een vennootschap onder firma in Maarn. We maken AI-producten voor bedrijven: het prijsindicatie-systeem dat een bedrijf op zijn eigen website zet, de Email Responder en review-opvolging. In dit privacybeleid staat welke persoonsgegevens we verwerken, waarom, hoe lang, en wat je rechten zijn. De onderdelen van dit privacybeleid over een bepaald product gelden voor de bedrijven die dat product bij ons afnemen, en voor de mensen van wie wij via dat product gegevens verwerken."
         }
       ]
     },
@@ -295,7 +295,7 @@ export const PRIVACYBELEID: JuridischDocument = {
 export const ALGEMENE_VOORWAARDEN: JuridischDocument = {
   "titel": "Algemene Voorwaarden Brantomics AI",
   "meta": [
-    "Versie 2.0, 19 november 2026",
+    "Versie 2.0, 19 november 2026 (bijgewerkt 22 november 2026)",
     "Brantomics AI VOF, Maarnsegrindweg 21, Maarn",
     "KvK 42032331, btw NL869394964B01",
     "info@brantomicsai.nl, brantomicsai.nl"
@@ -395,7 +395,7 @@ export const ALGEMENE_VOORWAARDEN: JuridischDocument = {
         },
         {
           "t": "p",
-          "tekst": "**3.6** Het Prijsindicatie-systeem en Review-opvolging zijn op 19 november 2026 nog in ontwikkeling en worden nog niet geleverd. De bepalingen in deze voorwaarden die alleen over deze Producten gaan, gelden pas vanaf het moment dat een van deze Producten in een Overeenkomst wordt opgenomen en geleverd."
+          "tekst": "**3.6** Bepalingen in deze voorwaarden die alleen over een bepaald Product gaan, gelden alleen als dat Product in de Overeenkomst is opgenomen."
         }
       ]
     },
